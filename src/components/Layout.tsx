@@ -29,7 +29,7 @@ function Navbar() {
   useEffect(() => setOpen(false), [location]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -54,14 +54,32 @@ function Navbar() {
             : "border-leaf-100 bg-cream/80 backdrop-blur-md"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-3.5">
+        <div
+          className={`mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 transition-all duration-300 sm:px-6 ${
+            scrolled ? "py-2 sm:py-3.5" : "py-3 sm:py-3.5"
+          }`}
+        >
           <Link to="/" className="flex items-center gap-3 group">
-            <Logo className="h-10 w-10 transition-transform duration-300 group-hover:scale-[1.03] sm:h-11 sm:w-11" />
+            <Logo
+              className={`transition-all duration-300 group-hover:scale-[1.03] ${
+                scrolled ? "h-7 w-7 sm:h-11 sm:w-11" : "h-10 w-10 sm:h-11 sm:w-11"
+              }`}
+            />
             <div className="leading-tight">
-              <span className="font-display block text-[17px] font-bold tracking-tight text-leaf-900 sm:text-xl">
+              <span
+                className={`font-display block font-bold tracking-tight text-leaf-900 transition-all duration-300 ${
+                  scrolled ? "text-[15px] sm:text-xl" : "text-[17px] sm:text-xl"
+                }`}
+              >
                 Ajmal Garden Nursery
               </span>
-              <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-terra-500 sm:text-[11px]">
+              <span
+                className={`block overflow-hidden font-semibold uppercase tracking-[0.16em] text-terra-500 transition-all duration-300 ${
+                  scrolled
+                    ? "max-h-0 opacity-0 sm:max-h-4 sm:opacity-100 sm:text-[11px]"
+                    : "max-h-4 text-[10px] opacity-100 sm:text-[11px]"
+                }`}
+              >
                 {TAGLINE}
               </span>
             </div>
