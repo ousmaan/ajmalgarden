@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette: rich greens + warm earth + floral pops */
+  --color-leaf-50: #f2f8f1;
+  --color-leaf-100: #e0efdd;
+  --color-leaf-200: #c2dfbe;
+  --color-leaf-300: #96c691;
+  --color-leaf-400: #66a760;
+  --color-leaf-500: #468a41;
+  --color-leaf-600: #336e30;
+  --color-leaf-700: #2a5728;
+  --color-leaf-800: #244623;
+  --color-leaf-900: #1e3a1e;
+  --color-leaf-950: #0f2010;
+
+  --color-terra-50: #fdf5f0;
+  --color-terra-100: #fae7db;
+  --color-terra-200: #f4ccb4;
+  --color-terra-300: #eca984;
+  --color-terra-400: #e27e52;
+  --color-terra-500: #d95f31;
+  --color-terra-600: #c14a24;
+  --color-terra-700: #a03a20;
+  --color-terra-800: #813020;
+  --color-terra-900: #68291d;
+
+  --color-cream: #faf7f0;
+  --color-marigold: #f5a623;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-leaf-950);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Organic blob shape used for decorative accents */
+.blob {
+  border-radius: 62% 38% 46% 54% / 55% 48% 52% 45%;
+}
+
+/* Subtle leaf-pattern texture for section backgrounds */
+.leaf-texture {
+  background-image: radial-gradient(
+    rgba(70, 138, 65, 0.08) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 22px 22px;
+}
