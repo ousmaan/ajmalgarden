@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette: rich greens + warm earth + floral pops */
   --color-leaf-50: #f2f8f1;
   --color-leaf-100: #e0efdd;
   --color-leaf-200: #c2dfbe;
@@ -28,6 +27,23 @@
   --color-cream: #faf7f0;
   --color-marigold: #f5a623;
 
+  --color-blossom-50: #fdf2f4;
+  --color-blossom-100: #fce7eb;
+  --color-blossom-200: #f8cbd5;
+  --color-blossom-300: #f2a3b8;
+  --color-blossom-400: #e86d8e;
+  --color-blossom-500: #d94a6e;
+  --color-blossom-600: #c23055;
+
+  --color-sage-50: #f4f6f1;
+  --color-sage-100: #e8ece3;
+  --color-sage-200: #d1d9c8;
+
+  --color-gold-50: #fef9ec;
+  --color-gold-100: #fdeec0;
+  --color-gold-400: #e8a317;
+  --color-gold-500: #c98708;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;
 }
@@ -41,18 +57,94 @@ body {
   background-color: var(--color-cream);
   color: var(--color-leaf-950);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Organic blob shape used for decorative accents */
+::selection {
+  background: var(--color-leaf-200);
+  color: var(--color-leaf-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-leaf-500);
+  outline-offset: 2px;
+}
+
+/* Organic blob shape for decorative accents */
 .blob {
   border-radius: 62% 38% 46% 54% / 55% 48% 52% 45%;
 }
+.blob-alt {
+  border-radius: 38% 62% 54% 46% / 48% 55% 45% 52%;
+}
 
-/* Subtle leaf-pattern texture for section backgrounds */
+/* Leaf dot texture — slightly richer than before */
 .leaf-texture {
-  background-image: radial-gradient(
-    rgba(70, 138, 65, 0.08) 1.5px,
-    transparent 1.5px
-  );
-  background-size: 22px 22px;
+  background-image: radial-gradient(rgba(70, 138, 65, 0.07) 1.4px, transparent 1.4px);
+  background-size: 20px 20px;
+}
+.leaf-texture-strong {
+  background-image: radial-gradient(rgba(70, 138, 65, 0.1) 1.4px, transparent 1.4px);
+  background-size: 20px 20px;
+}
+
+/* Frosted glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px) saturate(1.15);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+}
+
+/* Hide scrollbar but keep scroll */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade edges for horizontal scroll containers */
+.scroll-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
+}
+
+/* Soft card lift on hover */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 32px rgba(15, 32, 16, 0.1),
+    0 2px 8px rgba(15, 32, 16, 0.06);
+}
+
+/* Gentle entrance */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal-up {
+  animation: revealUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes softIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.soft-in {
+  animation: softIn 0.5s ease both;
 }

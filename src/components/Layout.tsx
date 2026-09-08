@@ -1,30 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import {
-  CONTACT,
-  CONTACTS,
-  HOURS,
-  MAPS_URL,
-  NAV_LINKS,
-  TAGLINE,
-  telLinkFor,
-  waLink,
-} from "../data/site";
+import { CONTACT, CONTACTS, HOURS, MAPS_URL, NAV_LINKS, TAGLINE, telLinkFor, waLink } from "../data/site";
 import { PhoneIcon, WhatsAppIcon } from "./CtaButtons";
 import Logo from "./Logo";
 import { SocialIcons } from "./SocialLinks";
 import GetQuoteDropdown, { GetQuotePanel } from "./GetQuote";
 
-/** Scrolls to top on route change, or to the anchor if a #hash is present. */
 function ScrollManager() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
       const el = document.getElementById(hash.slice(1));
       if (el) {
-        // slight delay so the page has rendered
-        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
-        return;
+        const t = setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+        return () => clearTimeout(t);
       }
     }
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -34,109 +23,171 @@ function ScrollManager() {
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => setOpen(false), [location]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-leaf-100 bg-cream/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link to="/" className="flex items-center gap-3">
-          <Logo className="h-11 w-11" />
-          <div className="leading-tight">
-            <span className="font-display block text-lg font-bold text-leaf-900 sm:text-xl">
-              Ajmal Garden Nursery
-            </span>
-            <span className="block text-[11px] font-medium uppercase tracking-widest text-terra-500">
-              {TAGLINE}
-            </span>
-          </div>
-        </Link>
+    <>
+      <header
+        className={`sticky top-0 z-40 border-b transition-all duration-300 ${
+          scrolled
+            ? "border-leaf-200/70 bg-cream/95 shadow-[0_2px_16px_rgba(15,32,16,0.08)] backdrop-blur-xl"
+            : "border-leaf-100 bg-cream/80 backdrop-blur-md"
+        }`}
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-3.5">
+          <Link to="/" className="flex items-center gap-3 group">
+            <Logo className="h-10 w-10 transition-transform duration-300 group-hover:scale-[1.03] sm:h-11 sm:w-11" />
+            <div className="leading-tight">
+              <span className="font-display block text-[17px] font-bold tracking-tight text-leaf-900 sm:text-xl">
+                Ajmal Garden Nursery
+              </span>
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-terra-500 sm:text-[11px]">
+                {TAGLINE}
+              </span>
+            </div>
+          </Link>
 
-        <div className="flex items-center gap-1">
-          <nav className="hidden items-center gap-1 md:flex">
-            {NAV_LINKS.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                    isActive
-                      ? "bg-leaf-700 text-white"
-                      : "text-leaf-800 hover:bg-leaf-100"
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="flex items-center gap-1">
+            <nav className="hidden items-center gap-1 md:flex">
+              {NAV_LINKS.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `rounded-full px-4 py-2 text-[13px] font-semibold tracking-wide transition-all ${
+                      isActive
+                        ? "bg-leaf-800 text-white shadow-sm"
+                        : "text-leaf-800/80 hover:bg-leaf-800 hover:text-white"
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
 
-          {/* Top-right "Get a quote" — dropdown with Call / WhatsApp options */}
-          <div className="hidden md:block">
-            <GetQuoteDropdown />
-          </div>
-          <div className="md:hidden">
-            <GetQuoteDropdown compact />
-          </div>
+            <div className="hidden md:block">
+              <GetQuoteDropdown />
+            </div>
+            <div className="md:hidden">
+              <GetQuoteDropdown compact />
+            </div>
 
-          <button
-            className="rounded-lg p-2 text-leaf-800 hover:bg-leaf-100 md:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={open}
-          >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-              {open ? (
-                <path d="M6 6l12 12M18 6L6 18" />
-              ) : (
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {open && (
-        <nav className="border-t border-leaf-100 bg-cream px-4 pb-4 pt-2 md:hidden">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                `block rounded-xl px-4 py-3 text-base font-semibold ${
-                  isActive ? "bg-leaf-700 text-white" : "text-leaf-800 hover:bg-leaf-100"
-                }`
-              }
+            <button
+              className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-leaf-900 text-white shadow-sm transition hover:bg-leaf-800 md:hidden"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={open}
             >
-              {link.label}
-            </NavLink>
-          ))}
-          <div className="mt-3">
-            <GetQuotePanel />
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+              >
+                {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+              </svg>
+            </button>
           </div>
-        </nav>
+        </div>
+      </header>
+
+      {/* Mobile drawer */}
+      {open && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <button
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="absolute inset-0 bg-leaf-950/40 backdrop-blur-[2px]"
+          />
+          <div className="absolute inset-x-0 top-0 max-h-[92dvh] overflow-auto rounded-b-[28px] bg-cream shadow-2xl soft-in">
+            <div className="flex items-center justify-between px-4 py-3">
+              <span className="font-display text-sm font-bold text-leaf-900">Menu</span>
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-leaf-900 text-white"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
+                  <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+            <nav className="px-3 pb-4">
+              {NAV_LINKS.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `mb-1 flex items-center justify-between rounded-2xl px-4 py-3.5 text-[15px] font-semibold transition-colors ${
+                      isActive ? "bg-leaf-800 text-white" : "bg-white text-leaf-900 ring-1 ring-leaf-100"
+                    }`
+                  }
+                >
+                  {link.label}
+                  <span aria-hidden className="text-lg leading-none opacity-60">
+                    ›
+                  </span>
+                </NavLink>
+              ))}
+              <div className="mt-4">
+                <GetQuotePanel />
+              </div>
+              <p className="mt-4 px-2 text-center text-xs leading-relaxed text-leaf-800/60">
+                {HOURS} · Call{" "}
+                <a href={telLinkFor(CONTACTS[0])} className="font-semibold text-leaf-800 underline decoration-leaf-200 underline-offset-2">
+                  {CONTACTS[0].display}
+                </a>
+              </p>
+            </nav>
+          </div>
+        </div>
       )}
-    </header>
+    </>
   );
 }
 
 function Footer() {
   return (
-    <footer className="bg-leaf-950 text-leaf-100">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
+    <footer className="relative overflow-hidden bg-leaf-950 text-leaf-100">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-marigold/40 to-transparent" />
+      <div className="absolute -right-24 -top-32 h-80 w-80 rounded-full bg-leaf-900/40 blur-3xl" aria-hidden />
+      <div className="absolute -left-20 bottom-10 h-64 w-64 rounded-full bg-terra-900/20 blur-3xl" aria-hidden />
+
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-3 md:gap-8">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <Logo className="h-11 w-11" />
+            <Logo className="h-11 w-11 ring-1 ring-white/10" />
             <div>
-              <p className="font-display text-lg font-bold text-white">Ajmal Garden Nursery</p>
-              <p className="text-xs uppercase tracking-widest text-terra-300">{TAGLINE}</p>
+              <p className="font-display text-lg font-bold leading-none text-white">Ajmal Garden Nursery</p>
+              <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-terra-300">{TAGLINE}</p>
             </div>
           </div>
-          <p className="text-sm leading-relaxed text-leaf-200/80">
-            Serving Sialkot since 1958 — one of the city's oldest and largest plant nurseries,
-            trusted by families across generations for everything from humble seeds to premium
-            bonsai and exotic specimens.
+          <p className="max-w-sm text-sm leading-relaxed text-leaf-200/75">
+            Serving Sialkot since 1958 — one of the city&apos;s oldest and largest nurseries, trusted by families across
+            generations for everything from humble seeds to premium bonsai and exotics.
           </p>
           <div className="mt-5">
             <SocialIcons />
@@ -144,73 +195,75 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className="mb-4 font-display text-base font-semibold text-white">Visit Us</h3>
-          <address className="text-sm not-italic leading-relaxed text-leaf-200/80">
+          <h3 className="font-display text-[15px] font-semibold text-white">Visit Us</h3>
+          <address className="mt-3 text-sm not-italic leading-relaxed text-leaf-200/75">
             {CONTACT.addressLines.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
             ))}
           </address>
-          <p className="mt-3 text-sm text-leaf-200/80">{HOURS}</p>
+          <p className="mt-3 text-sm text-leaf-200/70">{HOURS}</p>
           <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-block text-sm font-semibold text-terra-300 hover:text-white"
+            className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-2 text-xs font-semibold text-white ring-1 ring-white/10 transition hover:bg-white hover:text-leaf-900"
           >
-            Open in Google Maps →
+            Open in Google Maps <span aria-hidden>→</span>
           </a>
         </div>
 
         <div>
-          <h3 className="mb-4 font-display text-base font-semibold text-white">Get in Touch</h3>
-          <div className="space-y-3">
+          <h3 className="font-display text-[15px] font-semibold text-white">Get in Touch</h3>
+          <div className="mt-3 space-y-3">
             {CONTACTS.map((c) => (
-              <div key={c.display} className="text-sm">
-                <p className="font-semibold text-white">
-                  {c.owner} —{" "}
-                  <a href={telLinkFor(c)} className="hover:underline">
+              <div key={c.display} className="rounded-2xl bg-white/[0.06] p-3.5 ring-1 ring-white/10">
+                <p className="text-sm font-semibold text-white">
+                  {c.owner}{" "}
+                  <a href={telLinkFor(c)} className="font-normal text-leaf-200/80 hover:text-white hover:underline">
                     {c.display}
                   </a>
                 </p>
-                <div className="mt-1 flex gap-4">
-                  <a href={telLinkFor(c)} className="inline-flex items-center gap-1.5 text-leaf-200/80 hover:text-white">
-                    <PhoneIcon className="h-3.5 w-3.5 text-terra-300" />
+                <div className="mt-2.5 flex gap-2">
+                  <a
+                    href={telLinkFor(c)}
+                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2 text-xs font-semibold text-leaf-900 transition hover:bg-leaf-50"
+                  >
+                    <PhoneIcon className="h-3.5 w-3.5" />
                     Call
                   </a>
                   <a
                     href={waLink(undefined, c)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-leaf-200/80 hover:text-white"
+                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#1fb959]"
                   >
-                    <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
+                    <WhatsAppIcon className="h-3.5 w-3.5" />
                     WhatsApp
                   </a>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-4 text-xs text-leaf-200/60">Call ahead for bulk orders.</p>
-          <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          <nav className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
             {NAV_LINKS.map((l) => (
-              <Link key={l.to} to={l.to} className="text-leaf-200/80 hover:text-white">
+              <Link key={l.to} to={l.to} className="text-leaf-200/70 hover:text-white">
                 {l.label}
               </Link>
             ))}
           </nav>
         </div>
       </div>
-      <div className="border-t border-leaf-800/60 py-5 text-center text-xs text-leaf-200/60">
-        © {new Date().getFullYear()} Ajmal Garden Nursery, {TAGLINE}. No online sales — visit,
-        call or WhatsApp us directly.
+
+      <div className="relative border-t border-white/10 py-4 text-center text-xs leading-relaxed text-leaf-200/50">
+        © {new Date().getFullYear()} Ajmal Garden Nursery · {TAGLINE} · No online sales — visit, call or WhatsApp us
+        directly.
       </div>
     </footer>
   );
 }
 
-/** Floating WhatsApp click-to-chat button, visible on every page. */
 function FloatingWhatsApp() {
   return (
     <a
@@ -218,9 +271,10 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Ajmal Garden Nursery on WhatsApp"
-      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-green-900/30 transition-transform hover:scale-110"
+      className="fixed bottom-4 right-4 z-40 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_24px_rgba(0,0,0,0.22)] ring-1 ring-black/5 transition hover:scale-105 hover:bg-[#1fb959] sm:bottom-5 sm:right-5 sm:h-14 sm:w-14"
+      style={{ marginBottom: "env(safe-area-inset-bottom, 0px)" }}
     >
-      <WhatsAppIcon className="h-7 w-7" />
+      <WhatsAppIcon className="h-6 w-6 sm:h-7 sm:w-7" />
     </a>
   );
 }

@@ -26,25 +26,25 @@ export default function CtaButtons({
   className?: string;
 }) {
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
+    <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${className}`}>
       <a
         href={telLink}
-        className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-lg transition-transform hover:scale-105 ${
-          light
-            ? "bg-white text-leaf-800 hover:bg-leaf-50"
-            : "bg-leaf-700 text-white hover:bg-leaf-800"
+        className={`inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[14px] font-semibold shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] ${
+          light ? "bg-white text-leaf-900 hover:bg-leaf-50" : "bg-leaf-800 text-white hover:bg-leaf-900"
         }`}
       >
-        <PhoneIcon />
-        Call Now — {CONTACT.phoneDisplay}
+        <span className={`flex h-7 w-7 items-center justify-center rounded-full ${light ? "bg-leaf-900 text-white" : "bg-white/15 text-white"}`}>
+          <PhoneIcon className="h-3.5 w-3.5" />
+        </span>
+        Call {CONTACT.phoneDisplay}
       </a>
       <a
         href={waLink(waMessage)}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#1fb959]"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[14px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#1fb959] active:scale-[0.98]"
       >
-        <WhatsAppIcon />
+        <WhatsAppIcon className="h-4 w-4" />
         WhatsApp Us
       </a>
     </div>
