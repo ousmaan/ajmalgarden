@@ -71,7 +71,11 @@ function Navbar() {
                   scrolled ? "text-[14.5px] sm:text-xl" : "text-[16.5px] sm:text-xl"
                 }`}
               >
-                Ajmal Garden<span className={scrolled ? " hidden min-[380px]:inline" : ""}> Nursery</span>
+                Ajmal Garden
+                <span className={scrolled ? " hidden min-[380px]:inline" : ""} aria-hidden={scrolled ? undefined : undefined}>
+                  {" "}
+                  Nursery
+                </span>
               </span>
               <span
                 className={`block overflow-hidden font-semibold uppercase tracking-[0.16em] text-terra-500 transition-all duration-300 ${
@@ -106,9 +110,6 @@ function Navbar() {
 
             <div className="hidden md:block">
               <GetQuoteDropdown />
-            </div>
-            <div className={`md:hidden transition-all duration-300 ${scrolled ? "hidden" : "block"}`}>
-              <GetQuoteDropdown compact />
             </div>
 
             <button
