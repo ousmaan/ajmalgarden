@@ -1,0 +1,10 @@
+{
+  "name": "ajmal-garden-nursery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-page showcase website for Ajmal Garden Nursery, Sialkot.",
+  "scripts": {
+    "dev": "python3 -m http.server 5173 --bind 0.0.0.0",
+    "start": "python3 -m http.server 5173 --bind 0.0.0.0"
+  }
+}
