@@ -55,23 +55,23 @@ function Navbar() {
         }`}
       >
         <div
-          className={`mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 transition-all duration-300 sm:px-6 ${
+          className={`mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-3 sm:px-6 ${
             scrolled ? "py-2 sm:py-3.5" : "py-3 sm:py-3.5"
           }`}
         >
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3 group md:flex-none">
             <Logo
-              className={`transition-all duration-300 group-hover:scale-[1.03] ${
+              className={`shrink-0 transition-all duration-300 group-hover:scale-[1.03] ${
                 scrolled ? "h-7 w-7 sm:h-11 sm:w-11" : "h-10 w-10 sm:h-11 sm:w-11"
               }`}
             />
-            <div className="leading-tight">
+            <div className="min-w-0 flex-1 leading-tight md:flex-none">
               <span
-                className={`font-display block font-bold tracking-tight text-leaf-900 transition-all duration-300 ${
-                  scrolled ? "text-[15px] sm:text-xl" : "text-[17px] sm:text-xl"
+                className={`font-display block whitespace-nowrap font-bold tracking-tight text-leaf-900 transition-all duration-300 ${
+                  scrolled ? "text-[14.5px] sm:text-xl" : "text-[16.5px] sm:text-xl"
                 }`}
               >
-                Ajmal Garden Nursery
+                Ajmal Garden<span className={scrolled ? " hidden min-[380px]:inline" : ""}> Nursery</span>
               </span>
               <span
                 className={`block overflow-hidden font-semibold uppercase tracking-[0.16em] text-terra-500 transition-all duration-300 ${
@@ -85,7 +85,7 @@ function Navbar() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-1">
+          <div className="flex shrink-0 items-center gap-1">
             <nav className="hidden items-center gap-1 md:flex">
               {NAV_LINKS.map((link) => (
                 <NavLink
@@ -107,18 +107,18 @@ function Navbar() {
             <div className="hidden md:block">
               <GetQuoteDropdown />
             </div>
-            <div className="md:hidden">
+            <div className={`md:hidden transition-all duration-300 ${scrolled ? "hidden" : "block"}`}>
               <GetQuoteDropdown compact />
             </div>
 
             <button
-              className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-leaf-900 text-white shadow-sm transition hover:bg-leaf-800 md:hidden"
+              className="ml-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-leaf-800 transition hover:text-leaf-900 md:hidden"
               onClick={() => setOpen((v) => !v)}
               aria-label="Toggle navigation menu"
               aria-expanded={open}
             >
               <svg
-                className="h-5 w-5"
+                className="h-6 w-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
