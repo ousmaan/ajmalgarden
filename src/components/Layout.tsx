@@ -123,7 +123,7 @@ function Navbar() {
             scrolled ? "py-2 sm:py-3.5" : "py-3 sm:py-3.5"
           }`}
         >
-          <Link ref={brandRef} to="/" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3 group md:flex-none">
+          <Link to="/" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3 group md:flex-none">
             <Logo
               className={`shrink-0 transition-all duration-300 group-hover:scale-[1.03] ${
                 scrolled ? "h-7 w-7 sm:h-11 sm:w-11" : "h-10 w-10 sm:h-11 sm:w-11"
@@ -131,6 +131,7 @@ function Navbar() {
             />
             <div className="min-w-0 flex-1 leading-tight md:flex-none">
               <span
+                ref={titleRef}
                 className={`font-display block whitespace-nowrap font-bold tracking-tight text-leaf-900 transition-all duration-300 ${
                   scrolled ? "text-[14.5px] sm:text-xl" : "text-[16.5px] sm:text-xl"
                 }`}
