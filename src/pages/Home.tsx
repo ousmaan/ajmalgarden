@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { CATEGORIES, CONTACT, waLink } from "../data/site";
 import CtaButtons from "../components/CtaButtons";
 import VideoGallery from "../components/VideoGallery";
-import { FlowerIcon, GemIcon, LeafIcon, SproutIcon, TruckIcon } from "../components/icons";
+import { GemIcon, LeafIcon, SproutIcon, TruckIcon } from "../components/icons";
 import { ArrowRightIcon } from "../components/icons";
 
 const WHY_ITEMS = [
