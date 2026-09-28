@@ -6,6 +6,51 @@
 
 ---
 
+## 🔴 TOMORROW (Wed 2026-09-30) — Verify 118 photo name plates
+
+**The single highest-priority task.** A wrong name plate costs a customer and
+our credibility; a missing one costs only a listing.
+
+**What went wrong (2026-09-29):** the gallery catalog claimed 180/180 complete
+but only ~32 photos had actually been opened and looked at. The other ~118
+titles/descriptions/categories were plausible-sounding guesses. Proof:
+**AGN-0099 was published as "Palm Tree / Khajoor" — the photo is a punnet of red
+raspberries.** Three more confirmed wrong: AGN-0179 (seedling rows, not a mango
+tree) and AGN-0181 (stone urns, not indoor plants) were viewed but mis-titled.
+
+**Current state:** 62 verified photos live · 118 unverified withheld
+(`visible = false`, uploaded but not public). Nothing guessed is in public.
+
+**Task:** open each withheld photo, identify it by eye, write the name plate
+from what is actually in the frame, then publish.
+
+- [ ] Read the 118 withheld IDs (list printed by `node scripts/mark-verified.mjs`)
+- [ ] Rewrite each title/description/category/**local name** from observation
+- [ ] `node scripts/mark-verified.mjs AGN-XXXX …` as each batch is confirmed
+- [ ] `node scripts/sync-gallery-media.mjs` then `supabase db push --linked`
+- [ ] Confirm 180/180 published with no `WITHHELD` count in the sync output
+- [ ] Re-wire the Home "This Week" tiles to real photos (currently placeholders)
+      — only 1 of 4 was verified as matching its label, so it was reverted
+- [ ] Shoot a real **bonsai** photo — the library has none; tile 4 borrowed a
+      topiary and the alt text had to be rewritten to stop overclaiming
+
+**Rules for this pass — do not repeat 2026-09-29:**
+1. Never write a name plate for a photo you have not opened in this session.
+2. A guess is worse than a blank. If unsure, leave the title empty and flag it.
+3. The "RED RASPBERRY" style burned-in labels are retail stock photos — note
+   them, and consider whether stock fruit images belong on a nursery site at all.
+4. Re-derive `photo-catalog-local.json` from the same observation, not from the
+   English title (that is how "Palm Tree" became "Khajoor" for a raspberry).
+
+**Guardrail that now exists:** `scripts/mark-verified.mjs` holds the audit trail
+of photos actually viewed; `sync-gallery-media.mjs` sets `visible = false` for
+anything not on it, so an unverified photo can never ship. Note that
+`verify-gallery-tiles.mjs` only checks catalog-internal consistency (photo's
+category vs the filter it links to) — it cannot see whether a photo matches its
+title, which is exactly the gap that caused this.
+
+---
+
 ## ✅ Shipped this round (old todos closed)
 
 - ✅ CTA hierarchy: WhatsApp primary / Call secondary / Quote tertiary (`CtaButtons.tsx`, `site.ts` header, `config.ts:CTA_ORDER`)
@@ -36,6 +81,10 @@
 - ✅ `ErrorBoundary` around router; foundation files: `config.ts` flags (`showPrices:false`), `Category.tags`/`nameUr` (facet-ready)
 - ✅ Phase 0 web foundation: `BrowserRouter` + `vercel.json` rewrites + old-hash compat, singlefile plugin dropped (split assets), `fuse.js` installed
 - ✅ Phase 1 catalog depth: product pages `/catalog/:cat/:id` (gallery, breadcrumbs, related, sticky mobile CTA bar), wishlist → one-WhatsApp-message (`/wishlist`, navbar badge, card hearts), suggest-as-you-type overlay (plants + collections + WhatsApp fallback, keyboard navigable), Identify→catalog stock links (`lib/matchPlant`), same-page hash sync
+- ✅ Gallery data pipeline rebuilt around two hand-maintained catalogs (`scripts/photo-catalog.json`, `photo-catalog-local.json`) + a dependency-free JPEG header parser (`scripts/image-meta.mjs`) for true width/height/bytes — the old sync read `product_long` from a manifest that no longer had it, so it wrote `title = ''` for 150 of 180 rows and hardcoded `900x1600`/`0 bytes`
+- ✅ Gallery name plates: title / local Pakistani name (Rose → Ghulab) / description, plus `name_local` column + index, local-name search, and the local name in the WhatsApp enquiry
+- ✅ Taxonomy normalised to one vocabulary — batches used `outdoor`/`indoor`/`flowering` while the rest used `Foliage`/`Flowering Plant`, producing duplicate-looking filter pills; `Garden Decor` disambiguated from a `Garden Accessories` category
+- ✅ Verification gate: `scripts/mark-verified.mjs` audit trail + `visible = false` for unverified rows. Added after AGN-0099 shipped as "Palm Tree" but was raspberries
 
 ## 🟡 Deliberately deferred (needs owner/Vercel checks, in plan)
 
