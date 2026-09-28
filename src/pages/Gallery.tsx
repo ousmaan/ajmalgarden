@@ -116,8 +116,14 @@ export default function Gallery() {
   };
 
   const categories = useMemo(() => {
+    // Real plant-type taxonomy (media.category from the tagging pass).
+    // Shows botanical categories: Fruit Tree, Flowering Plant, Foliage, etc.
+    // Untagged rows pool under "Nursery" until named.
     const set = new Map<string, number>();
-    for (const r of rows ?? []) set.set(r.category || "Nursery", (set.get(r.category || "Nursery") ?? 0) + 1);
+    for (const r of rows ?? []) {
+      const key = r.category || "Nursery";
+      set.set(key, (set.get(key) ?? 0) + 1);
+    }
     return [...set.entries()].sort((a, b) => b[1] - a[1]);
   }, [rows]);
 
@@ -141,7 +147,7 @@ export default function Gallery() {
       if (filter !== "all" && (r.category || "Nursery") !== filter) return false;
       if (activeTag && !(r.tags ?? []).includes(activeTag)) return false;
       if (!q) return true;
-      return [r.title, r.description, r.alt, r.category, ...(r.tags ?? [])]
+      return [r.title, r.description, r.alt, r.category, r.collection, ...(r.tags ?? [])]
         .join(" ")
         .toLowerCase()
         .includes(q);
@@ -291,22 +297,20 @@ export default function Gallery() {
                   {visible.length} of {rows.length} photos
                 </p>
               </div>
-              {categories.length > 1 && (
-                <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Filter by collection">
-                  <button type="button" role="tab" aria-selected={filter === "all"} onClick={() => setFilter("all")}
-                    className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition active:scale-[0.98] ${filter === "all" ? "bg-leaf-900 text-white" : "bg-white text-leaf-800 ring-1 ring-leaf-200 hover:bg-leaf-50"}`}>
-                    All photos
+              <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 py-1" role="tablist" aria-label="Filter by category">
+                <button type="button" role="tab" aria-selected={filter === "all"} onClick={() => setFilter("all")}
+                  className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-xs font-semibold transition active:scale-[0.98] ${filter === "all" ? "bg-leaf-900 text-white border-leaf-800" : "bg-white text-leaf-800 border-leaf-200 hover:bg-leaf-50 hover:border-leaf-300"}`}>
+                  All photos
+                </button>
+                {categories.map(([cat, count]) => (
+                  <button key={cat} type="button" role="tab" aria-selected={filter === cat} onClick={() => setFilter(cat)}
+                    className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-xs font-semibold transition active:scale-[0.98] ${filter === cat ? "bg-leaf-900 text-white border-leaf-800" : "bg-white text-leaf-800 border-leaf-200 hover:bg-leaf-50 hover:border-leaf-300"}`}>
+                    {cat} · {count}
                   </button>
-                  {categories.map(([cat, count]) => (
-                    <button key={cat} type="button" role="tab" aria-selected={filter === cat} onClick={() => setFilter(cat)}
-                      className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition active:scale-[0.98] ${filter === cat ? "bg-leaf-900 text-white" : "bg-white text-leaf-800 ring-1 ring-leaf-200 hover:bg-leaf-50"}`}>
-                      {cat} · {count}
-                    </button>
-                  ))}
-                </div>
-              )}
+                ))}
+              </div>
               {allTags.length > 0 && (
-                <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1" aria-label="Refine by tag">
+                <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 py-1" aria-label="Refine by tag">
                   {activeTag && (
                     <button type="button" onClick={() => setTag("")}
                       className="shrink-0 whitespace-nowrap rounded-full bg-terra-500 px-4 py-2 text-xs font-semibold text-white transition hover:bg-terra-600">
@@ -315,7 +319,7 @@ export default function Gallery() {
                   )}
                   {allTags.filter((t) => t !== activeTag).map((t) => (
                     <button key={t} type="button" onClick={() => setTag(t)}
-                      className="shrink-0 whitespace-nowrap rounded-full bg-leaf-50 px-4 py-2 text-xs font-semibold text-leaf-800 ring-1 ring-leaf-100 transition hover:bg-leaf-100">
+                      className="shrink-0 whitespace-nowrap rounded-full border border-leaf-100 bg-leaf-50 px-4 py-2 text-xs font-semibold text-leaf-800 transition hover:bg-leaf-100">
                       {t}
                     </button>
                   ))}

@@ -1,5 +1,6 @@
 import { telLink, waLink, CONTACT } from "../data/site";
 import { track } from "../utils/track";
+import { useLang } from "../i18n/lang";
 
 export function PhoneIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -29,6 +30,7 @@ export default function CtaButtons({
   /** Funnel source for analytics (e.g. "hero", "about-team"). */
   source?: string;
 }) {
+  const { t } = useLang();
   return (
     <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${className}`}>
       <a
@@ -39,7 +41,7 @@ export default function CtaButtons({
         className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[14px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#1fb959] active:scale-[0.98]"
       >
         <WhatsAppIcon className="h-4 w-4" />
-        WhatsApp Us
+        {t("cta.whatsapp")}
       </a>
       <a
         href={telLink}
@@ -55,7 +57,7 @@ export default function CtaButtons({
         >
           <PhoneIcon className="h-3.5 w-3.5" />
         </span>
-        Call {CONTACT.phoneDisplay}
+        {t("cta.call")} {CONTACT.phoneDisplay}
       </a>
     </div>
   );

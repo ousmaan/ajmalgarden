@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { WishlistProvider } from "./lib/wishlist";
+import { LanguageProvider } from "./i18n/lang";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -30,6 +31,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ErrorBoundary>
+        <LanguageProvider>
         <WishlistProvider>
           <HashCompat />
           <Routes>
@@ -48,6 +50,7 @@ export default function App() {
             </Route>
           </Routes>
         </WishlistProvider>
+        </LanguageProvider>
       </ErrorBoundary>
     </BrowserRouter>
   );

@@ -3,14 +3,16 @@ import { useLocation } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import { PRODUCT_CATALOG, catalogForCategory } from "../data/catalog";
 import { CATEGORIES, waLink } from "../data/site";
+import { useLang } from "../i18n/lang";
 import { WhatsAppIcon } from "../components/CtaButtons";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export default function Products() {
   const location = useLocation();
+  const { t } = useLang();
   // Deep-link safe: Home category cards link to `/products#<id>` — pick it up
   // on mount so refresh preserves the filter. (We never *write* the hash here:
-  // HashRouter owns it for routing.)
+  // the router owns the location.)
   const [activeCategory, setActiveCategory] = useState(() => {
     const fromHash = location.hash.replace("#", "");
     return CATEGORIES.some((category) => category.id === fromHash) ? fromHash : "all";
@@ -18,6 +20,7 @@ export default function Products() {
   // NurseryLive-style instant search (plan §4 step one: local filter over the
   // static catalog; Fuse index + suggest dropdown arrive with the snapshot).
   const [query, setQuery] = useState("");
+  const [sortAZ, setSortAZ] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   usePageMeta(
@@ -66,6 +69,21 @@ export default function Products() {
     [visibleCategories, q],
   );
 
+  const categoryCounts = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const c of CATEGORIES) {
+      m.set(
+        c.id,
+        PRODUCT_CATALOG.find((s) => s.categoryId === c.id)?.groups.reduce(
+          (total, g) => total + g.products.filter(productMatches).length,
+          0,
+        ) ?? 0,
+      );
+    }
+    return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q]);
+
   useEffect(() => {
     if (activeCategory !== "all") {
       const el = document.getElementById(activeCategory);
@@ -91,25 +109,24 @@ export default function Products() {
         <div className="absolute right-10 top-10 hidden h-40 w-40 rounded-full bg-marigold/10 blur-2xl lg:block" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
           <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-terra-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-marigold" aria-hidden /> Our Plant & Garden Collection
+            <span className="h-1.5 w-1.5 rounded-full bg-marigold" aria-hidden /> {t("prod.kicker")}
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-[28px] font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-            From flowering favourites to
-            <span className="text-terra-200"> premium plants & garden decor.</span>
+            {t("prod.title_a")}
+            <span className="text-terra-200"> {t("prod.title_b")}</span>
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-leaf-100/70 sm:text-[15px]">
-            Explore the kinds of plants, fruit trees, planters and garden features you can find at Ajmal Garden
-            Nursery. Stock changes with the seasons — call or WhatsApp to check what&apos;s ready today.
+            {t("prod.sub")}
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-2 text-xs">
             <span className="rounded-full bg-white/10 px-3 py-1.5 font-medium text-leaf-100 ring-1 ring-white/10">
-              7 collections
+              {CATEGORIES.length} {t("prod.badge_count")}
             </span>
             <span className="rounded-full bg-white/10 px-3 py-1.5 font-medium text-leaf-100 ring-1 ring-white/10">
-              Seasonal stock
+              {t("prod.badge_seasonal")}
             </span>
             <span className="rounded-full bg-white/10 px-3 py-1.5 font-medium text-leaf-100 ring-1 ring-white/10">
-              No online ordering
+              {t("prod.badge_noorder")}
             </span>
           </div>
         </div>
@@ -134,7 +151,7 @@ export default function Products() {
                 : "bg-white text-leaf-800 ring-1 ring-leaf-200 hover:bg-leaf-900 hover:text-white hover:ring-leaf-900"
             }`}
           >
-            All collections
+            {t("cat.all")}
           </button>
           {CATEGORIES.map((category) => (
             <button
@@ -161,7 +178,7 @@ export default function Products() {
         <div className="pt-8">
           <div className="flex flex-col gap-3 rounded-[20px] bg-white p-4 shadow-sm ring-1 ring-leaf-100 sm:flex-row sm:items-center sm:p-5">
             <label htmlFor="catalog-search" className="sr-only">
-              Search plants and collections
+              {t("cat.search_label")}
             </label>
             <div className="relative flex-1">
               <svg
@@ -181,7 +198,7 @@ export default function Products() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search roses, motia, mango, pots…"
+                placeholder={t("cat.search_ph")}
                 autoComplete="off"
                 className="w-full rounded-full border border-leaf-200 bg-cream py-3 pl-11 pr-10 text-sm text-leaf-900 outline-none transition placeholder:text-leaf-800/35 focus:border-leaf-400 focus:bg-white focus:ring-4 focus:ring-leaf-100"
               />
@@ -189,7 +206,7 @@ export default function Products() {
                 <button
                   type="button"
                   onClick={() => setQuery("")}
-                  aria-label="Clear search"
+                  aria-label={t("cat.clear_search")}
                   className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-leaf-800/50 transition hover:bg-leaf-50 hover:text-leaf-900"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4" aria-hidden>
@@ -201,12 +218,12 @@ export default function Products() {
             <p className="shrink-0 text-xs text-leaf-800/55 sm:text-right" role="status" aria-live="polite">
               {q ? (
                 <>
-                  <strong className="font-semibold text-leaf-900">{matchedProductCount}</strong> plants
-                  in <strong className="font-semibold text-leaf-900">{visibleCategories.length}</strong>{" "}
-                  collections for “{query.trim()}”
+                  <strong className="font-semibold text-leaf-900">{matchedProductCount}</strong> {t("cat.results")}{" "}
+                  {t("cat.results_in")} <strong className="font-semibold text-leaf-900">{visibleCategories.length}</strong>{" "}
+                  {t("cat.collections")} {t("cat.for")} “{query.trim()}”
                 </>
               ) : (
-                "Tip: try “rose”, “motia” or “mango”."
+                t("cat.tip")
               )}
             </p>
           </div>
@@ -215,11 +232,10 @@ export default function Products() {
         {visibleCategories.length === 0 && (
           <div className="py-10 text-center sm:py-14">
             <p className="font-display text-[22px] font-semibold tracking-tight text-leaf-900">
-              Nothing matched “{query.trim()}” — yet.
+              {t("cat.empty_title")} “{query.trim()}”.
             </p>
             <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-leaf-800/60">
-              Our shelves hold far more than this page lists. Send us the name or a photo and we&apos;ll check
-              today&apos;s stock for you.
+              {t("cat.empty_sub")}
             </p>
             <a
               href={waLink(`Assalam-o-Alaikum! I'm looking for "${query.trim()}" at Ajmal Garden Nursery. Do you have it?`)}
@@ -228,10 +244,69 @@ export default function Products() {
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#1fb959] active:scale-[0.98]"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              Ask about “{query.trim().slice(0, 24)}”
+              {t("cat.empty_cta")} “{query.trim().slice(0, 24)}”
             </a>
           </div>
         )}
+        {/* Sort toolbar + desktop facet sidebar (mobile keeps the chip rail above) */}
+        <div className="flex items-center justify-end gap-2 pt-6">
+          <div role="group" aria-label="Sort plants" className="inline-flex rounded-full bg-white p-1 ring-1 ring-leaf-200">
+            <button
+              type="button"
+              onClick={() => setSortAZ(false)}
+              aria-pressed={!sortAZ}
+              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${!sortAZ ? "bg-leaf-900 text-white shadow-sm" : "text-leaf-800 hover:bg-leaf-50"}`}
+            >
+              {t("prod.sort_featured")}
+            </button>
+            <button
+              type="button"
+              onClick={() => setSortAZ(true)}
+              aria-pressed={sortAZ}
+              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${sortAZ ? "bg-leaf-900 text-white shadow-sm" : "text-leaf-800 hover:bg-leaf-50"}`}
+            >
+              {t("prod.sort_az")}
+            </button>
+          </div>
+        </div>
+
+        <div className="lg:grid lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-8">
+        <aside className="hidden lg:block" aria-label={t("prod.facets")}>
+          <div className="sticky top-40 rounded-[20px] bg-white p-3 shadow-sm ring-1 ring-leaf-100">
+            <p className="px-2.5 pb-2 pt-1 text-[11px] font-bold uppercase tracking-widest text-leaf-800/45">
+              {t("prod.facets")}
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setActiveCategory("all");
+                document.getElementById("catalog-top")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              aria-current={activeCategory === "all" ? "true" : undefined}
+              className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition ${activeCategory === "all" ? "bg-leaf-900 text-white" : "text-leaf-900 hover:bg-leaf-50"}`}
+            >
+              {t("cat.all")}
+              <span className={`rounded-full px-2 py-0.5 text-[11px] tabular-nums ${activeCategory === "all" ? "bg-white/15 text-white" : "bg-leaf-50 text-leaf-800/60"}`}>
+                {CATEGORIES.length}
+              </span>
+            </button>
+            {CATEGORIES.map((c) => (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => setActiveCategory(c.id)}
+                aria-current={activeCategory === c.id ? "true" : undefined}
+                className={`mt-1 flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition ${activeCategory === c.id ? "bg-leaf-900 text-white" : "text-leaf-900 hover:bg-leaf-50"}`}
+              >
+                <span className="truncate">{c.name}</span>
+                <span className={`ml-2 shrink-0 rounded-full px-2 py-0.5 text-[11px] tabular-nums ${activeCategory === c.id ? "bg-white/15 text-white" : "bg-leaf-50 text-leaf-800/60"}`}>
+                  {categoryCounts.get(c.id) ?? 0}
+                </span>
+              </button>
+            ))}
+          </div>
+        </aside>
+        <div id="catalog-top" className="min-w-0 scroll-mt-36">
         {visibleCategories.map((category, categoryIndex) => {
           const catalog = catalogForCategory(category.id);
           const isEven = categoryIndex % 2 === 0;
@@ -285,7 +360,7 @@ export default function Products() {
                       className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1fb959] active:scale-[0.98]"
                     >
                       <WhatsAppIcon className="h-4 w-4" />
-                      Ask on WhatsApp
+                      {t("prod.ask_cat")}
                     </a>
                   )}
                 </div>
@@ -295,6 +370,9 @@ export default function Products() {
                 <div className="mt-8 space-y-10 sm:mt-10">
                   {catalog.groups.map((group) => {
                     const items = group.products.filter(productMatches);
+                    const ordered = sortAZ
+                      ? [...items].sort((a, b) => a.name.localeCompare(b.name))
+                      : items;
                     if (q && items.length === 0) return null;
                     return (
                     <div key={group.title}>
@@ -307,7 +385,7 @@ export default function Products() {
                         </div>
                       </div>
                       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
-                        {items.map((product) => (
+                        {ordered.map((product) => (
                           <ProductCard
                             key={product.id}
                             product={product}
@@ -323,28 +401,29 @@ export default function Products() {
                 </div>
               ) : (
                 <div className="mt-6 rounded-[20px] bg-leaf-50 p-5 ring-1 ring-leaf-100 sm:mt-8 sm:p-6">
-                  <p className="font-display text-[15px] font-semibold text-leaf-900">Looking for something specific?</p>
+                  <p className="font-display text-[15px] font-semibold text-leaf-900">{t("prod.cat_empty_title")}</p>
                   <p className="mt-1 max-w-xl text-sm leading-relaxed text-leaf-800/60">
-                    This collection changes frequently. Send a photo or plant name and our team will confirm what is
-                    currently available.
+                    {t("prod.cat_empty_sub")}
                   </p>
                 </div>
               )}
             </section>
           );
         })}
+        </div>
+      </div>
       </div>
 
       {/* ---------- BOTTOM NOTE ---------- */}
       <section className="leaf-texture-strong relative overflow-hidden bg-sage-50/60 py-10 text-center sm:py-14">
         <div className="pointer-events-none absolute -right-16 top-0 h-48 w-48 rounded-full bg-terra-100/60 blur-3xl" aria-hidden />
         <div className="relative mx-auto max-w-2xl px-4 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-terra-500">Can&apos;t find it?</p>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-terra-500">{t("prod.bottom_kicker")}</p>
           <h2 className="mt-1 font-display text-[22px] font-semibold tracking-tight text-leaf-900 sm:text-3xl">
-            Our stock is far bigger than any webpage.
+            {t("prod.bottom_title")}
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-leaf-800/60 sm:text-[15px]">
-            Send us a photo or plant name on WhatsApp and we will help you find the closest available option.
+            {t("prod.bottom_sub")}
           </p>
           <a
             href={waLink("Assalam-o-Alaikum! I'm looking for a specific plant. Can I send you a photo?")}
@@ -353,9 +432,9 @@ export default function Products() {
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-leaf-900 px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-leaf-800 active:scale-[0.98]"
           >
             <WhatsAppIcon className="h-4 w-4" />
-            Send a Plant Request
+            {t("prod.bottom_cta")}
           </a>
-          <p className="mt-3 text-xs text-leaf-800/50">We usually reply within a few hours — 6 AM to 8 PM daily.</p>
+          <p className="mt-3 text-xs text-leaf-800/50">{t("prod.bottom_note")}</p>
         </div>
       </section>
     </>

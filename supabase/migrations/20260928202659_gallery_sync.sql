@@ -4,106 +4,106 @@ insert into media (cloudinary_id, local_path, alt, title, description, category,
   values ('ajmal-garden/AGN-0001', 'organized/AGN-0001.jpg', 'AGN-0001', '', '', '', '["green-foliage"]'::jsonb, 0, true, 900, 1600, 239925)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0002', 'organized/AGN-0002.jpg', 'AGN-0002', '', '', '', '["dark"]'::jsonb, 1, true, 844, 1500, 192467)
+  values ('ajmal-garden/AGN-0002', 'organized/AGN-0002.jpg', 'Curly red and yellow croton foliage at Ajmal Garden Nursery', 'Curly Red Croton', 'Twisted red, yellow and green croton leaves in nursery pots.', 'outdoor', '["dark"]'::jsonb, 1, true, 844, 1500, 192467)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0003', 'organized/AGN-0003.jpg', 'AGN-0003', '', '', '', '["stone-grey"]'::jsonb, 2, true, 900, 1600, 292095)
+  values ('ajmal-garden/AGN-0003', 'organized/AGN-0003.jpg', 'Red purple cordyline plants in a nursery bed', 'Red Purple Cordyline', 'Magenta and deep purple cordyline bed, ready for lawns and borders.', 'outdoor', '["stone-grey"]'::jsonb, 2, true, 900, 1600, 292095)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0004', 'organized/AGN-0004.jpg', 'AGN-0004', '', '', '', '["green-foliage"]'::jsonb, 3, true, 1200, 1600, 385254)
+  values ('ajmal-garden/AGN-0004', 'organized/AGN-0004.jpg', 'Snow white variegated aglaonema foliage', 'Snow White Aglaonema', 'White-variegated Chinese evergreen for bright indoor corners.', 'indoor', '["green-foliage"]'::jsonb, 3, true, 1200, 1600, 385254)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0005', 'organized/AGN-0005.jpg', 'AGN-0005', '', '', '', '["green-foliage"]'::jsonb, 4, true, 1200, 1600, 464694)
+  values ('ajmal-garden/AGN-0005', 'organized/AGN-0005.jpg', 'Yellow striped Song of India dracaena leaves', 'Song of India Dracaena', 'Yellow and green striped dracaena, easy indoor statement plant.', 'indoor', '["green-foliage"]'::jsonb, 4, true, 1200, 1600, 464694)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0006', 'organized/AGN-0006.jpg', 'AGN-0006', '', '', '', '["green-foliage"]'::jsonb, 5, true, 844, 1500, 200283)
+  values ('ajmal-garden/AGN-0006', 'organized/AGN-0006.jpg', 'Gold dust croton with yellow speckled leaves', 'Gold-Dust Croton', 'Narrow green leaves dusted gold — vivid all-season foliage.', 'outdoor', '["green-foliage"]'::jsonb, 5, true, 844, 1500, 200283)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0007', 'organized/AGN-0007.jpg', 'AGN-0007', '', '', '', '["green-foliage"]'::jsonb, 6, true, 1200, 1600, 333328)
+  values ('ajmal-garden/AGN-0007', 'organized/AGN-0007.jpg', 'Lemon lime striped dracaena foliage', 'Lemon Lime Dracaena', 'Broad lime-striped dracaena leaves for homes and offices.', 'indoor', '["green-foliage"]'::jsonb, 6, true, 1200, 1600, 333328)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
   values ('ajmal-garden/AGN-0008', 'organized/AGN-0008.jpg', 'AGN-0008', '', '', '', '["green-foliage"]'::jsonb, 7, true, 1200, 1600, 391855)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0009', 'organized/AGN-0009.jpg', 'AGN-0009', '', '', '', '["green-foliage"]'::jsonb, 8, true, 1200, 1600, 544469)
+  values ('ajmal-garden/AGN-0009', 'organized/AGN-0009.jpg', 'Variegated dieffenbachia leaves in nursery pots', 'Variegated Dieffenbachia', 'Bold green and cream dumb-cane foliage for shaded verandas.', 'indoor', '["green-foliage"]'::jsonb, 8, true, 1200, 1600, 544469)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0010', 'organized/AGN-0010.jpg', 'AGN-0010', '', '', '', '["green-foliage"]'::jsonb, 9, true, 1200, 1600, 353343)
+  values ('ajmal-garden/AGN-0010', 'organized/AGN-0010.jpg', 'Lemon lime philodendron climbing moss poles', 'Lemon Philodendron on Moss Pole', 'Neon lemon philodendron trained on coir poles, with monstera alongside.', 'indoor', '["green-foliage"]'::jsonb, 9, true, 1200, 1600, 353343)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0011', 'organized/AGN-0011.jpg', 'AGN-0011', '', '', '', '["green-foliage"]'::jsonb, 10, true, 1200, 1600, 321848)
+  values ('ajmal-garden/AGN-0011', 'organized/AGN-0011.jpg', 'Bed of variegated dracaena plants', 'Variegated Dracaena Bed', 'Cream and green variegated dracaena stock in all sizes.', 'indoor', '["green-foliage"]'::jsonb, 10, true, 1200, 1600, 321848)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0012', 'organized/AGN-0012.jpg', 'AGN-0012', '', '', '', '["purple"]'::jsonb, 11, true, 1200, 1600, 510580)
+  values ('ajmal-garden/AGN-0012', 'organized/AGN-0012.jpg', 'Mixed red green and orange Petra croton foliage', 'Petra Croton Mix', 'Classic red, orange and green Petra crotons for vivid borders.', 'outdoor', '["purple"]'::jsonb, 11, true, 1200, 1600, 510580)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0013', 'organized/AGN-0013.jpg', 'AGN-0013', '', '', '', '["green-foliage"]'::jsonb, 12, true, 1200, 1600, 383709)
+  values ('ajmal-garden/AGN-0013', 'organized/AGN-0013.jpg', 'Cream striped cordyline plants', 'Striped Cordyline', 'Cream-striped cordyline with purple new growth for entrances.', 'outdoor', '["green-foliage"]'::jsonb, 12, true, 1200, 1600, 383709)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0014', 'organized/AGN-0014.jpg', 'AGN-0014', '', '', '', '["stone-grey"]'::jsonb, 13, true, 1200, 1600, 372850)
+  values ('ajmal-garden/AGN-0014', 'organized/AGN-0014.jpg', 'Pink Ti cordyline with maroon rosettes', 'Pink Ti Cordyline', 'Hot pink Ti leaves over deep maroon rosettes — high-drama foliage.', 'outdoor', '["stone-grey"]'::jsonb, 13, true, 1200, 1600, 372850)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0015', 'organized/AGN-0015.jpg', 'AGN-0015', '', '', '', '["dark"]'::jsonb, 14, true, 1200, 1600, 328004)
+  values ('ajmal-garden/AGN-0015', 'organized/AGN-0015.jpg', 'Red edged dracaena marginata foliage', 'Red-Edged Dracaena', 'Narrow red-edged dragon tree leaves, a forgiving indoor classic.', 'indoor', '["dark"]'::jsonb, 14, true, 1200, 1600, 328004)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
   values ('ajmal-garden/AGN-0016', 'organized/AGN-0016.jpg', 'AGN-0016', '', '', '', '["green-foliage"]'::jsonb, 15, true, 1200, 1600, 368453)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0017', 'organized/AGN-0017.jpg', 'AGN-0017', '', '', '', '["green-foliage"]'::jsonb, 16, true, 1200, 1600, 529006)
+  values ('ajmal-garden/AGN-0017', 'organized/AGN-0017.jpg', 'Variegated spider plants in nursery rows', 'Variegated Spider Plants', 'Striped spider plants for baskets, table pots and shaded edges.', 'indoor', '["green-foliage"]'::jsonb, 16, true, 1200, 1600, 529006)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0018', 'organized/AGN-0018.jpg', 'AGN-0018', '', '', '', '["stone-grey"]'::jsonb, 17, true, 1200, 1600, 415055)
+  values ('ajmal-garden/AGN-0018', 'organized/AGN-0018.jpg', 'Pink and green coleus bedding plants', 'Coleus Bed Mix', 'Pink and green coleus trays for instant seasonal colour.', 'outdoor', '["stone-grey"]'::jsonb, 17, true, 1200, 1600, 415055)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0019', 'organized/AGN-0019.jpg', 'AGN-0019', '', '', '', '["green-foliage"]'::jsonb, 18, true, 747, 1328, 140378)
+  values ('ajmal-garden/AGN-0019', 'organized/AGN-0019.jpg', 'Burgundy and white bicolor dahlia flower', 'Burgundy White Dahlia', 'Bold burgundy and white bicolor dahlia in full bloom.', 'flowering', '["green-foliage"]'::jsonb, 18, true, 747, 1328, 140378)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0020', 'organized/AGN-0020.jpg', 'AGN-0020', '', '', '', '["green-foliage"]'::jsonb, 19, true, 747, 1328, 148637)
+  values ('ajmal-garden/AGN-0020', 'organized/AGN-0020.jpg', 'Speckled cream and crimson dahlia', 'Speckled Cream Dahlia', 'Cream petals flecked crimson on a collector dahlia.', 'flowering', '["green-foliage"]'::jsonb, 19, true, 747, 1328, 148637)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0021', 'organized/AGN-0021.jpg', 'AGN-0021', '', '', '', '["green-foliage"]'::jsonb, 20, true, 1200, 1600, 387057)
+  values ('ajmal-garden/AGN-0021', 'organized/AGN-0021.jpg', 'Yellow and green variegated ginger leaves', 'Variegated Ginger', 'Yellow striped shell ginger for lush tropical corners.', 'outdoor', '["green-foliage"]'::jsonb, 20, true, 1200, 1600, 387057)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0022', 'organized/AGN-0022.jpg', 'AGN-0022', '', '', '', '["green-foliage"]'::jsonb, 21, true, 747, 1328, 152050)
+  values ('ajmal-garden/AGN-0022', 'organized/AGN-0022.jpg', 'Lavender pink dahlia bloom', 'Lavender Pink Dahlia', 'Soft lavender pink dinner-plate dahlia on the stem.', 'flowering', '["green-foliage"]'::jsonb, 21, true, 747, 1328, 152050)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
   values ('ajmal-garden/AGN-0023', 'organized/AGN-0023.jpg', 'AGN-0023', '', '', '', '["red"]'::jsonb, 22, true, 747, 1328, 156265)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0024', 'organized/AGN-0024.jpg', 'AGN-0024', '', '', '', '["red"]'::jsonb, 23, true, 747, 1328, 148683)
+  values ('ajmal-garden/AGN-0024', 'organized/AGN-0024.jpg', 'Bronze orange chrysanthemum blooms', 'Bronze Chrysanthemum', 'Bronze orange gul-e-daudi heads for winter beds and pots.', 'flowering', '["red"]'::jsonb, 23, true, 747, 1328, 148683)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0025', 'organized/AGN-0025.jpg', 'AGN-0025', '', '', '', '["red"]'::jsonb, 24, true, 747, 1328, 132368)
+  values ('ajmal-garden/AGN-0025', 'organized/AGN-0025.jpg', 'Red dahlia flower close-up', 'Red Dahlia', 'Velvet red dahlia with dew-fresh petals.', 'flowering', '["red"]'::jsonb, 24, true, 747, 1328, 132368)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0026', 'organized/AGN-0026.jpg', 'AGN-0026', '', '', '', '["red"]'::jsonb, 25, true, 1328, 747, 156796)
+  values ('ajmal-garden/AGN-0026', 'organized/AGN-0026.jpg', 'Orange and gold chrysanthemum cluster', 'Orange Chrysanthemum Mix', 'Orange and gold gul-e-daudi cluster for seasonal colour.', 'flowering', '["red"]'::jsonb, 25, true, 1328, 747, 156796)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0027', 'organized/AGN-0027.jpg', 'AGN-0027', '', '', '', '["red"]'::jsonb, 26, true, 1328, 747, 129598)
+  values ('ajmal-garden/AGN-0027', 'organized/AGN-0027.jpg', 'Red and pink chrysanthemum blooms with buds', 'Red Pink Chrysanthemum', 'Cherry red and rose pink gul-e-daudi side by side.', 'flowering', '["red"]'::jsonb, 26, true, 1328, 747, 129598)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0028', 'organized/AGN-0028.jpg', 'AGN-0028', '', '', '', '["purple"]'::jsonb, 27, true, 747, 1328, 131910)
+  values ('ajmal-garden/AGN-0028', 'organized/AGN-0028.jpg', 'Lilac chrysanthemum flowers with yellow centres', 'Lilac Chrysanthemum', 'Soft lilac daisy-type gul-e-daudi with gold centres.', 'flowering', '["purple"]'::jsonb, 27, true, 747, 1328, 131910)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0029', 'organized/AGN-0029.jpg', 'AGN-0029', '', '', '', '["green-foliage"]'::jsonb, 28, true, 747, 1328, 107051)
+  values ('ajmal-garden/AGN-0029', 'organized/AGN-0029.jpg', 'Cream double gerbera daisy', 'Cream Gerbera Daisy', 'Cream double gerbera with a green heart.', 'flowering', '["green-foliage"]'::jsonb, 28, true, 747, 1328, 107051)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0030', 'organized/AGN-0030.jpg', 'AGN-0030', '', '', '', '["red"]'::jsonb, 29, true, 747, 1328, 138504)
+  values ('ajmal-garden/AGN-0030', 'organized/AGN-0030.jpg', 'Blush peach gerbera daisy', 'Blush Peach Gerbera', 'Blush peach gerbera with a honey gold centre.', 'flowering', '["red"]'::jsonb, 29, true, 747, 1328, 138504)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
   values ('ajmal-garden/AGN-0031', 'organized/AGN-0031.jpg', 'AGN-0031', '', '', '', '["red"]'::jsonb, 30, true, 1328, 747, 140769)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0032', 'organized/AGN-0032.jpg', 'AGN-0032', '', '', '', '["red"]'::jsonb, 31, true, 1328, 747, 125809)
+  values ('ajmal-garden/AGN-0032', 'organized/AGN-0032.jpg', 'Light pink double gerbera blooms', 'Light Pink Gerbera', 'Soft pink double gerbera pair, morning fresh.', 'flowering', '["red"]'::jsonb, 31, true, 1328, 747, 125809)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0033', 'organized/AGN-0033.jpg', 'AGN-0033', '', '', '', '["green-foliage"]'::jsonb, 32, true, 747, 1328, 115052)
+  values ('ajmal-garden/AGN-0033', 'organized/AGN-0033.jpg', 'Red and white bicolor gerbera daisy', 'Red White Gerbera', 'Quilled red petals tipped white on a bold gerbera.', 'flowering', '["green-foliage"]'::jsonb, 32, true, 747, 1328, 115052)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0034', 'organized/AGN-0034.jpg', 'AGN-0034', '', '', '', '["stone-grey"]'::jsonb, 33, true, 747, 1328, 90825)
+  values ('ajmal-garden/AGN-0034', 'organized/AGN-0034.jpg', 'White gerbera daisy with pink centre', 'White Gerbera Daisy', 'Layered white gerbera blushing pink at the heart.', 'flowering', '["stone-grey"]'::jsonb, 33, true, 747, 1328, 90825)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values ('ajmal-garden/AGN-0035', 'organized/AGN-0035.jpg', 'AGN-0035', '', '', '', '["green-foliage"]'::jsonb, 34, true, 747, 1328, 106955)
+  values ('ajmal-garden/AGN-0035', 'organized/AGN-0035.jpg', 'Pink gerbera with cream centre', 'Pink Cream Gerbera', 'Candy pink gerbera around a cream green centre.', 'flowering', '["green-foliage"]'::jsonb, 34, true, 747, 1328, 106955)
   on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;
 insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
   values ('ajmal-garden/AGN-0036', 'organized/AGN-0036.jpg', 'AGN-0036', '', '', '', '["pink"]'::jsonb, 35, true, 747, 1328, 116365)

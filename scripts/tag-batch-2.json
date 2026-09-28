@@ -1,0 +1,107 @@
+{
+  "AGN-0019": {
+    "parent_cat": "flowering", "collection": "Dahlia Collection",
+    "product_short": "dahlia-bicolor", "product_long": "Burgundy White Dahlia",
+    "description": "Bold burgundy and white bicolor dahlia in full bloom.",
+    "alt": "Burgundy and white bicolor dahlia flower",
+    "tags_add": []
+  },
+  "AGN-0020": {
+    "parent_cat": "flowering", "collection": "Dahlia Collection",
+    "product_short": "dahlia-speckled", "product_long": "Speckled Cream Dahlia",
+    "description": "Cream petals flecked crimson on a collector dahlia.",
+    "alt": "Speckled cream and crimson dahlia",
+    "tags_add": []
+  },
+  "AGN-0021": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "ginger-variegated", "product_long": "Variegated Ginger",
+    "description": "Yellow striped shell ginger for lush tropical corners.",
+    "alt": "Yellow and green variegated ginger leaves",
+    "tags_add": []
+  },
+  "AGN-0022": {
+    "parent_cat": "flowering", "collection": "Dahlia Collection",
+    "product_short": "dahlia-lavender", "product_long": "Lavender Pink Dahlia",
+    "description": "Soft lavender pink dinner-plate dahlia on the stem.",
+    "alt": "Lavender pink dahlia bloom",
+    "tags_add": []
+  },
+  "AGN-0024": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "chrysanthemum-bronze", "product_long": "Bronze Chrysanthemum",
+    "description": "Bronze orange gul-e-daudi heads for winter beds and pots.",
+    "alt": "Bronze orange chrysanthemum blooms",
+    "tags_add": []
+  },
+  "AGN-0025": {
+    "parent_cat": "flowering", "collection": "Dahlia Collection",
+    "product_short": "dahlia-red", "product_long": "Red Dahlia",
+    "description": "Velvet red dahlia with dew-fresh petals.",
+    "alt": "Red dahlia flower close-up",
+    "tags_add": []
+  },
+  "AGN-0026": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "chrysanthemum-mix", "product_long": "Orange Chrysanthemum Mix",
+    "description": "Orange and gold gul-e-daudi cluster for seasonal colour.",
+    "alt": "Orange and gold chrysanthemum cluster",
+    "tags_add": []
+  },
+  "AGN-0027": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "chrysanthemum-red-pink", "product_long": "Red Pink Chrysanthemum",
+    "description": "Cherry red and rose pink gul-e-daudi side by side.",
+    "alt": "Red and pink chrysanthemum blooms with buds",
+    "tags_add": []
+  },
+  "AGN-0028": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "chrysanthemum-lilac", "product_long": "Lilac Chrysanthemum",
+    "description": "Soft lilac daisy-type gul-e-daudi with gold centres.",
+    "alt": "Lilac chrysanthemum flowers with yellow centres",
+    "tags_add": []
+  },
+  "AGN-0029": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "gerbera-cream", "product_long": "Cream Gerbera Daisy",
+    "description": "Cream double gerbera with a green heart.",
+    "alt": "Cream double gerbera daisy",
+    "tags_add": []
+  },
+  "AGN-0030": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "gerbera-blush", "product_long": "Blush Peach Gerbera",
+    "description": "Blush peach gerbera with a honey gold centre.",
+    "alt": "Blush peach gerbera daisy",
+    "tags_add": []
+  },
+  "AGN-0032": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "gerbera-light-pink", "product_long": "Light Pink Gerbera",
+    "description": "Soft pink double gerbera pair, morning fresh.",
+    "alt": "Light pink double gerbera blooms",
+    "tags_add": []
+  },
+  "AGN-0033": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "gerbera-red-bicolor", "product_long": "Red White Gerbera",
+    "description": "Quilled red petals tipped white on a bold gerbera.",
+    "alt": "Red and white bicolor gerbera daisy",
+    "tags_add": []
+  },
+  "AGN-0034": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "gerbera-white", "product_long": "White Gerbera Daisy",
+    "description": "Layered white gerbera blushing pink at the heart.",
+    "alt": "White gerbera daisy with pink centre",
+    "tags_add": []
+  },
+  "AGN-0035": {
+    "parent_cat": "flowering", "collection": "Winter Flower Favourites",
+    "product_short": "gerbera-pink-cream", "product_long": "Pink Cream Gerbera",
+    "description": "Candy pink gerbera around a cream green centre.",
+    "alt": "Pink gerbera with cream centre",
+    "tags_add": []
+  }
+}

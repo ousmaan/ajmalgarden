@@ -26,12 +26,13 @@ for (const [i, row] of manifest.items.entries()) {
   if (!rep) continue; // not uploaded yet → stays out of the gallery
   const title = row.product_long || row.product_short || "";
   const alt = row.alt || row.description || title || row.id;
-  out.push(`insert into media (cloudinary_id, local_path, alt, title, description, category, tags, sort, visible, width, height, bytes)
-  values (${q(rep.public_id)}, ${q("organized/" + row.file)}, ${q(alt)}, ${q(title)}, ${q(row.description)}, ${q(row.parent_cat)}, ${j(row.tags ?? [])}, ${i}, true, ${row.width ?? "null"}, ${row.height ?? "null"}, ${row.bytes ?? "null"})
-  on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, tags = excluded.tags, sort = excluded.sort, visible = true;`);
+  out.push(`insert into media (cloudinary_id, local_path, alt, title, description, category, collection, tags, sort, visible, width, height, bytes)
+  values (${q(rep.public_id)}, ${q("organized/" + row.file)}, ${q(alt)}, ${q(title)}, ${q(row.description)}, ${q(row.parent_cat)}, ${q(row.collection)}, ${j(row.tags ?? [])}, ${i}, true, ${row.width ?? "null"}, ${row.height ?? "null"}, ${row.bytes ?? "null"})
+  on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, collection = excluded.collection, tags = excluded.tags, sort = excluded.sort, visible = true;`);
   n++;
 }
 
-const path = "supabase/migrations/20260928150000_gallery_media.sql";
+const stamp = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14);
+const path = `supabase/migrations/${stamp}_gallery_sync.sql`;
 writeFileSync(path, out.join("\n") + "\n");
 console.log(`wrote ${path} (${n} media rows)`);

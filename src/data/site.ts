@@ -171,10 +171,10 @@ export const VIDEOS: { id: string; title: string }[] = [
 ];
 
 export const NAV_LINKS = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/products", label: "Products" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/identify", label: "Plant Finder" },
-  { to: "/contact", label: "Contact" },
-];
+  { to: "/", label: "Home", key: "home" },
+  { to: "/about", label: "About", key: "about" },
+  { to: "/products", label: "Products", key: "products" },
+  { to: "/gallery", label: "Gallery", key: "gallery" },
+  { to: "/identify", label: "Plant Finder", key: "finder" },
+  { to: "/contact", label: "Contact", key: "contact" },
+] as const;

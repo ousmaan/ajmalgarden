@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CATEGORIES, waLink } from "../data/site";
+import { useLang } from "../i18n/lang";
 import { searchCatalog } from "../lib/search";
 import { track } from "../utils/track";
 import ProductThumb from "./ProductThumb";
@@ -20,6 +21,7 @@ export default function SearchOverlay() {
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const { t } = useLang();
 
   useEffect(() => {
     if (!open) return;
@@ -92,7 +94,7 @@ export default function SearchOverlay() {
           track("search_open", { source: "navbar" });
           setOpen(true);
         }}
-        aria-label="Search plants and collections"
+        aria-label={t("nav.search")}
         className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-leaf-800 transition hover:bg-leaf-100 hover:text-leaf-900"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden className="h-5 w-5">
@@ -102,8 +104,8 @@ export default function SearchOverlay() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Search">
-          <button aria-label="Close search" onClick={() => setOpen(false)} className="absolute inset-0 bg-leaf-950/45 backdrop-blur-[2px]" />
+        <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label={t("search.close_dialog")}>
+          <button aria-label={t("search.close")} onClick={() => setOpen(false)} className="absolute inset-0 bg-leaf-950/45 backdrop-blur-[2px]" />
           <div className="absolute inset-x-0 top-0 max-h-[92dvh] overflow-auto bg-cream shadow-2xl soft-in sm:inset-x-auto sm:left-1/2 sm:top-[10vh] sm:w-[38rem] sm:max-w-[calc(100vw-2rem)] sm:-translate-x-1/2 sm:rounded-3xl sm:ring-1 sm:ring-leaf-100">
             <div className="sticky top-0 border-b border-leaf-100 bg-cream/95 px-4 py-3 backdrop-blur sm:px-5">
               <div className="relative">
@@ -117,7 +119,7 @@ export default function SearchOverlay() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={onInputKey}
-                  placeholder="Search roses, motia, mango, pots…"
+                  placeholder={t("search.placeholder")}
                   autoComplete="off"
                   role="combobox"
                   aria-expanded={flatCount > 0}
@@ -128,7 +130,7 @@ export default function SearchOverlay() {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  aria-label="Close search"
+                  aria-label={t("search.close")}
                   className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-leaf-900 text-white transition hover:bg-leaf-800"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4" aria-hidden>
@@ -141,17 +143,17 @@ export default function SearchOverlay() {
             <div id="search-suggestions" role="listbox" className="px-3 py-3 sm:px-4">
               {debounced.trim().length < 2 && (
                 <p className="px-2 py-4 text-center text-xs leading-relaxed text-leaf-800/50">
-                  Try “rose”, “motia”, “mango” or “bonsai” — plants and collections appear as you type.
+                  {t("search.hint")}
                 </p>
               )}
               {debounced.trim().length >= 2 && flatCount === 0 && (
                 <p className="px-2 py-4 text-center text-sm text-leaf-800/60">
-                  Nothing matched “{debounced.trim()}” — ask us below, we may still have it.
+                  {t("search.none")} “{debounced.trim()}” — {t("search.none_sub")}
                 </p>
               )}
               {results.products.length > 0 && (
                 <>
-                  <p className="px-2 pb-1.5 text-[11px] font-bold uppercase tracking-widest text-leaf-800/45">Plants</p>
+                  <p className="px-2 pb-1.5 text-[11px] font-bold uppercase tracking-widest text-leaf-800/45">{t("search.plants")}</p>
                   {results.products.map((hit, i) => (
                     <button
                       key={`${hit.categoryId}:${hit.product.id}`}
@@ -183,7 +185,7 @@ export default function SearchOverlay() {
               )}
               {results.categories.length > 0 && (
                 <>
-                  <p className="px-2 pb-1.5 pt-3 text-[11px] font-bold uppercase tracking-widest text-leaf-800/45">Collections</p>
+                  <p className="px-2 pb-1.5 pt-3 text-[11px] font-bold uppercase tracking-widest text-leaf-800/45">{t("search.collections")}</p>
                   {results.categories.map((cat, j) => {
                     const idx = results.products.length + j;
                     return (
@@ -206,7 +208,7 @@ export default function SearchOverlay() {
                             {cat.name}
                           </span>
                           <span className={`block truncate text-xs ${active === idx ? "text-white/70" : "text-leaf-800/55"}`}>
-                            Collection
+                            {t("search.collection")}
                           </span>
                         </span>
                         <span aria-hidden className={active === idx ? "text-white/70" : "text-leaf-800/30"}>→</span>
@@ -228,7 +230,7 @@ export default function SearchOverlay() {
                   className={`mt-2 flex w-full items-center gap-2.5 rounded-2xl px-3 py-3 text-sm font-semibold transition ${active === flatCount ? "bg-[#25D366] text-white" : "bg-[#25D366]/10 text-leaf-900 hover:bg-[#25D366]/15"}`}
                 >
                   <WhatsAppIcon className="h-4 w-4 shrink-0 text-[#1da851]" />
-                  Ask on WhatsApp for “{debounced.trim().slice(0, 32)}”
+                  {t("search.ask")} “{debounced.trim().slice(0, 32)}”
                 </a>
               )}
             </div>

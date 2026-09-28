@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { findProduct, relatedProducts } from "../data/catalog";
 import { CATEGORIES, waLink } from "../data/site";
+import { useLang } from "../i18n/lang";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { useWishlist } from "../lib/wishlist";
 import { track } from "../utils/track";
@@ -21,6 +22,7 @@ export default function ProductDetail() {
   const [imageIndex, setImageIndex] = useState(0);
   const [failed, setFailed] = useState(false);
   const wishlist = useWishlist();
+  const { t } = useLang();
 
   const category = CATEGORIES.find((c) => c.id === categoryId);
   usePageMeta(
@@ -46,9 +48,9 @@ export default function ProductDetail() {
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
         <ol className="flex flex-wrap items-center gap-1.5 text-xs text-leaf-800/55">
-          <li><Link to="/" className="hover:text-leaf-900 hover:underline">Home</Link></li>
+          <li><Link to="/" className="hover:text-leaf-900 hover:underline">{t("detail.breadcrumb_home")}</Link></li>
           <li aria-hidden>/</li>
-          <li><Link to="/products" className="hover:text-leaf-900 hover:underline">Collection</Link></li>
+          <li><Link to="/products" className="hover:text-leaf-900 hover:underline">{t("detail.breadcrumb_catalog")}</Link></li>
           <li aria-hidden>/</li>
           <li>
             <Link to={`/products#${category.id}`} className="hover:text-leaf-900 hover:underline">
@@ -74,7 +76,7 @@ export default function ProductDetail() {
                   className="aspect-[4/3] w-full object-cover soft-in"
                 />
               ) : (
-                <img src={category.image} alt={`${product.name} — photo coming soon`} className="aspect-[4/3] w-full object-cover" />
+                <img src={category.image} alt={`${product.name} — ${t("detail.photo_soon")}`} className="aspect-[4/3] w-full object-cover" />
               )}
               {failed && (
                 <span className="absolute left-3 top-3 rounded-full bg-leaf-950/75 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
@@ -130,9 +132,7 @@ export default function ProductDetail() {
             )}
 
             <div className="mt-5 rounded-2xl bg-leaf-50 p-4 text-sm leading-relaxed text-leaf-800/70 ring-1 ring-leaf-100">
-              <span className="font-semibold text-leaf-900">Seasonal stock.</span> What&apos;s on the
-              benches changes through the year — message us and we&apos;ll check today&apos;s
-              availability before you visit.
+              <span className="font-semibold text-leaf-900">{t("detail.seasonal")}</span> {t("detail.seasonal_sub")}
             </div>
 
             {/* Desktop CTAs (mobile uses the sticky bar below) */}
@@ -145,7 +145,7 @@ export default function ProductDetail() {
                 className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#1fb959] active:scale-[0.98]"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-                Ask about availability
+                {t("cta.ask_availability")}
               </a>
               <button
                 type="button"
@@ -159,7 +159,7 @@ export default function ProductDetail() {
                 <svg viewBox="0 0 24 24" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} className="h-4 w-4" aria-hidden>
                   <path d="M12 20.5C7 16.5 3 13.2 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 3.9-4 7.2-9 11.2Z" strokeLinejoin="round" />
                 </svg>
-                {saved ? "Saved to list" : "Save to list"}
+                {saved ? t("cta.saved") : t("cta.save")}
               </button>
             </div>
           </div>
@@ -169,10 +169,10 @@ export default function ProductDetail() {
           <div className="mt-12 sm:mt-16">
             <div className="mb-5 flex items-end justify-between gap-3">
               <h2 className="font-display text-[22px] font-semibold tracking-tight text-leaf-900 sm:text-2xl">
-                You may also like
+                {t("detail.related")}
               </h2>
               <Link to={`/products#${category.id}`} className="shrink-0 text-xs font-semibold text-leaf-800 hover:text-leaf-900 hover:underline">
-                More {category.name} →
+                {t("detail.more")} {category.name} →
               </Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
@@ -200,7 +200,7 @@ export default function ProductDetail() {
               track("wishlist_toggle", { source: `detail-bar-${product.id}` });
             }}
             aria-pressed={saved}
-            aria-label={saved ? "Remove from list" : "Save to list"}
+            aria-label={saved ? t("list.remove") : t("cta.save")}
             className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ring-1 transition active:scale-95 ${saved ? "bg-leaf-900 text-white ring-leaf-900" : "bg-white text-leaf-900 ring-leaf-200"}`}
           >
             <svg viewBox="0 0 24 24" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} className="h-5 w-5" aria-hidden>
@@ -215,7 +215,7 @@ export default function ProductDetail() {
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-semibold text-white shadow-md transition hover:bg-[#1fb959] active:scale-[0.99]"
           >
             <WhatsAppIcon className="h-4 w-4" />
-            Ask about availability
+            {t("cta.ask_availability")}
           </a>
         </div>
       </div>

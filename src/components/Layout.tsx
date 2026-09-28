@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { CONTACT, CONTACTS, HOURS, MAPS_URL, NAV_LINKS, TAGLINE, telLinkFor, waLink } from "../data/site";
 import { PhoneIcon, WhatsAppIcon } from "./CtaButtons";
 import { useWishlist } from "../lib/wishlist";
+import { LangToggle, useLang } from "../i18n/lang";
 import SearchOverlay from "./SearchOverlay";
 import Logo from "./Logo";
 import { SocialIcons } from "./SocialLinks";
@@ -27,6 +28,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const wishlist = useWishlist();
+  const { t } = useLang();
   const location = useLocation();
   const titleRef = useRef<HTMLSpanElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
@@ -171,7 +173,7 @@ function Navbar() {
                     }`
                   }
                 >
-                  {link.label}
+                  {t(`nav.${link.key}`)}
                 </NavLink>
               ))}
             </nav>
@@ -182,6 +184,7 @@ function Navbar() {
               <GetQuoteDropdown />
             </div>
 
+            <LangToggle />
             <SearchOverlay />
             <Link
               to="/wishlist"
@@ -198,10 +201,13 @@ function Navbar() {
               )}
             </Link>
 
+            {/* Mobile-only: `md:hidden` must be unconditional — putting it in a
+                scroll-state ternary made the hamburger appear on desktop the
+                moment the page scrolled. */}
             <button
-              className={`inline-flex h-9 w-9 shrink-0 items-center justify-center text-leaf-800 transition hover:text-leaf-900 ${scrolled ? "ml-1" : "ml-1 md:hidden"}`}
+              className="ml-1 inline-flex h-9 w-9 shrink-0 items-center justify-center text-leaf-800 transition hover:text-leaf-900 md:hidden"
               onClick={() => setOpen((v) => !v)}
-              aria-label="Toggle navigation menu"
+              aria-label={t("nav.menu")}
               aria-expanded={open}
             >
               <svg
@@ -229,10 +235,10 @@ function Navbar() {
           />
           <div className="absolute inset-x-0 top-0 max-h-[92dvh] overflow-auto rounded-b-[28px] bg-cream shadow-2xl soft-in">
             <div className="flex items-center justify-between px-4 py-3">
-              <span className="font-display text-sm font-bold text-leaf-900">Menu</span>
+              <span className="font-display text-sm font-bold text-leaf-900">{t("nav.menu")}</span>
               <button
                 onClick={() => setOpen(false)}
-                aria-label="Close menu"
+                aria-label={t("nav.close")}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-leaf-900 text-white"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
@@ -251,7 +257,7 @@ function Navbar() {
                     }`
                   }
                 >
-                  {link.label}
+                  {t(`nav.${link.key}`)}
                   <span aria-hidden className="text-lg leading-none opacity-60">
                     ›
                   </span>
@@ -259,6 +265,9 @@ function Navbar() {
               ))}
               <div className="mt-4">
                 <GetQuotePanel />
+              </div>
+              <div className="mt-4 flex justify-center">
+                <LangToggle />
               </div>
               <p className="mt-4 px-2 text-center text-xs leading-relaxed text-leaf-800/60">
                 {HOURS} · Call{" "}
@@ -275,6 +284,7 @@ function Navbar() {
 }
 
 function Footer() {
+  const { t } = useLang();
   return (
     <footer className="relative overflow-hidden bg-leaf-950 text-leaf-100">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-marigold/40 to-transparent" />
@@ -354,7 +364,7 @@ function Footer() {
           <nav className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
             {NAV_LINKS.map((l) => (
               <Link key={l.to} to={l.to} className="text-leaf-200/70 hover:text-white">
-                {l.label}
+                {t(`nav.${l.key}`)}
               </Link>
             ))}
           </nav>

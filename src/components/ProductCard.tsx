@@ -4,6 +4,7 @@ import type { CatalogProduct } from "../data/catalog";
 import { waLink } from "../data/site";
 import { track } from "../utils/track";
 import { useWishlist } from "../lib/wishlist";
+import { useLang } from "../i18n/lang";
 import { WhatsAppIcon } from "./CtaButtons";
 
 export default function ProductCard({
@@ -21,6 +22,7 @@ export default function ProductCard({
   const [imageIndex, setImageIndex] = useState(0);
   const [useFallback, setUseFallback] = useState(false);
   const wishlist = useWishlist();
+  const { t } = useLang();
   const saved = wishlist.has(categoryId, product.id);
   const detailTo = `/catalog/${categoryId}/${product.id}`;
   const activeImage = product.images[imageIndex];
@@ -128,7 +130,7 @@ export default function ProductCard({
           className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-leaf-50 px-3.5 py-2 text-xs font-semibold text-leaf-800 ring-1 ring-leaf-100 transition hover:bg-leaf-900 hover:text-white hover:ring-leaf-900"
         >
           <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-          Ask about availability
+          {t("cta.ask_availability")}
           <span aria-hidden className="transition group-hover:translate-x-0.5">
             →
           </span>

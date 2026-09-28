@@ -14,7 +14,9 @@ purchase action resolves to **WhatsApp / Call / Get a Quote**. No cart, no check
 - Body/UI: **Inter** (`font-sans`) — everything else.
 - Locked scale: hero `32px mobile / 56px desktop`, H2 `26/36`, card titles `17/18`.
   No ad-hoc `text-[…]` sizes — extend the scale instead.
-- Urdu (`lang="ur"`): product `nameUr` only for now (names-first i18n). Never let long Urdu strings overflow cards — clamp + ellipsis.
+- Urdu = Latin/Roman Urdu ("hum khush hain"), full-site toggle (EN | URDU pill,
+  `ur-Latn`, persists). Layout stays LTR — no mirroring. Product `nameUr` fields
+  ride along wherever names render.
 
 ## Color roles (not just swatches)
 

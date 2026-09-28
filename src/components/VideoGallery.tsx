@@ -45,10 +45,12 @@ function LiteYouTube({ id, title }: { id: string; title: string }) {
 export default function VideoGallery({
   heading = "See Ajmal Garden Nursery for Yourself",
   subheading = "Don't just take our word for it — independent local vloggers have visited and filmed the nursery. Watch the real rows, real stock and real atmosphere before you visit.",
+  tip = "Tip: tap any video — it plays right here without leaving the page.",
   id,
 }: {
   heading?: string;
   subheading?: string;
+  tip?: string;
   id?: string;
 }) {
   if (VIDEOS.length === 0) return null;
@@ -78,7 +80,7 @@ export default function VideoGallery({
         </div>
 
         <p className="mt-4 text-center text-xs text-leaf-800/50 sm:mt-6">
-          Tip: tap any video — it plays right here without leaving the page.
+          {tip}
         </p>
       </div>
     </section>

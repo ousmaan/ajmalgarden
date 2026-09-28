@@ -1,0 +1,107 @@
+{
+  "AGN-0002": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "croton-curly-red", "product_long": "Curly Red Croton",
+    "description": "Twisted red, yellow and green croton leaves in nursery pots.",
+    "alt": "Curly red and yellow croton foliage at Ajmal Garden Nursery",
+    "tags_add": []
+  },
+  "AGN-0003": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "cordyline-red-purple", "product_long": "Red Purple Cordyline",
+    "description": "Magenta and deep purple cordyline bed, ready for lawns and borders.",
+    "alt": "Red purple cordyline plants in a nursery bed",
+    "tags_add": []
+  },
+  "AGN-0004": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "aglaonema-snow-white", "product_long": "Snow White Aglaonema",
+    "description": "White-variegated Chinese evergreen for bright indoor corners.",
+    "alt": "Snow white variegated aglaonema foliage",
+    "tags_add": []
+  },
+  "AGN-0005": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "dracaena-song-of-india", "product_long": "Song of India Dracaena",
+    "description": "Yellow and green striped dracaena, easy indoor statement plant.",
+    "alt": "Yellow striped Song of India dracaena leaves",
+    "tags_add": []
+  },
+  "AGN-0006": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "croton-gold-dust", "product_long": "Gold-Dust Croton",
+    "description": "Narrow green leaves dusted gold — vivid all-season foliage.",
+    "alt": "Gold dust croton with yellow speckled leaves",
+    "tags_add": []
+  },
+  "AGN-0007": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "dracaena-lemon-lime", "product_long": "Lemon Lime Dracaena",
+    "description": "Broad lime-striped dracaena leaves for homes and offices.",
+    "alt": "Lemon lime striped dracaena foliage",
+    "tags_add": []
+  },
+  "AGN-0009": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "dieffenbachia-variegated", "product_long": "Variegated Dieffenbachia",
+    "description": "Bold green and cream dumb-cane foliage for shaded verandas.",
+    "alt": "Variegated dieffenbachia leaves in nursery pots",
+    "tags_add": []
+  },
+  "AGN-0010": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "philodendron-lemon-lime-pole", "product_long": "Lemon Philodendron on Moss Pole",
+    "description": "Neon lemon philodendron trained on coir poles, with monstera alongside.",
+    "alt": "Lemon lime philodendron climbing moss poles",
+    "tags_add": []
+  },
+  "AGN-0011": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "dracaena-variegated-bed", "product_long": "Variegated Dracaena Bed",
+    "description": "Cream and green variegated dracaena stock in all sizes.",
+    "alt": "Bed of variegated dracaena plants",
+    "tags_add": []
+  },
+  "AGN-0012": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "croton-petra-mix", "product_long": "Petra Croton Mix",
+    "description": "Classic red, orange and green Petra crotons for vivid borders.",
+    "alt": "Mixed red green and orange Petra croton foliage",
+    "tags_add": []
+  },
+  "AGN-0013": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "cordyline-striped", "product_long": "Striped Cordyline",
+    "description": "Cream-striped cordyline with purple new growth for entrances.",
+    "alt": "Cream striped cordyline plants",
+    "tags_add": []
+  },
+  "AGN-0014": {
+    "parent_cat": "outdoor", "collection": "Colourful Foliage Plants",
+    "product_short": "cordyline-pink-ti", "product_long": "Pink Ti Cordyline",
+    "description": "Hot pink Ti leaves over deep maroon rosettes — high-drama foliage.",
+    "alt": "Pink Ti cordyline with maroon rosettes",
+    "tags_add": []
+  },
+  "AGN-0015": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "dracaena-marginata-red", "product_long": "Red-Edged Dracaena",
+    "description": "Narrow red-edged dragon tree leaves, a forgiving indoor classic.",
+    "alt": "Red edged dracaena marginata foliage",
+    "tags_add": []
+  },
+  "AGN-0017": {
+    "parent_cat": "indoor", "collection": "Leafy Indoor Favourites",
+    "product_short": "spider-plant-variegated", "product_long": "Variegated Spider Plants",
+    "description": "Striped spider plants for baskets, table pots and shaded edges.",
+    "alt": "Variegated spider plants in nursery rows",
+    "tags_add": []
+  },
+  "AGN-0018": {
+    "parent_cat": "outdoor", "collection": "Seasonal Bedding",
+    "product_short": "coleus-bed-mix", "product_long": "Coleus Bed Mix",
+    "description": "Pink and green coleus trays for instant seasonal colour.",
+    "alt": "Pink and green coleus bedding plants",
+    "tags_add": []
+  }
+}
