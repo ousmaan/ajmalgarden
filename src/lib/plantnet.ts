@@ -7,15 +7,25 @@
  * reports quota reached (HTTP 429). It keeps the feature working after the
  * daily limit is spent, at the cost of species accuracy.
  *
- * Both keys ship in the browser by design: this site builds to a single static
- * file with no server to proxy through. Pl@ntNet locks its key to authorized
- * origins (the dashboard allowlist). The Gemini key has no origin lock, so it
- * is the more exposed of the two — anyone reading the published source can
- * spend its quota until the key is rotated. Rotate with VITE_GEMINI_API_KEY.
+ * KEY HYGIENE (post Google exposure notice, 2026-09-28): NO key ships as a
+ * hardcoded fallback anymore. Keys come only from env (`VITE_PLANTNET_API_KEY`,
+ * `VITE_GEMINI_API_KEY` — set locally in `.env`, in production via Vercel
+ * Project Settings → Environment Variables + redeploy). A `VITE_*` value is
+ * still public inside the JS bundle by design — env rotation limits damage,
+ * true hiding needs the Supabase Edge Function relay (`supabase/functions/identify`,
+ * plan §11) where the owner-managed secret never reaches the browser.
+ * The Gemini key must be restricted in AI Studio to the Generative Language
+ * API only, so a leaked key can't spend other Google services.
  */
-const PLANTNET_API_KEY =
-  import.meta.env.VITE_PLANTNET_API_KEY ?? "2b10TFPH6eeCZFJxMDeEW1wfQe";
+const PLANTNET_API_KEY = import.meta.env.VITE_PLANTNET_API_KEY ?? "";
 const PLANTNET_ENDPOINT = "https://my-api.plantnet.org/v2/identify/all";
+
+/**
+ * Private relay URL (Supabase Edge Function). When set, the browser sends the
+ * photo HERE and never touches vendor keys — this is the secure path.
+ * Example: https://<ref>.supabase.co/functions/v1/identify
+ */
+const PROXY_URL = import.meta.env.VITE_IDENTIFY_PROXY_URL ?? "";
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY ?? "";
 // 3.6-flash's free quota ran dry on this key (429). 3.1-flash-lite is the
@@ -60,17 +70,24 @@ export interface IdentificationResponse {
   // Only set when source === "gemini". Distinguishes daily quota (429)
   // from domain/key rejection (403) so UI copy stays accurate.
   fallbackReason?: "quota" | "cors";
+  // True when the answer came through the private Supabase relay — i.e. no
+  // vendor key was exposed to do it. Optional so legacy cache entries validate.
+  relayed?: boolean;
 }
 
 export class IdentifyError extends Error {
   constructor(
     message: string,
-    readonly kind: "quota" | "cors" | "image" | "network" | "unknown",
+    readonly kind: "quota" | "cors" | "image" | "network" | "config" | "unknown",
   ) {
     super(message);
     this.name = "IdentifyError";
   }
 }
+
+/** Shown when no key is configured — always keeps the WhatsApp handoff. */
+const NOT_CONFIGURED =
+  "Plant identification isn't set up on this site yet. Please send us the photo on WhatsApp and our team will identify it for you.";
 
 /** Downscale to a sane upload size — faster on mobile, easier on the quota. */
 export async function compressImage(
@@ -157,6 +174,7 @@ async function hash(blob: Blob): Promise<string | null> {
 }
 
 async function identifyWithPlantNet(blob: Blob): Promise<IdentificationResponse> {
+  if (!PLANTNET_API_KEY) throw new IdentifyError(NOT_CONFIGURED, "config");
   const form = new FormData();
   form.append("images", blob, "plant.jpg");
   form.append("organs", "auto");
@@ -244,6 +262,7 @@ const GEMINI_RESPONSE_SCHEMA = {
 };
 
 async function identifyWithGemini(blob: Blob): Promise<IdentificationResponse> {
+  if (!GEMINI_API_KEY) throw new IdentifyError(NOT_CONFIGURED, "config");
   const imageBase64 = await blobToBase64(blob);
   const url = GEMINI_ENDPOINT(GEMINI_MODEL);
 
@@ -390,6 +409,40 @@ async function identifyWithGemini(blob: Blob): Promise<IdentificationResponse> {
   };
 }
 
+// -------- Private relay (secure path: keys never reach the browser) --------
+
+const PROXY_KINDS = new Set(["quota", "cors", "image", "network", "config", "unknown"]);
+
+async function identifyViaProxy(blob: Blob): Promise<IdentificationResponse> {
+  const form = new FormData();
+  form.append("images", blob, "plant.jpg");
+  let res: Response;
+  try {
+    res = await fetch(PROXY_URL, { method: "POST", body: form });
+  } catch {
+    throw new IdentifyError(
+      "Couldn't reach the identification service. Check your connection and try again.",
+      "network",
+    );
+  }
+  let payload: any = null;
+  try {
+    payload = await res.json();
+  } catch {
+    // Non-JSON edge response — treat by status below.
+  }
+  if (!res.ok || payload?.error) {
+    const kind = PROXY_KINDS.has(payload?.kind) ? payload.kind : "unknown";
+    throw new IdentifyError(
+      typeof payload?.error === "string" && payload.error.length > 0
+        ? payload.error
+        : "Identification failed. Please try again.",
+      kind,
+    );
+  }
+  return { ...(payload as IdentificationResponse), relayed: true };
+}
+
 // -------- Orchestration --------
 
 export async function identifyPlant(blob: Blob): Promise<IdentificationResponse> {
@@ -408,6 +461,26 @@ export async function identifyPlant(blob: Blob): Promise<IdentificationResponse>
   }
 
   let data: IdentificationResponse;
+  // Secure path first: the Supabase relay holds the keys server-side.
+  if (PROXY_URL) {
+    try {
+      data = await identifyViaProxy(blob);
+    } catch (proxyErr) {
+      // Relay answered with a real verdict (quota/image/config) — surface it,
+      // don't double-spend by retrying direct. Only a dead relay falls through
+      // to legacy direct keys when they exist.
+      const retryDirect =
+        proxyErr instanceof IdentifyError &&
+        proxyErr.kind === "network" &&
+        (PLANTNET_API_KEY || GEMINI_API_KEY);
+      if (!retryDirect) throw proxyErr;
+      try {
+        data = await identifyWithPlantNet(blob);
+      } catch {
+        data = await identifyWithGemini(blob);
+      }
+    }
+  } else
   try {
     data = await identifyWithPlantNet(blob);
   } catch (primaryErr) {

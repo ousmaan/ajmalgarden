@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { CONTACT, CONTACTS, HOURS, MAPS_URL, NAV_LINKS, TAGLINE, telLinkFor, waLink } from "../data/site";
 import { PhoneIcon, WhatsAppIcon } from "./CtaButtons";
+import { useWishlist } from "../lib/wishlist";
+import SearchOverlay from "./SearchOverlay";
 import Logo from "./Logo";
 import { SocialIcons } from "./SocialLinks";
 import GetQuoteDropdown, { GetQuotePanel } from "./GetQuote";
@@ -24,6 +26,7 @@ function ScrollManager() {
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const wishlist = useWishlist();
   const location = useLocation();
   const titleRef = useRef<HTMLSpanElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
@@ -173,9 +176,27 @@ function Navbar() {
               ))}
             </nav>
 
-            <div className={`hidden md:block transition-all duration-300 ${scrolled ? "pointer-events-none hidden opacity-0" : "opacity-100"}`}>
+            {/* Desktop only (mobile uses the drawer panel): always visible —
+                hiding on scroll was a bug, the quote action must stay put. */}
+            <div className="hidden transition-all duration-300 md:block">
               <GetQuoteDropdown />
             </div>
+
+            <SearchOverlay />
+            <Link
+              to="/wishlist"
+              aria-label={wishlist.count > 0 ? `My plant list, ${wishlist.count} saved` : "My plant list"}
+              className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-leaf-800 transition hover:bg-leaf-100 hover:text-leaf-900"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5" aria-hidden>
+                <path d="M12 20.5C7 16.5 3 13.2 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 3.9-4 7.2-9 11.2Z" strokeLinejoin="round" />
+              </svg>
+              {wishlist.count > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-terra-500 px-1 text-[10px] font-bold leading-none text-white">
+                  {wishlist.count}
+                </span>
+              )}
+            </Link>
 
             <button
               className={`inline-flex h-9 w-9 shrink-0 items-center justify-center text-leaf-800 transition hover:text-leaf-900 ${scrolled ? "ml-1" : "ml-1 md:hidden"}`}

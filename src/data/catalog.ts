@@ -14,8 +14,16 @@ export interface ProductPhoto {
 export interface CatalogProduct {
   id: string;
   name: string;
+  /** Urdu name (plan: names-first i18n). Rendered when present. */
+  nameUr?: string;
   description: string;
   images: ProductPhoto[];
+  /**
+   * Facet tags — NurseryLive-style auto-collections (plan §1). A product with
+   * tags ["winter", "fragrant"] appears in every matching collection without
+   * manual page management. Optional until the owner tags stock via /admin.
+   */
+  tags?: string[];
 }
 
 export interface CatalogGroup {
@@ -367,3 +375,52 @@ export const PRODUCT_CATALOG: CatalogSection[] = [
 
 export const catalogForCategory = (categoryId: string) =>
   PRODUCT_CATALOG.find((section) => section.categoryId === categoryId);
+
+export interface ProductHit {
+  categoryId: string;
+  groupTitle: string;
+  product: CatalogProduct;
+}
+
+/** Flat product list with its home category — feeds search, wishlist, related. */
+export function allProducts(): ProductHit[] {
+  return PRODUCT_CATALOG.flatMap((section) =>
+    section.groups.flatMap((group) =>
+      group.products.map((product) => ({
+        categoryId: section.categoryId,
+        groupTitle: group.title,
+        product,
+      })),
+    ),
+  );
+}
+
+export function findProduct(
+  categoryId: string,
+  productId: string,
+): (ProductHit & { groupDescription: string }) | null {
+  const section = catalogForCategory(categoryId);
+  if (!section) return null;
+  for (const group of section.groups) {
+    const product = group.products.find((p) => p.id === productId);
+    if (product)
+      return { categoryId, groupTitle: group.title, groupDescription: group.description, product };
+  }
+  return null;
+}
+
+/** Same-group neighbours first, then same-category — never the product itself. */
+export function relatedProducts(categoryId: string, productId: string, limit = 3): ProductHit[] {
+  const section = catalogForCategory(categoryId);
+  if (!section) return [];
+  const sameGroup: ProductHit[] = [];
+  const sameCategory: ProductHit[] = [];
+  for (const group of section.groups) {
+    for (const product of group.products) {
+      if (product.id === productId) continue;
+      const hit = { categoryId, groupTitle: group.title, product };
+      (group.products.some((p) => p.id === productId) ? sameGroup : sameCategory).push(hit);
+    }
+  }
+  return [...sameGroup, ...sameCategory].slice(0, limit);
+}

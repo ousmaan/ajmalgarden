@@ -13,13 +13,65 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Favicon matches the nursery logo (white circle, green leaf swoosh, black "A").
-         Once public/images/logo.png is uploaded, browsers will still use this matching mark. -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='white'/><text x='56' y='82' font-family='Georgia' font-size='56' font-weight='bold' text-anchor='middle' fill='%23111'>A</text><path d='M57 13 C34 18 14 35 14 58 C14 79 34 94 71 92' fill='none' stroke='%2357b300' stroke-width='7' stroke-linecap='round'/><ellipse cx='76' cy='23' rx='17' ry='8' fill='%2362d219'/></svg>"
-    />
+    <!-- Favicons: crawlable files (not data-URIs) so Google Search can show the
+         logo next to the result. Square, ≥48px per Search Central guidelines.
+         Regenerate via `node scripts/make-icons.mjs` if the logo changes. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/logo-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/logo-96.png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <title>Ajmal Garden Nursery — Sialkot Since 1958</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ajmal Garden Nursery" />
+    <meta
+      property="og:title"
+      content="Ajmal Garden Nursery — Sialkot Since 1958"
+    />
+    <meta
+      property="og:description"
+      content="One of Sialkot's oldest and largest plant nurseries: indoor & outdoor plants, bonsai, cacti & succulents, trees, palms and gardening supplies. Call or WhatsApp 0300 612 1225."
+    />
+    <meta property="og:image" content="/images/hero-nursery.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ajmal Garden Nursery — Sialkot Since 1958" />
+    <meta
+      name="twitter:description"
+      content="Serving Sialkot since 1958. Indoor & outdoor plants, bonsai, cacti, trees, palms and garden supplies."
+    />
+    <meta name="twitter:image" content="/images/hero-nursery.jpg" />
+    <meta name="theme-color" content="#0f2010" />
+    <!-- LocalBusiness schema: feeds Google's understanding (logo, hours,
+         phone, address) for richer results. Logo MUST be an absolute URL. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "GardenStore",
+        "name": "Ajmal Garden Nursery",
+        "slogan": "Sialkot — Since 1958",
+        "url": "https://www.ajmalgarden.com/",
+        "logo": "https://www.ajmalgarden.com/icons/icon-512.png",
+        "image": "https://www.ajmalgarden.com/images/hero-nursery.jpg",
+        "telephone": "+92 300 6121225",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Shatab Garh Road, near Shahab Poora Road Railway Phatak, Ajmal Garden Colony",
+          "addressLocality": "Sialkot",
+          "addressRegion": "Punjab",
+          "postalCode": "51310",
+          "addressCountry": "PK"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "06:00",
+          "closes": "20:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/ajmalgarden12",
+          "https://www.instagram.com/ajmal_garden_nursery/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

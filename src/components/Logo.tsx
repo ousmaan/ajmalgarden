@@ -1,12 +1,10 @@
-import { useState } from "react";
-
 /**
  * Official nursery logo.
  *
  * HOW TO USE THE REAL LOGO: save the provided logo image as
  *   public/images/logo.png
- * and it will be picked up automatically everywhere (navbar, footer, favicon).
- * Until then, a close vector recreation is shown as a fallback.
+ * and restore the photo attempt in `Logo` below (see its comment).
+ * Until then, the vector mark renders everywhere with zero 404s.
  */
 export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   return (
@@ -65,17 +63,8 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
 }
 
 export default function Logo({ className = "h-10 w-10" }: { className?: string }) {
-  const [missing, setMissing] = useState(false);
-
-  if (!missing) {
-    return (
-      <img
-        src="/images/logo.png"
-        alt="Ajmal Garden Nursery logo"
-        onError={() => setMissing(true)}
-        className={`${className} shrink-0 rounded-full bg-white object-cover`}
-      />
-    );
-  }
+  // Vector-first: avoids a 404 on the missing public/images/logo.png on every
+  // page load. To use a photo logo later, upload it to public/images/logo.png
+  // and restore the <img> attempt here.
   return <LogoMark className={`${className} shrink-0 rounded-full bg-white`} />;
 }

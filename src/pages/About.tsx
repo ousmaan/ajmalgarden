@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CONTACTS, telLinkFor } from "../data/site";
+import { usePageMeta } from "../hooks/usePageMeta";
 import CtaButtons, { PhoneIcon } from "../components/CtaButtons";
 import VideoGallery from "../components/VideoGallery";
 import { FlowerIcon, LeafIcon, SproutIcon } from "../components/icons";
@@ -32,6 +33,10 @@ const SPECIALTIES = [
 ];
 
 export default function About() {
+  usePageMeta(
+    "Our Story Since 1958 — Ajmal Garden Nursery",
+    "Ajmal Garden Nursery has served Sialkot since 1958 with bonsai, cacti, exotics and everyday plants — plus free expert care advice.",
+  );
   return (
     <>
       {/* ---------- PAGE HERO ---------- */}

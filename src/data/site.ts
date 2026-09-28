@@ -1,6 +1,12 @@
 /**
  * Central site data for Ajmal Garden Nursery.
  * Edit here to update contact details, categories or featured videos site-wide.
+ * (Plan: this file is the code-side seed of the Supabase `site_settings` /
+ *  `site_sections` tables the owner-only /admin will edit — same shape, no rework.)
+ *
+ * CTA HIERARCHY (locked): 1. WhatsApp (primary) · 2. Call (secondary) ·
+ * 3. Get a Quote dropdown (tertiary). New CTAs must follow this order and
+ * call `track()` from `utils/track` with a source string.
  */
 
 export const TAGLINE = "Sialkot - Since 1958";
@@ -65,11 +71,19 @@ export const telLinkFor = (contact: ContactPerson) => `tel:${contact.tel}`;
 export interface Category {
   id: string;
   name: string;
+  /** Urdu display name (plan: product-names-first i18n). Optional until translated. */
+  nameUr?: string;
   short: string;
   description: string;
   image: string; // PLACEHOLDER images — swap with real nursery photos when available
   imageAlt: string;
   highlights: string[];
+  /**
+   * Facet tags — the NurseryLive-style auto-collection backbone (plan §1).
+   * Ticking tags on a product/category places it in every matching collection
+   * (e.g. "winter", "fragrant", "balcony") with zero manual page management.
+   */
+  tags?: string[];
 }
 
 export const CATEGORIES: Category[] = [
@@ -160,6 +174,7 @@ export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/products", label: "Products" },
-  { to: "/identify", label: "Identify" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/identify", label: "Plant Finder" },
   { to: "/contact", label: "Contact" },
 ];

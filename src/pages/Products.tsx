@@ -1,19 +1,69 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import { catalogForCategory } from "../data/catalog";
+import { PRODUCT_CATALOG, catalogForCategory } from "../data/catalog";
 import { CATEGORIES, waLink } from "../data/site";
 import { WhatsAppIcon } from "../components/CtaButtons";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export default function Products() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const location = useLocation();
+  // Deep-link safe: Home category cards link to `/products#<id>` — pick it up
+  // on mount so refresh preserves the filter. (We never *write* the hash here:
+  // HashRouter owns it for routing.)
+  const [activeCategory, setActiveCategory] = useState(() => {
+    const fromHash = location.hash.replace("#", "");
+    return CATEGORIES.some((category) => category.id === fromHash) ? fromHash : "all";
+  });
+  // NurseryLive-style instant search (plan §4 step one: local filter over the
+  // static catalog; Fuse index + suggest dropdown arrive with the snapshot).
+  const [query, setQuery] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const visibleCategories = useMemo(
-    () =>
+  usePageMeta(
+    "Plant & Garden Collection — Ajmal Garden Nursery",
+    "Browse flowering plants, indoor plants, trees, bonsai, succulents and garden decor at Ajmal Garden Nursery, Sialkot. Seasonal stock — WhatsApp to check availability.",
+  );
+
+  const q = query.trim().toLowerCase();
+  const productMatches = (p: { name: string; description: string }) =>
+    q.length === 0 ||
+    p.name.toLowerCase().includes(q) ||
+    p.description.toLowerCase().includes(q);
+
+  const visibleCategories = useMemo(() => {
+    const byTab =
       activeCategory === "all"
         ? CATEGORIES
-        : CATEGORIES.filter((category) => category.id === activeCategory),
-    [activeCategory],
+        : CATEGORIES.filter((category) => category.id === activeCategory);
+    if (!q) return byTab;
+    return byTab.filter(
+      (category) =>
+        category.name.toLowerCase().includes(q) ||
+        category.short.toLowerCase().includes(q) ||
+        category.description.toLowerCase().includes(q) ||
+        category.highlights.some((h) => h.toLowerCase().includes(q)) ||
+        (PRODUCT_CATALOG.find((s) => s.categoryId === category.id)?.groups.some((g) =>
+          g.products.some(productMatches),
+        ) ??
+          false),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCategory, q]);
+
+  const matchedProductCount = useMemo(
+    () =>
+      visibleCategories.reduce(
+        (total, category) =>
+          total +
+          (PRODUCT_CATALOG.find((s) => s.categoryId === category.id)?.groups.reduce(
+            (gTotal, g) => gTotal + g.products.filter(productMatches).length,
+            0,
+          ) ?? 0),
+        0,
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [visibleCategories, q],
   );
 
   useEffect(() => {
@@ -22,6 +72,14 @@ export default function Products() {
       if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
     }
   }, [activeCategory]);
+
+  // Same-page hash navigation (e.g. search overlay → another collection while
+  // already on /products): keep the filter in sync without a remount.
+  useEffect(() => {
+    const id = location.hash.replace("#", "");
+    if (CATEGORIES.some((category) => category.id === id)) setActiveCategory(id);
+    else if (id === "") setActiveCategory("all");
+  }, [location.hash]);
 
   return (
     <>
@@ -69,6 +127,7 @@ export default function Products() {
           <button
             type="button"
             onClick={() => setActiveCategory("all")}
+            aria-pressed={activeCategory === "all"}
             className={`shrink-0 snap-start whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all active:scale-[0.98] ${
               activeCategory === "all"
                 ? "bg-leaf-900 text-white shadow-sm"
@@ -82,6 +141,8 @@ export default function Products() {
               key={category.id}
               type="button"
               onClick={() => setActiveCategory(category.id)}
+              aria-pressed={activeCategory === category.id}
+              aria-current={activeCategory === category.id ? "true" : undefined}
               className={`shrink-0 snap-start whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all active:scale-[0.98] ${
                 activeCategory === category.id
                   ? "bg-leaf-900 text-white shadow-sm"
@@ -96,6 +157,81 @@ export default function Products() {
 
       {/* ---------- CATEGORY CATALOG ---------- */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Instant search — filters collections + products as you type. */}
+        <div className="pt-8">
+          <div className="flex flex-col gap-3 rounded-[20px] bg-white p-4 shadow-sm ring-1 ring-leaf-100 sm:flex-row sm:items-center sm:p-5">
+            <label htmlFor="catalog-search" className="sr-only">
+              Search plants and collections
+            </label>
+            <div className="relative flex-1">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                aria-hidden
+                className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-leaf-800/40"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
+              <input
+                id="catalog-search"
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search roses, motia, mango, pots…"
+                autoComplete="off"
+                className="w-full rounded-full border border-leaf-200 bg-cream py-3 pl-11 pr-10 text-sm text-leaf-900 outline-none transition placeholder:text-leaf-800/35 focus:border-leaf-400 focus:bg-white focus:ring-4 focus:ring-leaf-100"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-leaf-800/50 transition hover:bg-leaf-50 hover:text-leaf-900"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4" aria-hidden>
+                    <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+                  </svg>
+                </button>
+              )}
+            </div>
+            <p className="shrink-0 text-xs text-leaf-800/55 sm:text-right" role="status" aria-live="polite">
+              {q ? (
+                <>
+                  <strong className="font-semibold text-leaf-900">{matchedProductCount}</strong> plants
+                  in <strong className="font-semibold text-leaf-900">{visibleCategories.length}</strong>{" "}
+                  collections for “{query.trim()}”
+                </>
+              ) : (
+                "Tip: try “rose”, “motia” or “mango”."
+              )}
+            </p>
+          </div>
+        </div>
+
+        {visibleCategories.length === 0 && (
+          <div className="py-10 text-center sm:py-14">
+            <p className="font-display text-[22px] font-semibold tracking-tight text-leaf-900">
+              Nothing matched “{query.trim()}” — yet.
+            </p>
+            <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-leaf-800/60">
+              Our shelves hold far more than this page lists. Send us the name or a photo and we&apos;ll check
+              today&apos;s stock for you.
+            </p>
+            <a
+              href={waLink(`Assalam-o-Alaikum! I'm looking for "${query.trim()}" at Ajmal Garden Nursery. Do you have it?`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#1fb959] active:scale-[0.98]"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Ask about “{query.trim().slice(0, 24)}”
+            </a>
+          </div>
+        )}
         {visibleCategories.map((category, categoryIndex) => {
           const catalog = catalogForCategory(category.id);
           const isEven = categoryIndex % 2 === 0;
@@ -157,7 +293,10 @@ export default function Products() {
 
               {catalog ? (
                 <div className="mt-8 space-y-10 sm:mt-10">
-                  {catalog.groups.map((group) => (
+                  {catalog.groups.map((group) => {
+                    const items = group.products.filter(productMatches);
+                    if (q && items.length === 0) return null;
+                    return (
                     <div key={group.title}>
                       <div className="mb-5 flex items-start justify-between gap-4 sm:mb-6">
                         <div className="max-w-2xl">
@@ -168,17 +307,19 @@ export default function Products() {
                         </div>
                       </div>
                       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
-                        {group.products.map((product) => (
+                        {items.map((product) => (
                           <ProductCard
                             key={product.id}
                             product={product}
+                            categoryId={category.id}
                             fallbackImage={category.image}
                             categoryName={category.name}
                           />
                         ))}
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ) : (
                 <div className="mt-6 rounded-[20px] bg-leaf-50 p-5 ring-1 ring-leaf-100 sm:mt-8 sm:p-6">

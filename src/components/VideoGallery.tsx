@@ -23,7 +23,7 @@ function LiteYouTube({ id, title }: { id: string; title: string }) {
     >
       <img
         src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
-        alt=""
+        alt={title}
         loading="lazy"
         className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
       />

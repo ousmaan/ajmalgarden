@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { waLink } from "../data/site";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { WhatsAppIcon } from "../components/CtaButtons";
 import { LeafIcon, SproutIcon } from "../components/icons";
 import {
@@ -10,6 +12,7 @@ import {
   MAX_UPLOAD_BYTES,
   type IdentificationResult,
 } from "../lib/plantnet";
+import { findStockMatch } from "../lib/matchPlant";
 
 type Phase = "idle" | "loading" | "results" | "error";
 
@@ -60,6 +63,7 @@ function ResultCard({
   const title = common ?? species.scientificNameWithoutAuthor;
   const showLatinSub = Boolean(common);
   const isBest = rank === 0;
+  const stock = findStockMatch(species.scientificNameWithoutAuthor, species.commonNames ?? []);
   const askMessage = `Assalam-o-Alaikum! I used the plant identifier on your website — it suggested ${species.scientificName}${common ? ` (${common})` : ""}. Do you have this plant at Ajmal Garden Nursery?`;
 
   return (
@@ -107,16 +111,27 @@ function ResultCard({
         </dl>
       </details>
 
+      <div className="mt-4 flex flex-wrap gap-2">
       <a
         href={waLink(askMessage)}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-leaf-50 px-3.5 py-2 text-xs font-semibold text-leaf-800 ring-1 ring-leaf-100 transition hover:bg-leaf-900 hover:text-white hover:ring-leaf-900"
+        className="inline-flex items-center gap-1.5 rounded-full bg-leaf-50 px-3.5 py-2 text-xs font-semibold text-leaf-800 ring-1 ring-leaf-100 transition hover:bg-leaf-900 hover:text-white hover:ring-leaf-900"
       >
         <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
         Ask us about this plant
         <span aria-hidden>→</span>
       </a>
+      {stock && (
+        <Link
+          to={`/catalog/${stock.categoryId}/${stock.product.id}`}
+          className="inline-flex items-center gap-1.5 rounded-full bg-leaf-900 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-leaf-800"
+        >
+          We stock this — view in catalog
+          <span aria-hidden>→</span>
+        </Link>
+      )}
+      </div>
     </article>
   );
 }
@@ -139,9 +154,10 @@ export default function Identify() {
   // newer photo the visitor has since chosen.
   const runId = useRef(0);
 
-  useEffect(() => {
-    document.title = "Identify a Plant — Ajmal Garden Nursery";
-  }, []);
+  usePageMeta(
+    "Plant Finder — Ajmal Garden Nursery",
+    "Snap a photo of a leaf, flower or fruit and our Plant Finder will suggest what it might be — then ask us on WhatsApp if we have it in stock.",
+  );
 
   useEffect(() => {
     return () => {
@@ -241,7 +257,7 @@ export default function Identify() {
         <div className="absolute -bottom-28 -left-20 h-80 w-80 rounded-full bg-terra-500/15 blur-3xl" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
           <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-terra-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-marigold" aria-hidden /> Plant Identifier
+            <span className="h-1.5 w-1.5 rounded-full bg-marigold" aria-hidden /> Plant Finder
           </p>
           <h1 className="mt-3 max-w-2xl font-display text-[28px] font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
             Not sure what your plant is?

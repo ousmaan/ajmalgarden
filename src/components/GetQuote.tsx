@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACTS, HOURS_SHORT, telLinkFor, waLink } from "../data/site";
+import { track } from "../utils/track";
 import { PhoneIcon, WhatsAppIcon } from "./CtaButtons";
 
 export const QUOTE_WA_MESSAGE = "Assalam-o-Alaikum! I'd like to get a quote for some plants at Ajmal Garden Nursery.";
@@ -112,7 +113,12 @@ export default function GetQuoteDropdown({ compact = false }: { compact?: boolea
     <div ref={ref} className="relative">
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setOpen((v) => {
+            if (!v) track("quote_open", { source: "navbar" });
+            return !v;
+          });
+        }}
         aria-expanded={open}
         aria-haspopup="menu"
         className={

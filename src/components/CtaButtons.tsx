@@ -1,4 +1,5 @@
 import { telLink, waLink, CONTACT } from "../data/site";
+import { track } from "../utils/track";
 
 export function PhoneIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -20,32 +21,41 @@ export default function CtaButtons({
   light = false,
   waMessage = "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
   className = "",
+  source = "cta",
 }: {
   light?: boolean;
   waMessage?: string;
   className?: string;
+  /** Funnel source for analytics (e.g. "hero", "about-team"). */
+  source?: string;
 }) {
   return (
     <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${className}`}>
       <a
-        href={telLink}
-        className={`inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[14px] font-semibold shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] ${
-          light ? "bg-white text-leaf-900 hover:bg-leaf-50" : "bg-leaf-800 text-white hover:bg-leaf-900"
-        }`}
-      >
-        <span className={`flex h-7 w-7 items-center justify-center rounded-full ${light ? "bg-leaf-900 text-white" : "bg-white/15 text-white"}`}>
-          <PhoneIcon className="h-3.5 w-3.5" />
-        </span>
-        Call {CONTACT.phoneDisplay}
-      </a>
-      <a
         href={waLink(waMessage)}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => track("whatsapp_click", { source })}
         className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[14px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#1fb959] active:scale-[0.98]"
       >
         <WhatsAppIcon className="h-4 w-4" />
         WhatsApp Us
+      </a>
+      <a
+        href={telLink}
+        onClick={() => track("call_click", { source })}
+        className={`inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[14px] font-semibold transition-all hover:scale-[1.02] active:scale-[0.98] ${
+          light
+            ? "text-white ring-1 ring-white/40 hover:bg-white/10"
+            : "bg-white text-leaf-900 ring-1 ring-leaf-200 hover:bg-leaf-50"
+        }`}
+      >
+        <span
+          className={`flex h-7 w-7 items-center justify-center rounded-full ${light ? "bg-white/15 text-white" : "bg-leaf-900 text-white"}`}
+        >
+          <PhoneIcon className="h-3.5 w-3.5" />
+        </span>
+        Call {CONTACT.phoneDisplay}
       </a>
     </div>
   );

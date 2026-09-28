@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CATEGORIES, CONTACT, waLink } from "../data/site";
+import { usePageMeta } from "../hooks/usePageMeta";
 import CtaButtons from "../components/CtaButtons";
 import VideoGallery from "../components/VideoGallery";
 import { GemIcon, LeafIcon, SproutIcon, TruckIcon } from "../components/icons";
@@ -37,6 +38,10 @@ const WHY_ITEMS = [
 ];
 
 export default function Home() {
+  usePageMeta(
+    "Ajmal Garden Nursery — Sialkot Since 1958",
+    "From humble seeds to premium bonsai and rare exotics — one of Sialkot's oldest, largest and most loved plant nurseries. Visit, call or WhatsApp 0300 612 1225.",
+  );
   return (
     <>
       {/* ---------- HERO ---------- */}

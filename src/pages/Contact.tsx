@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { CONTACT, CONTACTS, HOURS, MAPS_URL, telLinkFor, waLink } from "../data/site";
 import { PhoneIcon, WhatsAppIcon } from "../components/CtaButtons";
+import { track } from "../utils/track";
+import { usePageMeta } from "../hooks/usePageMeta";
 import SocialButtons from "../components/SocialLinks";
 
 const DIRECTIONS = [
@@ -13,11 +15,31 @@ const DIRECTIONS = [
 export default function Contact() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  // Honeypot spam trap — real users never see or fill this.
+  const [company, setCompany] = useState("");
+  const [opening, setOpening] = useState(false);
+
+  usePageMeta(
+    "Contact & Directions — Ajmal Garden Nursery",
+    "Visit Ajmal Garden Nursery on Shatab Garh Road, Sialkot. Open daily 6 AM – 8 PM. Call 0300 612 1225 or WhatsApp for availability.",
+  );
+
+  const trimmed = message.trim();
+  const tooShort = trimmed.length > 0 && trimmed.length < 10;
+  const valid = trimmed.length >= 10 && trimmed.length <= 500;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const text = `Assalam-o-Alaikum! My name is ${name || "(visitor)"}.\n\n${message}`;
+    if (company) return; // bot filled the honeypot — silently ignore
+    if (!valid) return;
+    const cleanName = name.trim();
+    const text = cleanName
+      ? `Assalam-o-Alaikum! My name is ${cleanName}.\n\n${trimmed}`
+      : `Assalam-o-Alaikum!\n\n${trimmed}`;
+    track("contact_submit", { source: "contact-form" });
+    setOpening(true);
     window.open(waLink(text), "_blank", "noopener,noreferrer");
+    window.setTimeout(() => setOpening(false), 4000);
   };
 
   return (
@@ -167,6 +189,17 @@ export default function Contact() {
                 or payment.
               </p>
               <div className="mt-5 space-y-4">
+                {/* Honeypot — hidden from humans, irresistible to bots. */}
+                <input
+                  type="text"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute h-px w-px overflow-hidden opacity-0"
+                  placeholder="Company"
+                />
                 <div>
                   <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-leaf-800">
                     Your Name <span className="font-normal normal-case tracking-normal text-leaf-800/40">— optional</span>
@@ -192,16 +225,27 @@ export default function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="e.g. Do you have jasmine plants in stock? What sizes do you have?"
+                    minLength={10}
+                    maxLength={500}
+                    aria-describedby="message-help"
+                    aria-invalid={tooShort}
                     className="w-full resize-none rounded-2xl border border-leaf-200 bg-cream px-4 py-3 text-sm leading-relaxed text-leaf-900 outline-none transition placeholder:text-leaf-800/35 focus:border-leaf-400 focus:bg-white focus:ring-4 focus:ring-leaf-100"
                   />
-                  <p className="mt-1.5 text-xs text-leaf-800/40">{message.length > 0 ? `${message.length} characters` : "We reply 6 AM – 8 PM daily."}</p>
+                  <p id="message-help" className="mt-1.5 text-xs text-leaf-800/40" aria-live="polite">
+                    {tooShort
+                      ? `A little more detail helps us answer — ${10 - trimmed.length} more characters.`
+                      : trimmed.length > 0
+                        ? `${trimmed.length}/500 characters`
+                        : "Please write at least a sentence — we reply 6 AM – 8 PM daily."}
+                  </p>
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#1fb959] active:scale-[0.98] sm:w-auto"
+                  disabled={!valid || opening}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#1fb959] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
-                  Open in WhatsApp
+                  {opening ? "Opening WhatsApp…" : "Open in WhatsApp"}
                 </button>
               </div>
             </form>
