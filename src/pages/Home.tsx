@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CATEGORIES, CONTACT, waLink } from "../data/site";
+import { cloudinaryUrl } from "../lib/supabase";
 import { useLang } from "../i18n/lang";
 import { usePageMeta } from "../hooks/usePageMeta";
 import CtaButtons from "../components/CtaButtons";
@@ -15,6 +16,24 @@ const WHY_KEYS = [
 ] as const;
 
 const GALLERY_TILES = ["flowering", "indoor", "trees", "bonsai"];
+
+/**
+ * Dev-only guard: a Home tile whose photo isn't in the category it deep-links
+ * into is a broken promise (the tile shows a photo the page it opens omits).
+ * Cheap to check, silent when it breaks otherwise — so check it in dev.
+ */
+if (import.meta.env.DEV) {
+  for (const id of GALLERY_TILES) {
+    const cat = CATEGORIES.find((c) => c.id === id);
+    if (!cat?.galleryPhotoId) {
+      // eslint-disable-next-line no-console
+      console.warn(`[home/gallery] "${id}" has no galleryPhotoId — falls back to placeholder`);
+    } else if (!cat.galleryFilter) {
+      // eslint-disable-next-line no-console
+      console.warn(`[home/gallery] "${id}" has a photo but no galleryFilter — tile won't deep-link`);
+    }
+  }
+}
 
 export default function Home() {
   const { t } = useLang();
@@ -211,16 +230,28 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {GALLERY_TILES.map((id) => {
               const cat = CATEGORIES.find((c) => c.id === id)!;
+              // Real nursery photo when we have one, placeholder only as fallback.
+              const photo = cat.galleryPhotoId;
+              const href = cat.galleryFilter
+                ? `/gallery?cat=${encodeURIComponent(cat.galleryFilter)}`
+                : "/gallery";
               return (
                 <Link
                   key={id}
-                  to="/gallery"
+                  to={href}
                   className="card-lift group relative overflow-hidden rounded-[18px] ring-1 ring-leaf-100 sm:rounded-2xl"
                 >
                   <img
-                    src={cat.image}
+                    src={photo ? cloudinaryUrl(photo, 800) : cat.image}
+                    srcSet={
+                      photo
+                        ? `${cloudinaryUrl(photo, 400)} 400w, ${cloudinaryUrl(photo, 800)} 800w`
+                        : undefined
+                    }
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     alt={cat.imageAlt}
                     loading="lazy"
+                    decoding="async"
                     className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-leaf-950/80 via-transparent to-transparent" />

@@ -15,6 +15,7 @@
  * not uploaded yet stays out of the gallery. Re-runnable: upsert on cloudinary_id.
  */
 import { readFileSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { imageMeta } from "./image-meta.mjs";
 
 const q = (s) => `'${String(s ?? "").replace(/'/g, "''")}'`;
@@ -96,3 +97,12 @@ console.log(`  rows        : ${items.length}`);
 console.log(`  no title    : ${noTitle}${missingCatalog ? `  (${missingCatalog} not in catalog — ADD THEM)` : ""}`);
 console.log(`  no desc     : ${noDesc}`);
 console.log(`  no local    : ${items.filter((r) => !r.name_local).length}`);
+
+// The Home strip links into ?cat= filters — a tile whose photo sits in another
+// category would open a gallery missing its own photo. Fail the sync on that.
+try {
+  execFileSync("node", ["scripts/verify-gallery-tiles.mjs"], { stdio: "inherit" });
+} catch {
+  console.error("\nHome gallery tiles are out of sync with the catalog — see FAILs above.");
+  process.exitCode = 1;
+}

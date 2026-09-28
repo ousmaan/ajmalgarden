@@ -77,6 +77,13 @@ export interface Category {
   description: string;
   image: string; // PLACEHOLDER images — swap with real nursery photos when available
   imageAlt: string;
+  /**
+   * Real Cloudinary photo (AGN-XXXX) for the Home "This Week" strip, plus the
+   * gallery filter it deep-links into. The `image` above is still a placeholder
+   * and is only used by catalog cards; the Home strip prefers this.
+   */
+  galleryPhotoId?: string;
+  galleryFilter?: string;
   highlights: string[];
   /**
    * Facet tags — the NurseryLive-style auto-collection backbone (plan §1).
@@ -95,6 +102,8 @@ export const CATEGORIES: Category[] = [
       "Bring the nursery home. From easy-care money plants and snake plants to lush areca palms and peace lilies, our indoor range suits every corner and every light condition — easy starters for beginners and statement plants for collectors.",
     image: "/images/cat-indoor.jpg", // PLACEHOLDER: indoor plants display
     imageAlt: "Indoor houseplants in clay pots at Ajmal Garden Nursery",
+    galleryPhotoId: "ajmal-garden/AGN-0181",
+    galleryFilter: "Foliage",
     highlights: ["Money plants & pothos", "Snake plants & ZZ plants", "Peace lilies & areca palms", "Low-light friendly picks"],
   },
   {
@@ -115,6 +124,8 @@ export const CATEGORIES: Category[] = [
       "The most colourful corner of the nursery. Roses, marigolds, hibiscus, bougainvillea, jasmine (chambeli) and seasonal flowers fill our benches year-round — perfect for gifting, weddings-season decor or simply making your veranda smile.",
     image: "/images/cat-flowering.jpg", // PLACEHOLDER: flowering plants rows
     imageAlt: "Colourful flowering plants including marigolds and roses",
+    galleryPhotoId: "ajmal-garden/AGN-0041",
+    galleryFilter: "Flowering Plant",
     highlights: ["Desi & hybrid roses", "Jasmine, motia & raat ki rani", "Bougainvillea & hibiscus", "Seasonal flower trays"],
   },
   {
@@ -124,7 +135,11 @@ export const CATEGORIES: Category[] = [
     description:
       "From a single mango sapling for the courtyard to hundreds of ashoka trees for a housing scheme, we stock shade trees, fruit trees and palms in all sizes. Landscapers and bulk buyers are welcome — visit or call to discuss quantities.",
     image: "/images/cat-trees.jpg", // PLACEHOLDER: tree and palm saplings
-    imageAlt: "Young palm and tree saplings standing in rows",
+    imageAlt: "Young mango tree sapling ready for planting at Ajmal Garden Nursery",
+    // Category must match the deep-link filter, or the tile's own photo is
+    // missing from the page it opens. (The palm shot is `Tropical Plant`.)
+    galleryPhotoId: "ajmal-garden/AGN-0179",
+    galleryFilter: "Fruit Tree",
     highlights: ["Ashoka, alstonia & shade trees", "Fruit saplings (mango, citrus, guava)", "Areca, fan & date palms", "Bulk supply for landscapers"],
   },
   {
@@ -134,7 +149,12 @@ export const CATEGORIES: Category[] = [
     description:
       "A specialty few nurseries in Punjab can match. Our bonsai are trained and styled in-house over years, and our exotic shelf carries rare aroids, ornamental ficus and collector plants. Staff will happily guide you on wiring, pruning and care.",
     image: "/images/cat-bonsai.jpg", // PLACEHOLDER: bonsai display table
-    imageAlt: "Mature ficus bonsai in a ceramic pot on a display table",
+    // NOTE: the photo library has no bonsai yet — the Home strip shows a clipped
+    // topiary, the nearest trained specimen we actually shot. Alt text follows
+    // the real photo, not the category name, so we never overclaim in SEO/a11y.
+    imageAlt: "Clipped topiary trees in pots on display at Ajmal Garden Nursery",
+    galleryPhotoId: "ajmal-garden/AGN-0115",
+    galleryFilter: "Ornamental Plants",
     highlights: ["In-house styled ficus bonsai", "Rare & collector plants", "Bonsai pots & tools guidance", "Free care advice with purchase"],
   },
   {
