@@ -96,7 +96,7 @@
   "AGN-0096": { "title": "Red Orange Flowers", "description": "Red and orange flowers in full bloom across the plant.", "category": "Flowering Plant", "collection": "Flowering Plants" },
   "AGN-0097": { "title": "Berry Shrub", "description": "A green shrub carrying berries, good for hedges and borders.", "category": "Shrub", "collection": "Ornamental Plants" },
   "AGN-0098": { "title": "Purple Flowers", "description": "Purple blooms in full flower, a rich colour for borders.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0099": { "title": "Palm Tree", "description": "A tall palm for avenues and grand entrances.", "category": "Tropical Plant", "collection": "Tropical Plants" },
+  "AGN-0099": { "title": "Red Raspberries", "description": "A punnet of ripe red raspberries, picked and ready to eat.", "category": "Fruit Tree", "collection": "Tropical Plants" },
   "AGN-0100": { "title": "Mulberries on the Tree", "description": "Ripe mulberries hanging in clusters, sweet and ready to pick.", "category": "Fruit Tree", "collection": "Tropical Plants" },
   "AGN-0101": { "title": "Blackberries in a Bowl", "description": "A bowl of freshly picked blackberries from our own canes.", "category": "Fruit Tree", "collection": "Tropical Plants" },
   "AGN-0102": { "title": "Pomegranates", "description": "Ripe pomegranates with deep red arils, a winter favourite.", "category": "Fruit Tree", "collection": "Tropical Plants" },
@@ -174,9 +174,9 @@
   "AGN-0176": { "title": "Jasmine Vine", "description": "A fragrant jasmine vine for walls, arches and pergolas.", "category": "Flowering Climber", "collection": "Flowering Plants" },
   "AGN-0177": { "title": "Passion Flower Vine", "description": "A passion flower vine with striking exotic blooms on a trellis.", "category": "Flowering Climber", "collection": "Flowering Plants" },
   "AGN-0178": { "title": "Citrus Tree", "description": "A citrus tree in fruit — a reliable home-garden performer.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0179": { "title": "Mango Tree", "description": "A healthy young mango tree, grafted and ready for planting.", "category": "Fruit Tree", "collection": "Tropical Plants" },
+  "AGN-0179": { "title": "Seedling Rows in the Nursery", "description": "Thousands of young seedlings in trays, hardening off in our propagation yard.", "category": "Nursery", "collection": "Garden Decor" },
   "AGN-0180": { "title": "Guava Tree", "description": "A guava tree in fruit, easy to grow in Sialkot conditions.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0181": { "title": "Indoor Plant Collection", "description": "Our indoor plant collection, ready for shaded corners at home.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
+  "AGN-0181": { "title": "Stone Urn Planters", "description": "Carved stone urn planters with fluted columns, stacked in the yard.", "category": "Planters & Pots", "collection": "Garden Decor" },
   "AGN-0182": { "title": "Snake Plant", "description": "The near-indestructible snake plant for offices and dark rooms.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
   "AGN-0183": { "title": "ZZ Plant", "description": "Glossy ZZ plant foliage — thrives on neglect and low light.", "category": "Foliage", "collection": "Leafy Indoor Favourites" }
 }

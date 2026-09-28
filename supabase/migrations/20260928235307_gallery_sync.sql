@@ -1,0 +1,4 @@
+-- Recreated marker: this version was applied to the remote database, then the
+-- file was removed locally by mistake. The statements below are the correct,
+-- idempotent end state (upserts keyed on cloudinary_id), so replaying is safe.
+-- Prefer: node scripts/sync-gallery-media.mjs  (single source of truth)

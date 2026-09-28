@@ -235,6 +235,7 @@ export default function Home() {
               const href = cat.galleryFilter
                 ? `/gallery?cat=${encodeURIComponent(cat.galleryFilter)}`
                 : "/gallery";
+              // No galleryPhotoId = placeholder. See the note on Category.
               return (
                 <Link
                   key={id}

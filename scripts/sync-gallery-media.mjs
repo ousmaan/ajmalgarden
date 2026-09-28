@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { imageMeta } from "./image-meta.mjs";
+import { VERIFIED } from "./mark-verified.mjs";
 
 const q = (s) => `'${String(s ?? "").replace(/'/g, "''")}'`;
 const j = (v) => `'${JSON.stringify(v).replace(/'/g, "''")}'::jsonb`;
@@ -35,7 +36,16 @@ let missingCatalog = 0;
 
 for (const [id, meta] of Object.entries(catalog)) {
   if (!report[id]) continue; // not uploaded yet → stays out of the gallery
-  items.push({ id, sort: items.length, ...meta, name_local: localNames[id] ?? "" });
+  items.push({
+    id,
+    sort: items.length,
+    ...meta,
+    name_local: localNames[id] ?? "",
+    // A title nobody has looked at is worse than no title: customers order
+    // from it. Unverified rows stay uploaded but invisible until confirmed.
+    verified: VERIFIED.has(id),
+    visible: VERIFIED.has(id),
+  });
 }
 
 for (const [id, rep] of Object.entries(report)) {
@@ -49,6 +59,8 @@ for (const [id, rep] of Object.entries(report)) {
     category: "",
     collection: "",
     name_local: "",
+    verified: false,
+    visible: false,
   });
 }
 
@@ -81,8 +93,8 @@ for (const row of items) {
   const alt = row.alt || row.description || title || row.id;
   out.push(
     `insert into media (cloudinary_id, local_path, alt, title, description, category, collection, name_local, tags, sort, visible, width, height, bytes)
-  values (${q(rep.public_id)}, ${q("organized/" + row.file)}, ${q(alt)}, ${q(title)}, ${q(row.description)}, ${q(row.category)}, ${q(row.collection)}, ${q(row.name_local)}, ${j(row.tags ?? [])}, ${row.sort}, true, ${row.width ?? "null"}, ${row.height ?? "null"}, ${row.bytes ?? "null"})
-  on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, collection = excluded.collection, name_local = excluded.name_local, tags = excluded.tags, sort = excluded.sort, visible = true, width = excluded.width, height = excluded.height, bytes = excluded.bytes;`,
+  values (${q(rep.public_id)}, ${q("organized/" + row.file)}, ${q(alt)}, ${q(title)}, ${q(row.description)}, ${q(row.category)}, ${q(row.collection)}, ${q(row.name_local)}, ${j(row.tags ?? [])}, ${row.sort}, ${row.visible}, ${row.width ?? "null"}, ${row.height ?? "null"}, ${row.bytes ?? "null"})
+  on conflict (cloudinary_id) do update set alt = excluded.alt, title = excluded.title, description = excluded.description, category = excluded.category, collection = excluded.collection, name_local = excluded.name_local, tags = excluded.tags, sort = excluded.sort, visible = excluded.visible, width = excluded.width, height = excluded.height, bytes = excluded.bytes;`,
   );
 }
 
@@ -92,11 +104,14 @@ writeFileSync(path, out.join("\n") + "\n");
 
 const noTitle = items.filter((r) => !r.title || r.title === r.id).length;
 const noDesc = items.filter((r) => !r.description).length;
+const withheld = items.filter((r) => !r.visible).length;
 console.log(`wrote ${path}`);
-console.log(`  rows        : ${items.length}`);
-console.log(`  no title    : ${noTitle}${missingCatalog ? `  (${missingCatalog} not in catalog — ADD THEM)` : ""}`);
-console.log(`  no desc     : ${noDesc}`);
-console.log(`  no local    : ${items.filter((r) => !r.name_local).length}`);
+console.log(`  rows          : ${items.length}`);
+console.log(`  published     : ${items.length - withheld}`);
+console.log(`  WITHHELD      : ${withheld}  (unverified — never show an unchecked name)`);
+console.log(`  no title      : ${noTitle}${missingCatalog ? `  (${missingCatalog} not in catalog — ADD THEM)` : ""}`);
+console.log(`  no desc       : ${noDesc}`);
+console.log(`  no local      : ${items.filter((r) => !r.name_local).length}`);
 
 // The Home strip links into ?cat= filters — a tile whose photo sits in another
 // category would open a gallery missing its own photo. Fail the sync on that.
