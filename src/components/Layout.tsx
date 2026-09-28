@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { CONTACT, CONTACTS, HOURS, MAPS_URL, NAV_LINKS, TAGLINE, telLinkFor, waLink } from "../data/site";
+import { FEATURES } from "../config";
 import { PhoneIcon, WhatsAppIcon } from "./CtaButtons";
 import { useWishlist } from "../lib/wishlist";
 import { LangToggle, useLang } from "../i18n/lang";
@@ -184,7 +185,7 @@ function Navbar() {
               <GetQuoteDropdown />
             </div>
 
-            <LangToggle />
+            {FEATURES.showLangToggle && <LangToggle />}
             <SearchOverlay />
             <Link
               to="/wishlist"
@@ -266,9 +267,11 @@ function Navbar() {
               <div className="mt-4">
                 <GetQuotePanel />
               </div>
-              <div className="mt-4 flex justify-center">
-                <LangToggle />
-              </div>
+              {FEATURES.showLangToggle && (
+                <div className="mt-4 flex justify-center">
+                  <LangToggle />
+                </div>
+              )}
               <p className="mt-4 px-2 text-center text-xs leading-relaxed text-leaf-800/60">
                 {HOURS} · Call{" "}
                 <a href={telLinkFor(CONTACTS[0])} className="font-semibold text-leaf-800 underline decoration-leaf-200 underline-offset-2">

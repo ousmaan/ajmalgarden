@@ -26,6 +26,8 @@ export interface GalleryRow {
   category: string;
   /** Real product collection from the tagging pass (may be empty → "Nursery"). */
   collection: string;
+  /** Local/Pakistani common name — what customers ask for (Rose → Ghulab). */
+  name_local: string;
   tags: string[];
   sort: number;
   visible: boolean;
@@ -39,7 +41,7 @@ export async function fetchGallery(): Promise<GalleryRow[]> {
   if (!db) return [];
   const { data, error } = await db
     .from("media")
-    .select("id,cloudinary_id,local_path,alt,title,description,category,collection,tags,sort,visible,width,height")
+    .select("id,cloudinary_id,local_path,alt,title,description,category,collection,name_local,tags,sort,visible,width,height")
     .eq("visible", true)
     .order("sort", { ascending: true })
     .order("created_at", { ascending: true })

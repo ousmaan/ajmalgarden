@@ -26,6 +26,7 @@
 - ✅ Quote Builder functional spec filed (`.opencode/plan/quote-builder-spec.md`) — visual-agnostic, skinned only in the winning Track 1 world
 - 🟡 Track 1 direction brief drafted (`.opencode/plan/redesign-brief.md`) — clean-slate world, modes per surface, anti-default review; AWAITING owner decisions (photo style, Urdu scope, surface order, reviews)
 - ✅ UI skill group (local, `.agents/skills/`): `impeccable` + `frontend-design` + `ui-ux-pro-max` (`search.py` smoke-tested) + custom `ajmal-ui` orchestrator + root `DESIGN.md`. NOTE: `ui.sh` unverified — needs owner URL.
+- ✅ Language toggle disabled at owner request — `FEATURES.showLangToggle = false` gates both navbar + drawer mounts; i18n layer and all `t()` calls retained so re-enable = flip one boolean
 - ✅ Navbar hamburger leaked onto desktop on scroll — `md:hidden` was inside a scroll-state ternary, so scrolling dropped it; now unconditional with a comment
 - ✅ Hero Plant Finder card fixed — white `.glass` on white text was unreadable; rebuilt as dark scrim pill (`bg-leaf-950/45` + blur + hairline border + marigold icon/chevron), verified in bundle
 - ✅ Bilingual EN | Latin-Urdu toggle (Roman Urdu, `ur-Latn`, LTR — no mirroring): navbar, search overlay, CTAs, Home (new hero + gallery strip + finder band), Products (hero, search, chips, sidebar, sort, empty/bottom states), ProductDetail, Wishlist, ProductCard; ~100 keys in `src/i18n/`

@@ -59,10 +59,15 @@ function Tile({
         />
       )}
       {(row.title || row.description) && (
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/85 via-leaf-950/35 to-transparent px-3.5 pb-3 pt-10 text-left">
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/88 via-leaf-950/40 to-transparent px-3.5 pb-3 pt-10 text-left">
           {row.title && (
             <span className="block font-display text-[15px] font-semibold leading-snug text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]">
               {row.title}
+            </span>
+          )}
+          {row.name_local && (
+            <span className="mt-0.5 block text-[11px] font-semibold uppercase tracking-[0.08em] text-marigold/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.45)]">
+              {row.name_local}
             </span>
           )}
           {row.description && (
@@ -147,7 +152,7 @@ export default function Gallery() {
       if (filter !== "all" && (r.category || "Nursery") !== filter) return false;
       if (activeTag && !(r.tags ?? []).includes(activeTag)) return false;
       if (!q) return true;
-      return [r.title, r.description, r.alt, r.category, r.collection, ...(r.tags ?? [])]
+      return [r.title, r.name_local, r.description, r.alt, r.category, r.collection, ...(r.tags ?? [])]
         .join(" ")
         .toLowerCase()
         .includes(q);
@@ -435,6 +440,11 @@ export default function Gallery() {
                 <span className="block truncate font-display text-base font-semibold text-white">
                   {current.title || "From our benches"}
                 </span>
+                {current.name_local && (
+                  <span className="mt-0.5 block text-xs font-semibold uppercase tracking-[0.1em] text-marigold">
+                    {current.name_local}
+                  </span>
+                )}
                 {current.description && (
                   <span className="mt-0.5 line-clamp-2 block text-xs leading-relaxed text-leaf-200/70">
                     {current.description}
@@ -470,7 +480,7 @@ export default function Gallery() {
                   </svg>
                 </a>
                 <a
-                  href={waLink(`Assalam-o-Alaikum! I saw this photo in your gallery${current.title ? ` ("${current.title}")` : ""} — do you have this plant?`)}
+                  href={waLink(`Assalam-o-Alaikum! I saw this photo in your gallery${current.title ? ` ("${current.title}"${current.name_local ? ` / ${current.name_local}` : ""})` : ""} — do you have this plant?`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track("whatsapp_click", { source: "gallery-lightbox" })}
