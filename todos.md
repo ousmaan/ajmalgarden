@@ -6,48 +6,66 @@
 
 ---
 
-## 🔴 TOMORROW (Wed 2026-09-30) — Verify 118 photo name plates
+## ✅ Photo verification pass (completed 2026-09-30)
 
-**The single highest-priority task.** A wrong name plate costs a customer and
-our credibility; a missing one costs only a listing.
+**The problem it fixed:** the gallery catalog claimed 180/180 complete while
+only ~32 photos had actually been opened. The rest were plausible-sounding
+guesses. Proof: **AGN-0099 shipped as "Palm Tree / Khajoor" — the photo is a
+punnet of red raspberries.** Wrong error rate: of the 28 photos in one batch,
+every guessed title was wrong (0167 "Plastic Nursery Pots" = a red rose, 0095
+"Large Tropical Leaves" = a giant jackfruit, 0115 "Concrete Planters" = rows
+of topiary).
 
-**What went wrong (2026-09-29):** the gallery catalog claimed 180/180 complete
-but only ~32 photos had actually been opened and looked at. The other ~118
-titles/descriptions/categories were plausible-sounding guesses. Proof:
-**AGN-0099 was published as "Palm Tree / Khajoor" — the photo is a punnet of red
-raspberries.** Three more confirmed wrong: AGN-0179 (seedling rows, not a mango
-tree) and AGN-0181 (stone urns, not indoor plants) were viewed but mis-titled.
+**Outcome:** all 180 photos opened and identified. 158 published with correct
+name plates, 22 archived, 0 outstanding.
 
-**Current state:** 62 verified photos live · 118 unverified withheld
-(`visible = false`, uploaded but not public). Nothing guessed is in public.
+### What the pass actually found
 
-**Task:** open each withheld photo, identify it by eye, write the name plate
-from what is actually in the frame, then publish.
+- **Topiary is a major part of the nursery** (AGN-0115–0124, ~10 photos of
+  standards, lattice-wrapped trunks and overhead views). It was invisible
+  behind fabricated "concrete planter" labels. The Home strip and a future
+  Bonsai/topiary collection should build on it.
+- **A genuinely great asset:** AGN-0101 is a mulberry harvest shot with the
+  Ajmal Garden Nursery farm card in frame. Free credibility — consider using it
+  as a hero or About image.
+- **Shade-house rows** (0106, 0114, 0120, 0121, 0123) show real scale and are
+  the honest answer to "what does 68 years of stock look like".
 
-- [ ] Read the 118 withheld IDs (list printed by `node scripts/mark-verified.mjs`)
-- [ ] Rewrite each title/description/category/**local name** from observation
-- [ ] `node scripts/mark-verified.mjs AGN-XXXX …` as each batch is confirmed
-- [ ] `node scripts/sync-gallery-media.mjs` then `supabase db push --linked`
-- [ ] Confirm 180/180 published with no `WITHHELD` count in the sync output
-- [ ] Re-wire the Home "This Week" tiles to real photos (currently placeholders)
-      — only 1 of 4 was verified as matching its label, so it was reverted
-- [ ] Shoot a real **bonsai** photo — the library has none; tile 4 borrowed a
-      topiary and the alt text had to be rewritten to stop overclaiming
+### Archived (22) — moved to `ext-src/trash/archived/`, reversible
 
-**Rules for this pass — do not repeat 2026-09-29:**
-1. Never write a name plate for a photo you have not opened in this session.
-2. A guess is worse than a blank. If unsure, leave the title empty and flag it.
-3. The "RED RASPBERRY" style burned-in labels are retail stock photos — note
-   them, and consider whether stock fruit images belong on a nursery site at all.
-4. Re-derive `photo-catalog-local.json` from the same observation, not from the
-   English title (that is how "Palm Tree" became "Khajoor" for a raspberry).
+- AGN-0087/0088/0094, 0102 — reposted social-media screenshots, Google Photos
+  icon overlays, reference shots
+- AGN-0099/0100/0103/0104 — retail stock fruit, burned-in labels, indoor/hobby
+  backgrounds
+- AGN-0044/0047–0050/0054–0056/0060 — landscaped street and park trees
+- AGN-0105 — unidentified fruit on a wild tree
+- AGN-0160 — a selfie of three people, no plant in frame
+- AGN-0161 — third-party "Agro Dhaan" brand burned into the pots
+- AGN-0162 — two identifiable staff faces published without consent
+- AGN-0183 — near-duplicate of AGN-0182
 
-**Guardrail that now exists:** `scripts/mark-verified.mjs` holds the audit trail
-of photos actually viewed; `sync-gallery-media.mjs` sets `visible = false` for
-anything not on it, so an unverified photo can never ship. Note that
-`verify-gallery-tiles.mjs` only checks catalog-internal consistency (photo's
-category vs the filter it links to) — it cannot see whether a photo matches its
-title, which is exactly the gap that caused this.
+### Policy settled
+
+- **Phone watermarks ("Galaxy A73" / "S24 Ultra") are an accepted mobile
+  signature, not a defect** (owner, 2026-09-30). No cropping. Recorded once in
+  `photo-catalog.json` `_policy`, not repeated per row.
+- **Still flagged per photo:** third-party branding, identifiable faces without
+  consent, duplicates, and crops that cut a subject badly. Those get archived
+  or noted, never silently published.
+
+### Guardrails so it cannot regress
+
+- `scripts/apply-observations.mjs` — writes name plates only from an
+  observation record. An empty title is accepted but leaves the photo
+  unpublished, so "I looked and I don't know" never becomes a name plate.
+- `scripts/archive-photos.mjs` — moves files to trash and records the reason.
+- `scripts/mark-verified.mjs` — derives the verdict from the catalog, not a
+  hand-typed ID list, and reports archived / not-our-stock / to-check separately.
+  Ignores `_`-prefixed documentation keys.
+- `scripts/verify-gallery-tiles.mjs` — runs inside the sync and fails it if a
+  Home tile's photo is uncatalogued, unuploaded, or in a different category than
+  it links to. Note: it checks catalog-internal consistency only; it cannot see
+  whether a photo matches its title. Observation is the only real safeguard.
 
 ---
 

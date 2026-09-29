@@ -31,24 +31,27 @@ const OWNER_BATCHED = new Set([
 ]);
 
 const catalog = () => JSON.parse(readFileSync(CATALOG, "utf8"));
+/** Photo rows only — keys starting with "_" are documentation, not photos. */
+const photoEntries = (c) => Object.entries(c).filter(([id]) => !id.startsWith("_"));
+
 
 /** Photographed and identified by eye. */
 const OBSERVED = new Set(
-  Object.entries(catalog())
+  photoEntries(catalog())
     .filter(([, r]) => r.__observed === true)
     .map(([id]) => id),
 );
 
 /** Identified, but not our stock to sell. */
 const NOT_OUR_STOCK = new Set(
-  Object.entries(catalog())
+  photoEntries(catalog())
     .filter(([, r]) => r.is_our_stock === false)
     .map(([id]) => id),
 );
 
 /** Removed from the site entirely (see scripts/archive-list.json). */
 const ARCHIVED = new Set(
-  Object.entries(catalog())
+  photoEntries(catalog())
     .filter(([, r]) => r.archived === true)
     .map(([id]) => id),
 );
@@ -65,7 +68,7 @@ export { ARCHIVED };
 // Run directly (`node scripts/mark-verified.mjs`) to print coverage.
 if (process.argv[1] && process.argv[1].endsWith("mark-verified.mjs")) {
   const c = catalog();
-  const ids = Object.keys(c);
+  const ids = photoEntries(c).map(([id]) => id);
   const pending = ids.filter((id) => !VERIFIED.has(id) && !ARCHIVED.has(id));
   const ours = ids.filter((id) => NOT_OUR_STOCK.has(id));
 

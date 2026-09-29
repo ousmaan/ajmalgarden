@@ -104,7 +104,9 @@ export const CATEGORIES: Category[] = [
     description:
       "Bring the nursery home. From easy-care money plants and snake plants to lush areca palms and peace lilies, our indoor range suits every corner and every light condition — easy starters for beginners and statement plants for collectors.",
     image: "/images/cat-indoor.jpg", // PLACEHOLDER: indoor plants display
-    imageAlt: "Indoor houseplants in clay pots at Ajmal Garden Nursery",
+    imageAlt: "Green peace lilies in nursery pots with dewy leaves",
+    galleryPhotoId: "ajmal-garden/AGN-0129",
+    galleryFilter: "Foliage",
     highlights: ["Money plants & pothos", "Snake plants & ZZ plants", "Peace lilies & areca palms", "Low-light friendly picks"],
   },
   {
@@ -124,7 +126,9 @@ export const CATEGORIES: Category[] = [
     description:
       "The most colourful corner of the nursery. Roses, marigolds, hibiscus, bougainvillea, jasmine (chambeli) and seasonal flowers fill our benches year-round — perfect for gifting, weddings-season decor or simply making your veranda smile.",
     image: "/images/cat-flowering.jpg", // PLACEHOLDER: flowering plants rows
-    imageAlt: "Colourful flowering plants including marigolds and roses",
+    imageAlt: "A wide bed of orange marigolds in full bloom at Ajmal Garden Nursery",
+    galleryPhotoId: "ajmal-garden/AGN-0041",
+    galleryFilter: "Flowering Plant",
     highlights: ["Desi & hybrid roses", "Jasmine, motia & raat ki rani", "Bougainvillea & hibiscus", "Seasonal flower trays"],
   },
   {
@@ -134,7 +138,9 @@ export const CATEGORIES: Category[] = [
     description:
       "From a single mango sapling for the courtyard to hundreds of ashoka trees for a housing scheme, we stock shade trees, fruit trees and palms in all sizes. Landscapers and bulk buyers are welcome — visit or call to discuss quantities.",
     image: "/images/cat-trees.jpg", // PLACEHOLDER: tree and palm saplings
-    imageAlt: "Young palm and tree saplings standing in rows",
+    imageAlt: "Dense Areca palm seedlings in black nursery bags at Ajmal Garden Nursery",
+    galleryPhotoId: "ajmal-garden/AGN-0139",
+    galleryFilter: "Foliage",
     highlights: ["Ashoka, alstonia & shade trees", "Fruit saplings (mango, citrus, guava)", "Areca, fan & date palms", "Bulk supply for landscapers"],
   },
   {
@@ -144,7 +150,9 @@ export const CATEGORIES: Category[] = [
     description:
       "A specialty few nurseries in Punjab can match. Our bonsai are trained and styled in-house over years, and our exotic shelf carries rare aroids, ornamental ficus and collector plants. Staff will happily guide you on wiring, pruning and care.",
     image: "/images/cat-bonsai.jpg", // PLACEHOLDER: bonsai display table
-    imageAlt: "Mature ficus bonsai in a ceramic pot on a display table",
+    imageAlt: "Large paddle-leaved Bird of Paradise in pots, a strong statement for lawns",
+    galleryPhotoId: "ajmal-garden/AGN-0155",
+    galleryFilter: "Tropical Plant",
     highlights: ["In-house styled ficus bonsai", "Rare & collector plants", "Bonsai pots & tools guidance", "Free care advice with purchase"],
   },
   {

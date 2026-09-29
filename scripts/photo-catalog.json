@@ -1,4 +1,5 @@
 {
+  "_policy": "Phone watermarks (Galaxy A73/S24 Ultra) are an accepted mobile signature, not a defect — decided by the owner 2026-09-30. Cropping is out of scope. Photos with third-party branding in frame, identifiable faces without consent, or duplicates are archived instead (see scripts/archive-list*.json).",
   "AGN-0001": {
     "title": "Pink Ti Cordyline",
     "description": "Hot pink Ti leaves over deep maroon rosettes — high-drama foliage for borders.",
@@ -476,7 +477,7 @@
     "description": "A large copper-finish goblet planter on a flared pedestal, for entrance planting.",
     "category": "Planters & Pots",
     "collection": "Garden Decor",
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "is_our_stock": true,
     "__observed": true
   },
@@ -485,7 +486,7 @@
     "description": "Three copper ribbed planters, nested and shrink-wrapped for delivery.",
     "category": "Planters & Pots",
     "collection": "Garden Decor",
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "is_our_stock": true,
     "__observed": true
   },
@@ -502,7 +503,7 @@
     "description": "A tall copper planter with a wavy woodgrain texture and plastic liner.",
     "category": "Planters & Pots",
     "collection": "Garden Decor",
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "is_our_stock": true,
     "__observed": true
   },
@@ -544,7 +545,7 @@
     "category": "Planters & Pots",
     "collection": "Garden Decor",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0075": {
@@ -618,7 +619,7 @@
     "category": "Planters & Pots",
     "collection": "Garden Decor",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0084": {
@@ -776,244 +777,349 @@
     "archive_reason": "Retail/stock fruit image with a camera-app icon overlay — not our stock"
   },
   "AGN-0101": {
-    "title": "Blackberries in a Bowl",
-    "description": "A bowl of freshly picked blackberries from our own canes.",
+    "title": "Fresh Mulberry Harvest",
+    "description": "Ripe dark mulberries in a tub, photographed with our nursery farm card.",
     "category": "Fruit Tree",
-    "collection": "Tropical Plants"
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "note": "Harvested fruit in a tub rather than a live plant; handwritten Urdu notes visible",
+    "__observed": true
   },
   "AGN-0102": {
-    "title": "Pomegranates",
-    "description": "Ripe pomegranates with deep red arils, a winter favourite.",
+    "title": "Ripe Pomegranates on Tree",
+    "description": "Red pomegranates ripening on the branch outdoors.",
     "category": "Fruit Tree",
-    "collection": "Tropical Plants"
+    "collection": "Tropical Plants",
+    "note": "Google Photos camera-icon overlay — reference photo, not our stock",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Google Photos camera-icon overlay — reference photo, not a photo of our benches"
   },
   "AGN-0103": {
-    "title": "Cherry Plum on Branch",
-    "description": "Cherry plums ripening on the branch.",
+    "title": "Red Cherry on Branch",
+    "description": "One ripe red cherry held up on its branch.",
     "category": "Fruit Tree",
-    "collection": "Tropical Plants"
+    "collection": "Tropical Plants",
+    "note": "Reference photo with hand in frame; could be plum or cherry, species not certain",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Reference photo with a hand in frame; could be plum or cherry, species not certain"
   },
   "AGN-0104": {
-    "title": "Red Mango",
-    "description": "A red mango at peak ripeness, fragrant and ready to eat.",
+    "title": "Ripe Red Mango",
+    "description": "A single ripe red mango held in the hand.",
     "category": "Fruit Tree",
-    "collection": "Tropical Plants"
+    "collection": "Tropical Plants",
+    "note": "Indoor floor background, not a nursery scene",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Indoor floor background with a hand in frame, not a nursery scene"
   },
   "AGN-0105": {
     "title": "Buddha's Hand Citron",
     "description": "Buddha's hand citron — a fragrant citrus with finger-like segments.",
     "category": "Fruit Tree",
-    "collection": "Tropical Plants"
+    "collection": "Tropical Plants",
+    "note": "A green ribbed pod-like fruit on a tree in dry grass; could not identify the species with confidence",
+    "archived": true,
+    "archive_reason": "Unidentified green ribbed fruit on a wild tree in dry grass — species could not be determined",
+    "is_our_stock": false
   },
   "AGN-0106": {
-    "title": "Greenhouse Seedlings",
-    "description": "Rows of seedlings under shade net in our propagation greenhouse.",
+    "title": "Shade House Seedling Rows",
+    "description": "Rows of young potted seedlings growing under nursery shade net.",
     "category": "Nursery",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Handwritten plant labels present but not legible",
+    "__observed": true
   },
   "AGN-0107": {
-    "title": "Flamingo Garden Sculptures",
-    "description": "White and red flamingo sculptures for lawns and water edges.",
+    "title": "Painted Flamingo Statues",
+    "description": "White and red painted flamingo figures on display at the nursery.",
     "category": "Garden Ornament",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0108": {
-    "title": "Marble Queen Pothos",
-    "description": "Cream-marbled pothos, one of the easiest indoor climbers.",
+    "title": "Variegated Syngonium on Pole",
+    "description": "Variegated arrowhead vine trained up a coir pole in a pot.",
     "category": "Foliage",
-    "collection": "Leafy Indoor Favourites"
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "note": "Product packaging with Urdu text at the right edge",
+    "__observed": true
   },
   "AGN-0109": {
-    "title": "Fern",
-    "description": "Lush fern foliage for shaded, humid corners.",
+    "title": "Boston Fern in Pots",
+    "description": "Fresh Boston ferns in black nursery pots, with a flamingo ornament behind.",
     "category": "Foliage",
-    "collection": "Leafy Indoor Favourites"
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0110": {
-    "title": "Dieffenbachia",
-    "description": "Broad variegated dieffenbachia leaves, a reliable indoor filler.",
+    "title": "Variegated Dieffenbachia",
+    "description": "Splash-leaf Dieffenbachia in leaf, with Syngonium and pots behind.",
     "category": "Foliage",
-    "collection": "Leafy Indoor Favourites"
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "note": "Several other plants and ornaments share the frame",
+    "__observed": true
   },
   "AGN-0111": {
     "title": "Stacked Concrete Planters",
-    "description": "Concrete planters stacked ready for loading and delivery.",
+    "description": "Stacks of decorative cement planters in grey and terracotta.",
     "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0112": {
-    "title": "Decorative White Stones",
-    "description": "Bagged white decorative stones for pot dressing and pathways.",
+    "title": "Bagged Packing Material",
+    "description": "Bags of white polystyrene packing peanuts stacked in the nursery yard.",
     "category": "Garden Accessories",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Packing supplies, not decorative stone — a candid yard shot",
+    "__observed": true
   },
   "AGN-0113": {
-    "title": "Rangoon Creeper",
-    "description": "Fragrant white rangoon creeper, a strong performer on walls and trellises.",
-    "category": "Flowering Climber",
-    "collection": "Flowering Plants"
+    "title": "Pink and White Pentas",
+    "description": "Pink and white Pentas in full bloom, good for borders and pots.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0114": {
-    "title": "Greenhouse Benches",
-    "description": "Packed greenhouse benches of nursery stock under shade.",
+    "title": "Shade House Foliage Rows",
+    "description": "Potted variegated sansevieria, aglaonema and palms under shade net.",
     "category": "Nursery",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0115": {
-    "title": "Topiary Trees",
-    "description": "Clipped topiary trees for formal entrances and walkways.",
+    "title": "Tiered Topiary Rows",
+    "description": "Neatly pruned dome topiary trees lined up in nursery beds.",
     "category": "Ornamental Plants",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0116": {
-    "title": "Topiary Tree with Garden Bench",
-    "description": "A large topiary tree paired with a garden bench for a formal corner.",
+    "title": "Ball Topiary and Swan Ornament",
+    "description": "Ball topiary plants in beds, with a white swan ornament on display.",
     "category": "Ornamental Plants",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Swan ornament and decorated planters also in frame",
+    "__observed": true
   },
   "AGN-0117": {
-    "title": "Braided Trunk Topiary",
-    "description": "A topiary with a braided trunk, shaped for formal planting.",
+    "title": "Lattice Trunk Topiary",
+    "description": "Three ball topiary standards with decorative lattice-wrapped trunks.",
     "category": "Ornamental Plants",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "A parked car with a visible number plate in the background",
+    "__observed": true
   },
   "AGN-0118": {
-    "title": "Topiary Trees in Pots",
-    "description": "Topiary trees supplied in their own pots for easy placement.",
+    "title": "Topiary Standards in Rows",
+    "description": "Long rows of ball and tier topiary standards ready for sale.",
     "category": "Ornamental Plants",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0119": {
-    "title": "Large Topiary Tree",
-    "description": "A large clipped topiary tree for driveways and grand entrances.",
+    "title": "Topiary and Planter Display",
+    "description": "Tall tiered topiary standards beside decorated planters on display.",
     "category": "Ornamental Plants",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Flamingo ornament and decorated terracotta planters in frame",
+    "__observed": true
   },
   "AGN-0120": {
-    "title": "Aerial View of the Nursery",
-    "description": "An aerial view of the nursery beds, shade houses and growing areas.",
+    "title": "Nursery Topiary Rows Overhead",
+    "description": "Overhead view of hundreds of potted topiary plants in long rows.",
     "category": "Nursery",
-    "collection": "Garden Decor"
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Urdu shop signage visible on buildings in the background",
+    "__observed": true
   },
   "AGN-0121": {
-    "title": "Concrete Planter Stack",
-    "description": "A stack of moulded concrete planters ready for dispatch.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Nursery Overview from Above",
+    "description": "Wide view of the nursery showing rows of potted topiary plants.",
+    "category": "Nursery",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Urdu shop signage visible in the background",
+    "__observed": true
   },
   "AGN-0122": {
-    "title": "Red Hibiscus",
-    "description": "Bright red hibiscus in full bloom — a Sialkot household favourite.",
-    "category": "Flowering Plant",
-    "collection": "Flowering Plants"
+    "title": "Lattice Wrapped Standards",
+    "description": "Potted standards with decorative woven lattice around their trunks.",
+    "category": "Ornamental Plants",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0123": {
-    "title": "Stone Tiered Fountain",
-    "description": "A tiered stone fountain for courtyards and garden centres.",
-    "category": "Fountains & Water Features",
-    "collection": "Garden Decor"
+    "title": "Aerial View of Nursery",
+    "description": "Aerial view showing the nursery layout and rows of potted topiary.",
+    "category": "Nursery",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Urdu signage and a minaret visible in the far background",
+    "__observed": true
   },
   "AGN-0124": {
-    "title": "Concrete Garden Bench",
-    "description": "A cast concrete bench for lawns, verandas and balconies.",
-    "category": "Garden Furniture",
-    "collection": "Garden Decor"
+    "title": "Two Ball Topiary Plant",
+    "description": "A double-ball topiary plant in a black nursery pot.",
+    "category": "Ornamental Plants",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "A person's head is visible in the background",
+    "__observed": true
   },
   "AGN-0125": {
-    "title": "Concrete Planter Row",
-    "description": "A row of concrete planters lined up in the yard.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Variegated Aglaonema",
+    "description": "Pink and green speckled Aglaonema foliage, available in pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0126": {
-    "title": "Stone Planter Display",
-    "description": "A display of stone planters in assorted shapes and finishes.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Variegated Sansevieria in Pots",
+    "description": "Small variegated sansevieria plants in nursery pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "A hand is holding the pot in frame",
+    "__observed": true
   },
   "AGN-0127": {
-    "title": "Concrete Planter Group",
-    "description": "A group of cast concrete planters of varying heights.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Lime Green Sansevieria",
+    "description": "Bright lime-green variegated sansevieria grown in small pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0128": {
-    "title": "Tall Concrete Planters",
-    "description": "Tall cast concrete planters for entrance planting.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Dieffenbachia in Flower",
+    "description": "Variegated Dieffenbachia shown with its white flower spathe.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0129": {
-    "title": "Decorative Concrete Planters",
-    "description": "Decorative cast concrete planters with moulded surface detail.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Green Peace Lily Plants",
+    "description": "Fresh green peace lilies with dewy leaves in nursery pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0130": {
-    "title": "Square Concrete Planters",
-    "description": "Square cast concrete planters in a clean, modern shape.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Lucky Bamboo Bundles",
+    "description": "Lucky bamboo bundles tied with red thread in nursery pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0131": {
-    "title": "Round Concrete Planters",
-    "description": "Round cast concrete planters for verandas and courtyards.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Red Anthurium in Bloom",
+    "description": "Red anthurium in full bloom with glossy heart-shaped foliage.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0132": {
-    "title": "Rectangular Concrete Planters",
-    "description": "Rectangular cast concrete planters for long border runs.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Variegated Small Leaf Plant",
+    "description": "A small variegated foliage plant in a nursery pot.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Identification not fully certain — likely an Alternanthera type",
+    "__observed": true
   },
   "AGN-0133": {
-    "title": "Textured Concrete Planters",
-    "description": "Cast concrete planters with a rough textured finish.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Variegated Sansevieria Batch",
+    "description": "A dense batch of yellow-edged variegated sansevieria in pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0134": {
-    "title": "Concrete Planter Collection",
-    "description": "A full collection of cast concrete planters in matched sizes.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Red Bronze Foliage",
+    "description": "Bronze and red-veined foliage plants growing in nursery pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Identification not fully certain — could be croton or aglaonema",
+    "__observed": true
   },
   "AGN-0135": {
-    "title": "Large Concrete Urn Planters",
-    "description": "Large cast concrete urn planters for formal entrances.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Assorted Green Foliage",
+    "description": "A mix of green foliage plants in nursery pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Several species share the frame",
+    "__observed": true
   },
   "AGN-0136": {
-    "title": "Concrete Bowl Planters",
-    "description": "Wide cast concrete bowl planters for feature planting.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Red Ixora and Spotted Aucuba",
+    "description": "Red ixora in flower, with yellow-spotted aucuba in front.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Two plant types share the frame",
+    "__observed": true
   },
   "AGN-0137": {
-    "title": "Fluted Concrete Planters",
-    "description": "Cast concrete planters with a fluted, columned profile.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Dense Sword Fern Bed",
+    "description": "A dense bed of ferns with arching sword-shaped fronds.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0138": {
-    "title": "Concrete Planter Varieties",
-    "description": "Our full range of concrete planter varieties on display.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Red Ixora in Flower",
+    "description": "Ixora covered in bright red flower clusters.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0139": {
-    "title": "Stone Finish Planters",
-    "description": "Planters with a grey stone-cast finish for a natural look.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Areca Palm Seedlings",
+    "description": "Dense Areca palm seedlings growing in black nursery bags.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0140": {
-    "title": "Concrete Planter Assortment",
-    "description": "An assortment of concrete planters across sizes and shapes.",
-    "category": "Planters & Pots",
-    "collection": "Garden Decor"
+    "title": "Yellow Spotted Foliage Batch",
+    "description": "A large batch of yellow-spotted foliage plants under shade net.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
   },
   "AGN-0141": {
     "title": "Garden Planter Display",
@@ -1176,18 +1282,22 @@
     "description": "Terracotta and coloured plastic pots in stacks, available in several sizes.",
     "category": "Planters & Pots",
     "collection": "Flowering Plants",
-    "is_our_stock": true,
+    "is_our_stock": false,
     "note": "Third-party 'Agro Dhaan' branding burned into the red pots",
-    "__observed": true
+    "__observed": true,
+    "archived": true,
+    "archive_reason": "Third-party 'Agro Dhaan' brand burned into the pots � selling another company's product under our name"
   },
   "AGN-0162": {
     "title": "Ball Topiary Standards",
     "description": "Topiary standard trees in concrete pots, ideal for entrances and paved areas.",
     "category": "Ornamental Plants",
     "collection": "Flowering Plants",
-    "is_our_stock": true,
+    "is_our_stock": false,
     "note": "Two workers visible in the frame; phone watermark (Galaxy S24 Ultra)",
-    "__observed": true
+    "__observed": true,
+    "archived": true,
+    "archive_reason": "Two identifiable nursery staff in frame, published without consent"
   },
   "AGN-0163": {
     "title": "Woven Cage Standards",
@@ -1221,7 +1331,7 @@
     "category": "Flowering Plant",
     "collection": "Garden Decor",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0168": {
@@ -1230,7 +1340,7 @@
     "category": "Flowering Plant",
     "collection": "Garden Decor",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0169": {
@@ -1239,7 +1349,7 @@
     "category": "Flowering Plant",
     "collection": "Garden Decor",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0170": {
@@ -1248,7 +1358,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "A hand is holding the flower in frame; phone watermark — worth cropping",
+    "note": "A hand is holding the flower in frame",
     "__observed": true
   },
   "AGN-0171": {
@@ -1257,7 +1367,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0172": {
@@ -1266,7 +1376,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0173": {
@@ -1275,7 +1385,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0174": {
@@ -1284,7 +1394,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0175": {
@@ -1293,7 +1403,7 @@
     "category": "Nursery",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0176": {
@@ -1302,7 +1412,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0177": {
@@ -1311,7 +1421,7 @@
     "category": "Flowering Plant",
     "collection": "Flowering Plants",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0178": {
@@ -1345,7 +1455,7 @@
     "category": "Planters & Pots",
     "collection": "Garden Decor",
     "is_our_stock": true,
-    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "note": "",
     "__observed": true
   },
   "AGN-0182": {
@@ -1354,7 +1464,7 @@
     "category": "Ornamental Plants",
     "collection": "Leafy Indoor Favourites",
     "is_our_stock": true,
-    "note": "Species not certain from the foliage; near-duplicate scene of AGN-0183",
+    "note": "Species not certain from the foliage; AGN-0183 was a duplicate of this scene",
     "__observed": true
   },
   "AGN-0183": {
@@ -1362,8 +1472,10 @@
     "description": "Spiral topiary trees in large pots, a strong formal accent for gardens.",
     "category": "Ornamental Plants",
     "collection": "Leafy Indoor Favourites",
-    "is_our_stock": true,
+    "is_our_stock": false,
     "note": "Species not certain from the foliage; near-duplicate scene of AGN-0182",
-    "__observed": true
+    "__observed": true,
+    "archived": true,
+    "archive_reason": "Near-duplicate of AGN-0182 (same spiral-topiary scene) � dropped to avoid a repeated tile"
   }
 }
