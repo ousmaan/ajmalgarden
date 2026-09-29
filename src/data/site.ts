@@ -83,7 +83,9 @@ export interface Category {
    *
    * DO NOT set these from the photo ID alone. Every AGN-XXXX must first be
    * confirmed by eye to match its label — AGN-0099 is raspberries, not a palm.
-   * See scripts/photo-catalog.json, which carries a `verified` flag per photo.
+   * See scripts/photo-catalog.json: a photo is publishable only once it carries
+   * `__observed: true` (set by scripts/apply-observations.mjs) and is not
+   * `archived`. scripts/wire-home-tiles.mjs enforces both.
    */
   galleryPhotoId?: string;
   galleryFilter?: string;

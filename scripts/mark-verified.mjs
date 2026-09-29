@@ -21,7 +21,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const CATALOG = "scripts/photo-catalog.json";
 
 /** The owner's own tagging batches: trusted without re-checking. */
-const OWNER_BATCHED = new Set([
+export const OWNER_BATCHED = new Set([
   "AGN-0002", "AGN-0003", "AGN-0004", "AGN-0005", "AGN-0006",
   "AGN-0007", "AGN-0009", "AGN-0010", "AGN-0011", "AGN-0012",
   "AGN-0013", "AGN-0014", "AGN-0015", "AGN-0017", "AGN-0018",

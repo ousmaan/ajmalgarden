@@ -50,8 +50,21 @@ for (const [id, meta] of Object.entries(catalog)) {
   });
 }
 
+// Rows the sync used to publish but no longer does. Emitting a DELETE for
+// these is essential: omitting a row from the upserts leaves whatever the last
+// emission wrote still in place, so an archived photo can stay published.
+const removals = [];
+
+for (const [id, meta] of Object.entries(catalog)) {
+  if (id.startsWith("_")) continue;
+  if (meta.archived && report[id]) removals.push(id);
+}
+
 for (const [id, rep] of Object.entries(report)) {
-  if (catalog[id]) continue;
+  if (catalog[id] && !catalog[id].archived) continue;
+  if (removals.includes(id)) continue;
+  if (catalog[id]?.archived) continue;
+  removals.push(id);
   missingCatalog++;
   items.push({
     id,
@@ -76,7 +89,9 @@ for (const it of items) {
   it.file = `${it.id}.jpg`;
   it.status = "unique";
   it.kind = "image";
-  it.alt = it.title;
+  // Alt text is read by image search and screen readers, so it must describe
+  // the photo. The title alone just names the product; prefer the sentence.
+  it.alt = it.description || it.title || it.id;
   it.tags = it.category ? [it.category] : [];
 }
 
@@ -100,6 +115,11 @@ for (const row of items) {
   );
 }
 
+// Remove rows we no longer publish (archived, or not in the catalog at all).
+for (const id of removals) {
+  out.push(`delete from media where cloudinary_id = ${q(report[id].public_id)};`);
+}
+
 const stamp = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14);
 const path = `supabase/migrations/${stamp}_gallery_sync.sql`;
 writeFileSync(path, out.join("\n") + "\n");
@@ -114,6 +134,7 @@ console.log(`  WITHHELD      : ${withheld}  (unverified — never show an unchec
 console.log(`  no title      : ${noTitle}${missingCatalog ? `  (${missingCatalog} not in catalog — ADD THEM)` : ""}`);
 console.log(`  no desc       : ${noDesc}`);
 console.log(`  no local      : ${items.filter((r) => !r.name_local).length}`);
+console.log(`  REMOVED      : ${removals.length}` + (removals.length ? ` (${[...removals].join(", ")})` : ""));
 
 // The Home strip links into ?cat= filters — a tile whose photo sits in another
 // category would open a gallery missing its own photo. Fail the sync on that.

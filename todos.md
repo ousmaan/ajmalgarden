@@ -69,6 +69,46 @@ name plates, 22 archived, 0 outstanding.
 
 ---
 
+### Production pass (2026-09-30)
+
+Ran a full pre-commit audit of the gallery work. **Found and fixed a live bug.**
+
+**The bug:** the sync only INSERTed/UPDATEd rows it emitted. Once a photo was
+archived its DB row froze at whatever the last emission left — and ten archived
+photos were still `visible = true`, serving fabricated titles to the public
+("Red Raspberries", "Jacaranda Tree", "Ball Topiary Standards", the staff-faces
+shot, the Agro Dhaan shot). **Omitting a row is not the same as removing it.**
+Fixed by emitting an explicit `delete from media where cloudinary_id = …` for
+every row the sync no longer publishes. DB went 180 → 158 rows, 0 archived left.
+
+**Also fixed:**
+- `alt` text was byte-identical to the title on all 158 rows, so the sync's
+  description fallback never fired. Alt now carries the descriptive sentence —
+  that is what image search and screen readers actually get.
+- `_policy` (a documentation key) was being counted as a 181st photo by the
+  verification gate. Underscore-prefixed keys are now ignored everywhere.
+- `scripts/audit-db.mjs` re-derived the owner-batched list with a regex that
+  silently missed AGN-0019/0020, producing false positives. It now imports the
+  shared set from `mark-verified.mjs`.
+
+**New gate** — `node scripts/production-check.mjs`, wired to `.git/hooks/pre-commit`:
+
+| stage | what it proves |
+|---|---|
+| typecheck | `tsc --noEmit` clean |
+| fetch live data | pulls the real table via the anon key |
+| db integrity | every live row matches the catalog; no archived row survives; nothing published unobserved |
+| gallery behaviour | filter + search against real rows, incl. local-name search |
+| gallery UI contract | caption fields wired, tile keyboard-reachable, filters real, no archived photo referenced |
+| home tile wiring | no tile points at a wrong-category or unverified photo |
+| build | production bundle builds |
+
+All seven stages pass. Also verified by hand: no service keys or API keys in the
+bundle, `.env` and `dist/` untracked, bundle 187 KB gzipped (+0.5 KB from this
+work — no regression), Cloudinary delivery uses `f_auto,q_auto` with width caps.
+
+---
+
 ## ✅ Shipped this round (old todos closed)
 
 - ✅ CTA hierarchy: WhatsApp primary / Call secondary / Quote tertiary (`CtaButtons.tsx`, `site.ts` header, `config.ts:CTA_ORDER`)
