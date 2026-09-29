@@ -35,6 +35,7 @@ const items = [];
 let missingCatalog = 0;
 
 for (const [id, meta] of Object.entries(catalog)) {
+  if (meta.archived) continue; // removed from the site — see archive-list.json
   if (!report[id]) continue; // not uploaded yet → stays out of the gallery
   items.push({
     id,

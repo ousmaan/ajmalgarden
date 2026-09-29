@@ -1,182 +1,1369 @@
 {
-  "AGN-0001": { "title": "Pink Ti Cordyline", "description": "Hot pink Ti leaves over deep maroon rosettes — high-drama foliage for borders.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0002": { "title": "Curly Red Croton", "description": "Twisted red, yellow and green croton leaves in nursery pots.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0003": { "title": "Red Purple Cordyline", "description": "Magenta and deep purple cordyline bed, ready for lawns and borders.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0004": { "title": "Snow White Aglaonema", "description": "White-variegated Chinese evergreen for bright indoor corners.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0005": { "title": "Song of India Dracaena", "description": "Yellow and green striped dracaena, easy indoor statement plant.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0006": { "title": "Gold-Dust Croton", "description": "Narrow green leaves dusted gold — vivid all-season foliage.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0007": { "title": "Lemon Lime Dracaena", "description": "Broad lime-striped dracaena leaves for homes and offices.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0008": { "title": "Aglaonema Speckled", "description": "Green aglaonema splashed with cream speckles — a dense indoor bed.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0009": { "title": "Variegated Dieffenbachia", "description": "Bold green and cream dumb-cane foliage for shaded verandas.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0010": { "title": "Lemon Philodendron on Moss Pole", "description": "Neon lemon philodendron trained on coir poles, with monstera alongside.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0011": { "title": "Variegated Dracaena Bed", "description": "Cream and green variegated dracaena stock in all sizes.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0012": { "title": "Petra Croton Mix", "description": "Classic red, orange and green Petra crotons for vivid borders.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0013": { "title": "Striped Cordyline", "description": "Cream-striped cordyline with purple new growth for entrances.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0014": { "title": "Pink Ti Cordyline", "description": "Hot pink Ti leaves over deep maroon rosettes — high-drama foliage.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0015": { "title": "Red-Edged Dracaena", "description": "Narrow red-edged dragon tree leaves, a forgiving indoor classic.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0016": { "title": "Variegated Pothos", "description": "Cream-marbled pothos climbing coir poles — an easy, fast indoor climber.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0017": { "title": "Variegated Spider Plants", "description": "Striped spider plants for baskets, table pots and shaded edges.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0018": { "title": "Coleus Bed Mix", "description": "Pink and green coleus trays for instant seasonal colour.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0019": { "title": "Burgundy White Dahlia", "description": "Bold burgundy and white bicolor dahlia in full bloom.", "category": "Flowering Plant", "collection": "Dahlia Collection" },
-  "AGN-0020": { "title": "Speckled Cream Dahlia", "description": "Cream petals flecked crimson on a collector dahlia.", "category": "Flowering Plant", "collection": "Dahlia Collection" },
-  "AGN-0021": { "title": "Variegated Ginger", "description": "Yellow striped shell ginger for lush tropical corners.", "category": "Foliage", "collection": "Colourful Foliage Plants" },
-  "AGN-0022": { "title": "Lavender Pink Dahlia", "description": "Soft lavender pink dinner-plate dahlia on the stem.", "category": "Flowering Plant", "collection": "Dahlia Collection" },
-  "AGN-0023": { "title": "Red Dinner-Plate Dahlia", "description": "Scarlet dinner-plate dahlia in full bloom, with buds still opening.", "category": "Flowering Plant", "collection": "Dahlia Collection" },
-  "AGN-0024": { "title": "Bronze Chrysanthemum", "description": "Bronze orange gul-e-daudi heads for winter beds and pots.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0025": { "title": "Red Dahlia", "description": "Velvet red dahlia with dew-fresh petals.", "category": "Flowering Plant", "collection": "Dahlia Collection" },
-  "AGN-0026": { "title": "Orange Chrysanthemum Mix", "description": "Orange and gold gul-e-daudi cluster for seasonal colour.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0027": { "title": "Red Pink Chrysanthemum", "description": "Cherry red and rose pink gul-e-daudi side by side.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0028": { "title": "Lilac Chrysanthemum", "description": "Soft lilac daisy-type gul-e-daudi with gold centres.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0029": { "title": "Cream Gerbera Daisy", "description": "Cream double gerbera with a green heart.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0030": { "title": "Blush Peach Gerbera", "description": "Blush peach gerbera with a honey gold centre.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0031": { "title": "Magenta Gerbera", "description": "Deep magenta gerbera with a dark eye — a bold cut-flower gerbera.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0032": { "title": "Light Pink Gerbera", "description": "Soft pink double gerbera pair, morning fresh.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0033": { "title": "Red White Gerbera", "description": "Quilled red petals tipped white on a bold gerbera.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0034": { "title": "White Gerbera Daisy", "description": "Layered white gerbera blushing pink at the heart.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0035": { "title": "Pink Cream Gerbera", "description": "Candy pink gerbera around a cream green centre.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0036": { "title": "Peach Gerbera", "description": "Peach-toned double gerbera with a creamy yellow centre.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0037": { "title": "Pink Primula", "description": "Soft pink primula clusters on crinkled leaves — a cool-season favourite.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0038": { "title": "Magenta Primula", "description": "Vivid magenta primula blooming in tight clusters.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0039": { "title": "White Primula", "description": "Clean white primula flowers with golden eyes above puckered leaves.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0040": { "title": "Deep Pink Gerbera", "description": "Rich deep-pink gerbera with quilled petals and a dark centre.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0041": { "title": "Marigold Bed", "description": "A wide bed of orange marigolds in full bloom, ready for seasonal planting.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0042": { "title": "Purple Primula", "description": "Deep purple primula with golden centres, striking in cool-season pots.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0043": { "title": "Petunia Beds", "description": "Long nursery rows of pink, purple and white petunias in full flower.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0044": { "title": "Jacaranda Tree", "description": "A jacaranda in full purple bloom — a Sialkot favourite for avenues.", "category": "Flowering Tree", "collection": "Tropical Plants" },
-  "AGN-0045": { "title": "Pink Primula Pots", "description": "Terracotta pots packed with pink primula, ready for a balcony or windowsill.", "category": "Flowering Plant", "collection": "Winter Flower Favourites" },
-  "AGN-0047": { "title": "Mixed Bedding Plants", "description": "A mixed bench of seasonal bedding plants in full bloom.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0048": { "title": "Spring Bedding Mix", "description": "Pink and white spring bedding laid out in neat nursery rows.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0049": { "title": "Yellow Marigold", "description": "Bright yellow marigold pots — compact and long-flowering.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0050": { "title": "Red Petunias", "description": "Red and white petunias cascading over the pot rims.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0051": { "title": "Pansy Mix", "description": "Violas and pansies in mixed colours for cool-season planters.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0052": { "title": "White Alyssum", "description": "White alyssum as a soft, fragrant edging companion for beds.", "category": "Flowering Plant", "collection": "Seasonal Bedding" },
-  "AGN-0053": { "title": "Bougainvillea", "description": "Vivid magenta bougainvillea bracts on a vigorous climbing stem.", "category": "Flowering Climber", "collection": "Flowering Plants" },
-  "AGN-0054": { "title": "White Champaca Tree", "description": "Fragrant white champaca in full bloom — a classic Sialkot avenue tree.", "category": "Flowering Tree", "collection": "Flowering Plants" },
-  "AGN-0055": { "title": "Pink Shower Tree", "description": "A pink shower tree in full bloom, a Sialkot favourite for parks.", "category": "Flowering Tree", "collection": "Flowering Plants" },
-  "AGN-0056": { "title": "Flowering Cherry Tree", "description": "Pink and white double blossoms covering the branches in spring.", "category": "Flowering Tree", "collection": "Flowering Plants" },
-  "AGN-0057": { "title": "Grey Stone Planters with Floral Scrollwork", "description": "Stacked rectangular stone planters carved with ornate floral scrollwork.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0058": { "title": "Copper Round Planters", "description": "Copper-finish round planters with woodgrain texture and studded bands.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0059": { "title": "Tall Lattice Planters", "description": "Tall planters in a diamond-lattice pattern, paired with woven basket-style pots.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0060": { "title": "Golden Shower Tree", "description": "Cassia fistula smothered in yellow blossom, carpeting the road beneath.", "category": "Flowering Tree", "collection": "Flowering Plants" },
-  "AGN-0061": { "title": "Black Square Planters with Gold Rims", "description": "Matte black square planters finished with a gold rim, stacked in a row.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0062": { "title": "Mixed Planter Display", "description": "Carved grey, woodgrain copper and textured planters grouped for display.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0063": { "title": "Terracotta Dot-Pattern Planters", "description": "Stacked terracotta square planters with a raised dot-and-diamond motif.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0064": { "title": "Weathered Stone Planters", "description": "Grey planters carved with a plant motif and draped swag design.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0065": { "title": "Leaf-Pattern Stone Planters", "description": "Square stone planters carved with a bold maple-leaf and snowflake pattern.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0066": { "title": "Large Brown Textured Planter", "description": "A deep brown planter with a coarse stone-cast texture for entrances.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0067": { "title": "Stack of 3 Brown Ribbed Planters", "description": "Three brown planters with vertical ribbing, nested for easy storage.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0068": { "title": "Rectangular Leaf-Carved Planter", "description": "A tall rectangular planter carved with fern and leaf panels.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0069": { "title": "Woodgrain Cylindrical Planter", "description": "A tall cylindrical planter with a carved wavy woodgrain finish.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0070": { "title": "Stack of 3 Grey Geometric Planters", "description": "Three grey planters cut with sharp geometric facets.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0071": { "title": "Ornate Swirl-Carved Planters", "description": "Four reddish-brown planters carved with ornate swirl patterns.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0072": { "title": "Greek Key Star Planters", "description": "Two grey square planters with star motifs and a Greek key border.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0073": { "title": "4-Tier Wall Fountain", "description": "A vertical wall fountain with four tiers, finished in a yellow border.", "category": "Fountains & Water Features", "collection": "Garden Decor" },
-  "AGN-0074": { "title": "Rock-Textured Planters", "description": "Grey planters cast with a rough rock texture for a natural look.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0075": { "title": "Diamond Tiered Fountain", "description": "A geometric diamond-shaped fountain with four bowl tiers.", "category": "Fountains & Water Features", "collection": "Garden Decor" },
-  "AGN-0076": { "title": "Carved Leaf Stone Planter", "description": "A large stone planter carved with a repeating leaf pattern.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0077": { "title": "Floral Snowflake Planters", "description": "Square planters carved with a floral snowflake pattern.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0078": { "title": "Bowl Tiered Fountain", "description": "A tiered fountain built from stacked bowls.", "category": "Fountains & Water Features", "collection": "Garden Decor" },
-  "AGN-0079": { "title": "Curved Tiered Fountain", "description": "A tiered fountain with a curved water flow between the bowls.", "category": "Fountains & Water Features", "collection": "Garden Decor" },
-  "AGN-0080": { "title": "Rope-Pattern Planters", "description": "Stone planters carved with a twisted rope pattern around the rim.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0081": { "title": "Tall Grey Pedestal Planter", "description": "A tall grey planter raised on a brown pedestal base.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0082": { "title": "Circular Pattern Planters", "description": "A stack of grey planters carved with circular motifs.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0083": { "title": "Yellow Bench with Black Frame", "description": "A yellow slatted garden bench on a black steel frame.", "category": "Garden Furniture", "collection": "Garden Decor" },
-  "AGN-0084": { "title": "Ribbed Pedestal Planter", "description": "A tall ribbed planter raised on a moulded pedestal base.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0085": { "title": "Tall Grey Planter on Stand", "description": "A tall grey planter lifted on a brown base to raise the planting.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0086": { "title": "Decorative Stone Planters", "description": "Stacked decorative stone planters carved with circular patterns.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0087": { "title": "Thai Pink Guava", "description": "Ripe Thai pink guava, picked from our own trees.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0088": { "title": "Red Liner", "description": "A ripe red fruit hanging on the tree, ready to pick.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0089": { "title": "Jackfruit", "description": "A whole jackfruit on the tree — a Sialkot favourite for all sizes.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0090": { "title": "Pineapple", "description": "Ripe pineapples, sweet and freshly cut.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0091": { "title": "Yellow Garden Bench", "description": "A yellow garden bench for lawns and verandas.", "category": "Garden Furniture", "collection": "Garden Decor" },
-  "AGN-0092": { "title": "Fig on the Tree", "description": "Figs ripening on the branch, a reliable Sialkot street fruit.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0093": { "title": "Red Fruit on Branch", "description": "A ripe red fruit still hanging on the tree.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0094": { "title": "Yellow Flowers on Plant", "description": "Clusters of yellow flowers on a garden plant in bloom.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0095": { "title": "Large Tropical Leaves", "description": "Big tropical leaves that make a dramatic lawn statement.", "category": "Foliage", "collection": "Tropical Plants" },
-  "AGN-0096": { "title": "Red Orange Flowers", "description": "Red and orange flowers in full bloom across the plant.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0097": { "title": "Berry Shrub", "description": "A green shrub carrying berries, good for hedges and borders.", "category": "Shrub", "collection": "Ornamental Plants" },
-  "AGN-0098": { "title": "Purple Flowers", "description": "Purple blooms in full flower, a rich colour for borders.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0099": { "title": "Red Raspberries", "description": "A punnet of ripe red raspberries, picked and ready to eat.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0100": { "title": "Mulberries on the Tree", "description": "Ripe mulberries hanging in clusters, sweet and ready to pick.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0101": { "title": "Blackberries in a Bowl", "description": "A bowl of freshly picked blackberries from our own canes.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0102": { "title": "Pomegranates", "description": "Ripe pomegranates with deep red arils, a winter favourite.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0103": { "title": "Cherry Plum on Branch", "description": "Cherry plums ripening on the branch.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0104": { "title": "Red Mango", "description": "A red mango at peak ripeness, fragrant and ready to eat.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0105": { "title": "Buddha's Hand Citron", "description": "Buddha's hand citron — a fragrant citrus with finger-like segments.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0106": { "title": "Greenhouse Seedlings", "description": "Rows of seedlings under shade net in our propagation greenhouse.", "category": "Nursery", "collection": "Garden Decor" },
-  "AGN-0107": { "title": "Flamingo Garden Sculptures", "description": "White and red flamingo sculptures for lawns and water edges.", "category": "Garden Ornament", "collection": "Garden Decor" },
-  "AGN-0108": { "title": "Marble Queen Pothos", "description": "Cream-marbled pothos, one of the easiest indoor climbers.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0109": { "title": "Fern", "description": "Lush fern foliage for shaded, humid corners.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0110": { "title": "Dieffenbachia", "description": "Broad variegated dieffenbachia leaves, a reliable indoor filler.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0111": { "title": "Stacked Concrete Planters", "description": "Concrete planters stacked ready for loading and delivery.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0112": { "title": "Decorative White Stones", "description": "Bagged white decorative stones for pot dressing and pathways.", "category": "Garden Accessories", "collection": "Garden Decor" },
-  "AGN-0113": { "title": "Rangoon Creeper", "description": "Fragrant white rangoon creeper, a strong performer on walls and trellises.", "category": "Flowering Climber", "collection": "Flowering Plants" },
-  "AGN-0114": { "title": "Greenhouse Benches", "description": "Packed greenhouse benches of nursery stock under shade.", "category": "Nursery", "collection": "Garden Decor" },
-  "AGN-0115": { "title": "Topiary Trees", "description": "Clipped topiary trees for formal entrances and walkways.", "category": "Ornamental Plants", "collection": "Garden Decor" },
-  "AGN-0116": { "title": "Topiary Tree with Garden Bench", "description": "A large topiary tree paired with a garden bench for a formal corner.", "category": "Ornamental Plants", "collection": "Garden Decor" },
-  "AGN-0117": { "title": "Braided Trunk Topiary", "description": "A topiary with a braided trunk, shaped for formal planting.", "category": "Ornamental Plants", "collection": "Garden Decor" },
-  "AGN-0118": { "title": "Topiary Trees in Pots", "description": "Topiary trees supplied in their own pots for easy placement.", "category": "Ornamental Plants", "collection": "Garden Decor" },
-  "AGN-0119": { "title": "Large Topiary Tree", "description": "A large clipped topiary tree for driveways and grand entrances.", "category": "Ornamental Plants", "collection": "Garden Decor" },
-  "AGN-0120": { "title": "Aerial View of the Nursery", "description": "An aerial view of the nursery beds, shade houses and growing areas.", "category": "Nursery", "collection": "Garden Decor" },
-  "AGN-0121": { "title": "Concrete Planter Stack", "description": "A stack of moulded concrete planters ready for dispatch.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0122": { "title": "Red Hibiscus", "description": "Bright red hibiscus in full bloom — a Sialkot household favourite.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0123": { "title": "Stone Tiered Fountain", "description": "A tiered stone fountain for courtyards and garden centres.", "category": "Fountains & Water Features", "collection": "Garden Decor" },
-  "AGN-0124": { "title": "Concrete Garden Bench", "description": "A cast concrete bench for lawns, verandas and balconies.", "category": "Garden Furniture", "collection": "Garden Decor" },
-  "AGN-0125": { "title": "Concrete Planter Row", "description": "A row of concrete planters lined up in the yard.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0126": { "title": "Stone Planter Display", "description": "A display of stone planters in assorted shapes and finishes.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0127": { "title": "Concrete Planter Group", "description": "A group of cast concrete planters of varying heights.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0128": { "title": "Tall Concrete Planters", "description": "Tall cast concrete planters for entrance planting.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0129": { "title": "Decorative Concrete Planters", "description": "Decorative cast concrete planters with moulded surface detail.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0130": { "title": "Square Concrete Planters", "description": "Square cast concrete planters in a clean, modern shape.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0131": { "title": "Round Concrete Planters", "description": "Round cast concrete planters for verandas and courtyards.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0132": { "title": "Rectangular Concrete Planters", "description": "Rectangular cast concrete planters for long border runs.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0133": { "title": "Textured Concrete Planters", "description": "Cast concrete planters with a rough textured finish.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0134": { "title": "Concrete Planter Collection", "description": "A full collection of cast concrete planters in matched sizes.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0135": { "title": "Large Concrete Urn Planters", "description": "Large cast concrete urn planters for formal entrances.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0136": { "title": "Concrete Bowl Planters", "description": "Wide cast concrete bowl planters for feature planting.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0137": { "title": "Fluted Concrete Planters", "description": "Cast concrete planters with a fluted, columned profile.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0138": { "title": "Concrete Planter Varieties", "description": "Our full range of concrete planter varieties on display.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0139": { "title": "Stone Finish Planters", "description": "Planters with a grey stone-cast finish for a natural look.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0140": { "title": "Concrete Planter Assortment", "description": "An assortment of concrete planters across sizes and shapes.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0141": { "title": "Garden Planter Display", "description": "A full garden planter display ready for customers to browse.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0142": { "title": "Decorative Planter Group", "description": "A group of decorative planters arranged for display.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0143": { "title": "Planter Arrangement", "description": "Planters arranged in a tiered display across the yard.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0144": { "title": "Concrete Planter Series", "description": "A matched series of cast concrete planters.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0145": { "title": "Garden Urn Planters", "description": "Classical urn planters for gates, verandas and steps.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0146": { "title": "Planter Collection View", "description": "A wide view of the planter collection on display.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0147": { "title": "Stone Planters Grouping", "description": "A grouping of stone planters in grey and brown finishes.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0148": { "title": "Large Planter Display", "description": "Our large-format planters, ready for driveway and entrance use.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0149": { "title": "Planter Varieties", "description": "A range of planter varieties in different sizes and finishes.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0150": { "title": "Concrete Planter Selection", "description": "A selected range of concrete planters for home gardens.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0151": { "title": "Stacked Garden Planters", "description": "Garden planters stacked for storage and easy loading.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0152": { "title": "Planter Assortment", "description": "An assortment of planters across our full size range.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0153": { "title": "Decorative Planters", "description": "Decorative planters with moulded relief detail.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0154": { "title": "Planter Display", "description": "Planters laid out in a long display row.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0155": { "title": "Concrete Planters", "description": "Cast concrete planters in a clean, durable finish.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0156": { "title": "Planter Grouping", "description": "Planters grouped together by size for easy choosing.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0157": { "title": "Garden Planter Varieties", "description": "The full variety of garden planters we cast on site.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0159": { "title": "Planter Detail", "description": "A close look at the carved surface detail on a planter.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0160": { "title": "Planter Texture Closeup", "description": "A close-up of the cast texture on our stone planters.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0161": { "title": "Pink Ranunculus", "description": "Layered pink ranunculus in full bloom, a premium cut flower.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0162": { "title": "Red Ranunculus", "description": "Rich red ranunculus with tightly layered petals.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0163": { "title": "White Ranunculus", "description": "White ranunculus with a soft buttery centre.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0164": { "title": "Yellow Ranunculus", "description": "Bright yellow ranunculus in full bloom.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0165": { "title": "Orange Ranunculus", "description": "Warm orange ranunculus, a popular wedding and cut-flower variety.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0167": { "title": "Plastic Nursery Pots", "description": "Stacks of nursery pots and liners for home propagation.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0168": { "title": "Shaped Topiary Tree", "description": "A carefully clipped topiary tree for formal entrances.", "category": "Ornamental Plants", "collection": "Garden Decor" },
-  "AGN-0169": { "title": "Garden Trellis", "description": "A garden trellis for climbing plants and climbers on walls.", "category": "Garden Structure", "collection": "Garden Decor" },
-  "AGN-0170": { "title": "Purple Senetti", "description": "Violet-purple senetti daisies, a bold cool-season pot colour.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0171": { "title": "Blue Senetti", "description": "Blue senetti blooms, a rare colour for winter pots.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0172": { "title": "Pink Senetti", "description": "Bright pink senetti daisies in full bloom.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0173": { "title": "White Senetti", "description": "White senetti daisies, clean and long-flowering in pots.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0174": { "title": "Flowering Shrub", "description": "A flowering shrub in full bloom for hedges and borders.", "category": "Flowering Plant", "collection": "Flowering Plants" },
-  "AGN-0175": { "title": "Bougainvillea Vine", "description": "A bougainvillea vine in full magenta bloom on a wall or trellis.", "category": "Flowering Climber", "collection": "Flowering Plants" },
-  "AGN-0176": { "title": "Jasmine Vine", "description": "A fragrant jasmine vine for walls, arches and pergolas.", "category": "Flowering Climber", "collection": "Flowering Plants" },
-  "AGN-0177": { "title": "Passion Flower Vine", "description": "A passion flower vine with striking exotic blooms on a trellis.", "category": "Flowering Climber", "collection": "Flowering Plants" },
-  "AGN-0178": { "title": "Citrus Tree", "description": "A citrus tree in fruit — a reliable home-garden performer.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0179": { "title": "Seedling Rows in the Nursery", "description": "Thousands of young seedlings in trays, hardening off in our propagation yard.", "category": "Nursery", "collection": "Garden Decor" },
-  "AGN-0180": { "title": "Guava Tree", "description": "A guava tree in fruit, easy to grow in Sialkot conditions.", "category": "Fruit Tree", "collection": "Tropical Plants" },
-  "AGN-0181": { "title": "Stone Urn Planters", "description": "Carved stone urn planters with fluted columns, stacked in the yard.", "category": "Planters & Pots", "collection": "Garden Decor" },
-  "AGN-0182": { "title": "Snake Plant", "description": "The near-indestructible snake plant for offices and dark rooms.", "category": "Foliage", "collection": "Leafy Indoor Favourites" },
-  "AGN-0183": { "title": "ZZ Plant", "description": "Glossy ZZ plant foliage — thrives on neglect and low light.", "category": "Foliage", "collection": "Leafy Indoor Favourites" }
+  "AGN-0001": {
+    "title": "Pink Ti Cordyline",
+    "description": "Hot pink Ti leaves over deep maroon rosettes — high-drama foliage for borders.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0002": {
+    "title": "Curly Red Croton",
+    "description": "Twisted red, yellow and green croton leaves in nursery pots.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0003": {
+    "title": "Red Purple Cordyline",
+    "description": "Magenta and deep purple cordyline bed, ready for lawns and borders.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0004": {
+    "title": "Snow White Aglaonema",
+    "description": "White-variegated Chinese evergreen for bright indoor corners.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0005": {
+    "title": "Song of India Dracaena",
+    "description": "Yellow and green striped dracaena, easy indoor statement plant.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0006": {
+    "title": "Gold-Dust Croton",
+    "description": "Narrow green leaves dusted gold — vivid all-season foliage.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0007": {
+    "title": "Lemon Lime Dracaena",
+    "description": "Broad lime-striped dracaena leaves for homes and offices.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0008": {
+    "title": "Aglaonema Speckled",
+    "description": "Green aglaonema splashed with cream speckles — a dense indoor bed.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0009": {
+    "title": "Variegated Dieffenbachia",
+    "description": "Bold green and cream dumb-cane foliage for shaded verandas.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0010": {
+    "title": "Lemon Philodendron on Moss Pole",
+    "description": "Neon lemon philodendron trained on coir poles, with monstera alongside.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0011": {
+    "title": "Variegated Dracaena Bed",
+    "description": "Cream and green variegated dracaena stock in all sizes.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0012": {
+    "title": "Petra Croton Mix",
+    "description": "Classic red, orange and green Petra crotons for vivid borders.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0013": {
+    "title": "Striped Cordyline",
+    "description": "Cream-striped cordyline with purple new growth for entrances.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0014": {
+    "title": "Pink Ti Cordyline",
+    "description": "Hot pink Ti leaves over deep maroon rosettes — high-drama foliage.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0015": {
+    "title": "Red-Edged Dracaena",
+    "description": "Narrow red-edged dragon tree leaves, a forgiving indoor classic.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0016": {
+    "title": "Variegated Pothos",
+    "description": "Cream-marbled pothos climbing coir poles — an easy, fast indoor climber.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0017": {
+    "title": "Variegated Spider Plants",
+    "description": "Striped spider plants for baskets, table pots and shaded edges.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0018": {
+    "title": "Coleus Bed Mix",
+    "description": "Pink and green coleus trays for instant seasonal colour.",
+    "category": "Flowering Plant",
+    "collection": "Seasonal Bedding"
+  },
+  "AGN-0019": {
+    "title": "Burgundy White Dahlia",
+    "description": "Bold burgundy and white bicolor dahlia in full bloom.",
+    "category": "Flowering Plant",
+    "collection": "Dahlia Collection"
+  },
+  "AGN-0020": {
+    "title": "Speckled Cream Dahlia",
+    "description": "Cream petals flecked crimson on a collector dahlia.",
+    "category": "Flowering Plant",
+    "collection": "Dahlia Collection"
+  },
+  "AGN-0021": {
+    "title": "Variegated Ginger",
+    "description": "Yellow striped shell ginger for lush tropical corners.",
+    "category": "Foliage",
+    "collection": "Colourful Foliage Plants"
+  },
+  "AGN-0022": {
+    "title": "Lavender Pink Dahlia",
+    "description": "Soft lavender pink dinner-plate dahlia on the stem.",
+    "category": "Flowering Plant",
+    "collection": "Dahlia Collection"
+  },
+  "AGN-0023": {
+    "title": "Red Dinner-Plate Dahlia",
+    "description": "Scarlet dinner-plate dahlia in full bloom, with buds still opening.",
+    "category": "Flowering Plant",
+    "collection": "Dahlia Collection",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0024": {
+    "title": "Bronze Chrysanthemum",
+    "description": "Bronze orange gul-e-daudi heads for winter beds and pots.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0025": {
+    "title": "Red Dahlia",
+    "description": "Velvet red dahlia with dew-fresh petals.",
+    "category": "Flowering Plant",
+    "collection": "Dahlia Collection"
+  },
+  "AGN-0026": {
+    "title": "Orange Chrysanthemum Mix",
+    "description": "Orange and gold gul-e-daudi cluster for seasonal colour.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0027": {
+    "title": "Red Pink Chrysanthemum",
+    "description": "Cherry red and rose pink gul-e-daudi side by side.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0028": {
+    "title": "Lilac Chrysanthemum",
+    "description": "Soft lilac daisy-type gul-e-daudi with gold centres.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0029": {
+    "title": "Cream Gerbera Daisy",
+    "description": "Cream double gerbera with a green heart.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0030": {
+    "title": "Blush Peach Gerbera",
+    "description": "Blush peach gerbera with a honey gold centre.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0031": {
+    "title": "Magenta Gerbera",
+    "description": "Deep magenta gerbera with a dark eye — a bold cut-flower gerbera.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0032": {
+    "title": "Light Pink Gerbera",
+    "description": "Soft pink double gerbera pair, morning fresh.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0033": {
+    "title": "Red White Gerbera",
+    "description": "Quilled red petals tipped white on a bold gerbera.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0034": {
+    "title": "White Gerbera Daisy",
+    "description": "Layered white gerbera blushing pink at the heart.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0035": {
+    "title": "Pink Cream Gerbera",
+    "description": "Candy pink gerbera around a cream green centre.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites"
+  },
+  "AGN-0036": {
+    "title": "Peach Gerbera",
+    "description": "Peach-toned double gerbera with a creamy yellow centre.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0037": {
+    "title": "Pink Primula",
+    "description": "Soft pink primula clusters on crinkled leaves — a cool-season favourite.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0038": {
+    "title": "Magenta Primula",
+    "description": "Vivid magenta primula blooming in tight clusters.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0039": {
+    "title": "White Primula",
+    "description": "Clean white primula flowers with golden eyes above puckered leaves.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0040": {
+    "title": "Deep Pink Gerbera",
+    "description": "Rich deep-pink gerbera with quilled petals and a dark centre.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0041": {
+    "title": "Marigold Bed",
+    "description": "A wide bed of orange marigolds in full bloom, ready for seasonal planting.",
+    "category": "Flowering Plant",
+    "collection": "Seasonal Bedding",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0042": {
+    "title": "Purple Primula",
+    "description": "Deep purple primula with golden centres, striking in cool-season pots.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0043": {
+    "title": "Petunia Beds",
+    "description": "Long nursery rows of pink, purple and white petunias in full flower.",
+    "category": "Flowering Plant",
+    "collection": "Seasonal Bedding",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0044": {
+    "title": "Jacaranda Tree",
+    "description": "A jacaranda in full purple bloom — a Sialkot favourite for avenues.",
+    "category": "Flowering Tree",
+    "collection": "Tropical Plants",
+    "note": "Landscaped street tree, not our stock — do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Landscaped jacaranda street tree, not a photo of our benches"
+  },
+  "AGN-0045": {
+    "title": "Pink Primula Pots",
+    "description": "Terracotta pots packed with pink primula, ready for a balcony or windowsill.",
+    "category": "Flowering Plant",
+    "collection": "Winter Flower Favourites",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0047": {
+    "title": "Pink Blossom Trees",
+    "description": "Ornamental pink-blossom trees in full spring flower, ideal for avenues and parks.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "is_our_stock": false,
+    "note": "Reference photo of a public park, not our stock — do not publish",
+    "archived": true,
+    "archive_reason": "Reference photo of blossom trees in a public park, not our stock"
+  },
+  "AGN-0048": {
+    "title": "Pink Shower Tree",
+    "description": "A spreading pink shower tree in full bloom, a favourite for large gardens.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "is_our_stock": false,
+    "note": "Reference photo of a planted tree, not our stock — do not publish",
+    "archived": true,
+    "archive_reason": "Reference photo of a planted pink shower tree, not our stock"
+  },
+  "AGN-0049": {
+    "title": "Gul-e-Mohar Tree",
+    "description": "Gulmohar in full flame-red bloom — the classic Pakistani avenue tree.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "is_our_stock": false,
+    "note": "Watermarked stock/reference photo, not our stock — do not publish",
+    "archived": true,
+    "archive_reason": "Watermarked stock photo of a Gulmohar in a public street, not our stock"
+  },
+  "AGN-0050": {
+    "title": "Gul-e-Mohar in Bloom",
+    "description": "A wide Gulmohar canopy of red blossom with petals fallen beneath.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "is_our_stock": false,
+    "note": "Reference photo, not our stock — do not publish",
+    "archived": true,
+    "archive_reason": "Reference photo of a landscaped Gulmohar, not our stock"
+  },
+  "AGN-0051": {
+    "title": "Purple Bougainvillea",
+    "description": "Purple bougainvillea in full bloom, a tough climber for walls and gates.",
+    "category": "Flowering Climber",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Low resolution (169x300) — will look soft in the masonry grid",
+    "__observed": true
+  },
+  "AGN-0052": {
+    "title": "Red Ixora",
+    "description": "Red ixora (jungle flame) in flower — a reliable evergreen shrub for hedges.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0053": {
+    "title": "Red Bougainvillea",
+    "description": "Red bougainvillea in full bloom against a wall, petals carpeting the ground.",
+    "category": "Flowering Climber",
+    "collection": "Flowering Plants",
+    "note": "A finger is visible at the bottom edge of the frame — worth cropping",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0054": {
+    "title": "White Champaca Tree",
+    "description": "Fragrant white champaca in full bloom — a classic Sialkot avenue tree.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "note": "Landscaped tree in a residential garden, not our stock — do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Champaca tree in a residential garden, not a photo of our stock"
+  },
+  "AGN-0055": {
+    "title": "Pink Shower Tree",
+    "description": "A pink shower tree in full bloom, a Sialkot favourite for parks.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "note": "Landscaped tree in a public park, not our stock — do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Pink shower tree in a public park, not our stock"
+  },
+  "AGN-0056": {
+    "title": "Flowering Cherry Tree",
+    "description": "Pink and white double blossoms covering the branches in spring.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "note": "Reference photo of a planted tree, not our stock — do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Reference photo of a planted flowering cherry, not our stock"
+  },
+  "AGN-0057": {
+    "title": "Grey Stone Planters with Floral Scrollwork",
+    "description": "Stacked rectangular stone planters carved with ornate floral scrollwork.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0058": {
+    "title": "Copper Round Planters",
+    "description": "Copper-finish round planters with woodgrain texture and studded bands.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0059": {
+    "title": "Tall Lattice Planters",
+    "description": "Tall planters in a diamond-lattice pattern, paired with woven basket-style pots.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0060": {
+    "title": "Golden Shower Tree",
+    "description": "Cassia fistula smothered in yellow blossom, carpeting the road beneath.",
+    "category": "Flowering Tree",
+    "collection": "Flowering Plants",
+    "note": "Street tree in a residential area, not our stock — do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Golden shower street tree in a residential area, not our stock"
+  },
+  "AGN-0061": {
+    "title": "Black Square Planters with Gold Rims",
+    "description": "Matte black square planters finished with a gold rim, stacked in a row.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0062": {
+    "title": "Mixed Planter Display",
+    "description": "Carved grey, woodgrain copper and textured planters grouped for display.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0063": {
+    "title": "Terracotta Dot-Pattern Planters",
+    "description": "Stacked terracotta square planters with a raised dot-and-diamond motif.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0064": {
+    "title": "Weathered Stone Planters",
+    "description": "Grey planters carved with a plant motif and draped swag design.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0065": {
+    "title": "Leaf-Pattern Stone Planters",
+    "description": "Square stone planters carved with a bold maple-leaf and snowflake pattern.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0066": {
+    "title": "Copper Pedestal Planter",
+    "description": "A large copper-finish goblet planter on a flared pedestal, for entrance planting.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0067": {
+    "title": "Stack of 3 Copper Ribbed Pots",
+    "description": "Three copper ribbed planters, nested and shrink-wrapped for delivery.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0068": {
+    "title": "Copper Fern-Carved Planter",
+    "description": "A tapered copper planter with a raised fern and leaf relief panel.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0069": {
+    "title": "Copper Woodgrain Planter",
+    "description": "A tall copper planter with a wavy woodgrain texture and plastic liner.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0070": {
+    "title": "Grey Tapered Stone Planter",
+    "description": "A large grey tapered stone planter, ideal for feature plants.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0071": {
+    "title": "Stacked Carved Square Planters",
+    "description": "Hand-carved square planters on short feet, in red and grey stone finish.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0072": {
+    "title": "Grey Floral Carved Planters",
+    "description": "Square cement planters with a raised flower medallion on each side.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0073": {
+    "title": "Five Bowl Cascade Fountain",
+    "description": "Five stacked bowls with water trickling down into a square base tank.",
+    "category": "Fountains & Water Features",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0074": {
+    "title": "Pebble Pattern Tall Planters",
+    "description": "Tall square planters in grey and terracotta with an organic pebble relief.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0075": {
+    "title": "Zigzag Four Bowl Cascade",
+    "description": "Zigzag panel with four carved bowls cascading water into the base tank.",
+    "category": "Fountains & Water Features",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0076": {
+    "title": "Tall Square Pebble Planter",
+    "description": "Tapered square planter, grey stone finish, with raised pebble panels.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0077": {
+    "title": "Mixed Planter Display",
+    "description": "Rows of carved square and tapered planters in grey, terracotta and white.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0078": {
+    "title": "Rust Leaf Cascade Fountain",
+    "description": "Four leaf-shaped bowls in a rust finish, water flowing into the bottom trough.",
+    "category": "Fountains & Water Features",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0079": {
+    "title": "Three Bowl Rust Fountain",
+    "description": "Rustic rust-finish fountain with three carved bowls and a large catch pot.",
+    "category": "Fountains & Water Features",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0080": {
+    "title": "Planter and Bowl Collection",
+    "description": "Wide range of square, round, tapered and basket planters in stone and terracotta.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0081": {
+    "title": "Three Bowl Grey Fountain",
+    "description": "Three carved bowls step down into a large catch bowl on a square base.",
+    "category": "Fountains & Water Features",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0082": {
+    "title": "Yellow Park Benches Pair",
+    "description": "Two matching concrete benches with carved backs in yellow and black.",
+    "category": "Garden Furniture",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Branded overlay text 'made by ajmal garden nursery sialkot' across the top",
+    "__observed": true
+  },
+  "AGN-0083": {
+    "title": "Goblet Shaped Tall Planter",
+    "description": "Tall goblet-shaped planter in rust finish with a ribbed round bowl.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0084": {
+    "title": "Square Cement Planter Stack",
+    "description": "Plain and carved square planters shown in grey, black and terracotta.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0085": {
+    "title": "Circle Relief Square Planters",
+    "description": "Five stacked square planters with a repeating circle and wave carved band.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Shot at night under a single flash",
+    "__observed": true
+  },
+  "AGN-0086": {
+    "title": "Ornate Carved Square Planters",
+    "description": "Carved floral and medallion planters in terracotta and grey stone finish.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0087": {
+    "title": "Thai Pink Guava",
+    "description": "Green guava cut to show bright pink flesh, the Thai pink variety.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "note": "Reposted social-media screenshot with app overlay and caption — not our photo, do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Reposted social-media screenshot with an app overlay and 'Thai pink guava' caption — not our photo, rights unclear"
+  },
+  "AGN-0088": {
+    "title": "Red Liner Guava",
+    "description": "Deep red guava variety ripening on the branch.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "note": "Reposted social-media screenshot with app overlay and caption — not our photo, do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Reposted social-media screenshot with an app overlay and 'Red liner' caption — not our photo, rights unclear"
+  },
+  "AGN-0089": {
+    "title": "Large Jackfruit",
+    "description": "A very large green jackfruit, the kind grown from our jackfruit plants.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "note": "A person's face is clearly visible; indoor setting, not a nursery bench",
+    "__observed": true
+  },
+  "AGN-0090": {
+    "title": "Ripe Pineapple Fruit",
+    "description": "A small golden ripe pineapple, showing fruit size from our pineapple plants.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "note": "Visible hand and wristwatch; shot near a weighing scale",
+    "__observed": true
+  },
+  "AGN-0091": {
+    "title": "Yellow Carved Park Bench",
+    "description": "Concrete park bench in yellow with a carved floral backrest and black legs.",
+    "category": "Garden Furniture",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Branded overlay text 'made by ajmal garden nursery sialkot'",
+    "__observed": true
+  },
+  "AGN-0092": {
+    "title": "Striped Guava Fruit",
+    "description": "Pink striped guava ripening on the tree, with green guavas beside it.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0093": {
+    "title": "Red Guava Fruit",
+    "description": "A ripe red-brown guava grown under nursery shade netting.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "note": "Visible hand; vertical video frame with black bars",
+    "__observed": true
+  },
+  "AGN-0094": {
+    "title": "Pink Fleshed Guava Halves",
+    "description": "Guava halves revealing pink seeded flesh next to whole green fruit.",
+    "category": "Fruit Tree",
+    "collection": "Flowering Plants",
+    "note": "Reposted social-media screenshot with app overlay — not our photo, do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Reposted social-media screenshot with an app icon overlay — not our photo, rights unclear"
+  },
+  "AGN-0095": {
+    "title": "Extra Large Jackfruit",
+    "description": "An exceptionally large jackfruit showing the heavy yields of our plants.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "note": "Part of a person's leg visible at right edge; indoor floor setting",
+    "__observed": true
+  },
+  "AGN-0096": {
+    "title": "Red Wax Apples",
+    "description": "Glossy red wax apple fruits in a cluster of three on a leafy twig.",
+    "category": "Fruit Tree",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Visible hand holding the branch",
+    "__observed": true
+  },
+  "AGN-0097": {
+    "title": "Ripe Peaches on Tree",
+    "description": "Three blush-pink peaches ripening on the tree among narrow green leaves.",
+    "category": "Fruit Tree",
+    "collection": "Ornamental Plants",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0098": {
+    "title": "Cherry Plum Branch",
+    "description": "A cluster of small red and yellow cherry plums on a leafy fruiting branch.",
+    "category": "Fruit Tree",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Caption text 'cherry plum' overlaid in a blue box; visible hand",
+    "__observed": true
+  },
+  "AGN-0099": {
+    "title": "Red Raspberries",
+    "description": "A punnet of ripe red raspberries, picked and ready to eat.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "note": "Retail stock photo with burned-in 'RED RASPBERRY' product label — not our stock, do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Retail stock photo with 'RED RASPBERRY' printed on the pack and a camera-app watermark — not our stock"
+  },
+  "AGN-0100": {
+    "title": "Mulberries on the Tree",
+    "description": "Ripe dark mulberries hanging in clusters, sweet and ready to pick.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants",
+    "note": "Retail/stock fruit image with a camera app icon overlay — not our stock, do not publish",
+    "is_our_stock": false,
+    "archived": true,
+    "archive_reason": "Retail/stock fruit image with a camera-app icon overlay — not our stock"
+  },
+  "AGN-0101": {
+    "title": "Blackberries in a Bowl",
+    "description": "A bowl of freshly picked blackberries from our own canes.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants"
+  },
+  "AGN-0102": {
+    "title": "Pomegranates",
+    "description": "Ripe pomegranates with deep red arils, a winter favourite.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants"
+  },
+  "AGN-0103": {
+    "title": "Cherry Plum on Branch",
+    "description": "Cherry plums ripening on the branch.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants"
+  },
+  "AGN-0104": {
+    "title": "Red Mango",
+    "description": "A red mango at peak ripeness, fragrant and ready to eat.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants"
+  },
+  "AGN-0105": {
+    "title": "Buddha's Hand Citron",
+    "description": "Buddha's hand citron — a fragrant citrus with finger-like segments.",
+    "category": "Fruit Tree",
+    "collection": "Tropical Plants"
+  },
+  "AGN-0106": {
+    "title": "Greenhouse Seedlings",
+    "description": "Rows of seedlings under shade net in our propagation greenhouse.",
+    "category": "Nursery",
+    "collection": "Garden Decor"
+  },
+  "AGN-0107": {
+    "title": "Flamingo Garden Sculptures",
+    "description": "White and red flamingo sculptures for lawns and water edges.",
+    "category": "Garden Ornament",
+    "collection": "Garden Decor"
+  },
+  "AGN-0108": {
+    "title": "Marble Queen Pothos",
+    "description": "Cream-marbled pothos, one of the easiest indoor climbers.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0109": {
+    "title": "Fern",
+    "description": "Lush fern foliage for shaded, humid corners.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0110": {
+    "title": "Dieffenbachia",
+    "description": "Broad variegated dieffenbachia leaves, a reliable indoor filler.",
+    "category": "Foliage",
+    "collection": "Leafy Indoor Favourites"
+  },
+  "AGN-0111": {
+    "title": "Stacked Concrete Planters",
+    "description": "Concrete planters stacked ready for loading and delivery.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0112": {
+    "title": "Decorative White Stones",
+    "description": "Bagged white decorative stones for pot dressing and pathways.",
+    "category": "Garden Accessories",
+    "collection": "Garden Decor"
+  },
+  "AGN-0113": {
+    "title": "Rangoon Creeper",
+    "description": "Fragrant white rangoon creeper, a strong performer on walls and trellises.",
+    "category": "Flowering Climber",
+    "collection": "Flowering Plants"
+  },
+  "AGN-0114": {
+    "title": "Greenhouse Benches",
+    "description": "Packed greenhouse benches of nursery stock under shade.",
+    "category": "Nursery",
+    "collection": "Garden Decor"
+  },
+  "AGN-0115": {
+    "title": "Topiary Trees",
+    "description": "Clipped topiary trees for formal entrances and walkways.",
+    "category": "Ornamental Plants",
+    "collection": "Garden Decor"
+  },
+  "AGN-0116": {
+    "title": "Topiary Tree with Garden Bench",
+    "description": "A large topiary tree paired with a garden bench for a formal corner.",
+    "category": "Ornamental Plants",
+    "collection": "Garden Decor"
+  },
+  "AGN-0117": {
+    "title": "Braided Trunk Topiary",
+    "description": "A topiary with a braided trunk, shaped for formal planting.",
+    "category": "Ornamental Plants",
+    "collection": "Garden Decor"
+  },
+  "AGN-0118": {
+    "title": "Topiary Trees in Pots",
+    "description": "Topiary trees supplied in their own pots for easy placement.",
+    "category": "Ornamental Plants",
+    "collection": "Garden Decor"
+  },
+  "AGN-0119": {
+    "title": "Large Topiary Tree",
+    "description": "A large clipped topiary tree for driveways and grand entrances.",
+    "category": "Ornamental Plants",
+    "collection": "Garden Decor"
+  },
+  "AGN-0120": {
+    "title": "Aerial View of the Nursery",
+    "description": "An aerial view of the nursery beds, shade houses and growing areas.",
+    "category": "Nursery",
+    "collection": "Garden Decor"
+  },
+  "AGN-0121": {
+    "title": "Concrete Planter Stack",
+    "description": "A stack of moulded concrete planters ready for dispatch.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0122": {
+    "title": "Red Hibiscus",
+    "description": "Bright red hibiscus in full bloom — a Sialkot household favourite.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants"
+  },
+  "AGN-0123": {
+    "title": "Stone Tiered Fountain",
+    "description": "A tiered stone fountain for courtyards and garden centres.",
+    "category": "Fountains & Water Features",
+    "collection": "Garden Decor"
+  },
+  "AGN-0124": {
+    "title": "Concrete Garden Bench",
+    "description": "A cast concrete bench for lawns, verandas and balconies.",
+    "category": "Garden Furniture",
+    "collection": "Garden Decor"
+  },
+  "AGN-0125": {
+    "title": "Concrete Planter Row",
+    "description": "A row of concrete planters lined up in the yard.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0126": {
+    "title": "Stone Planter Display",
+    "description": "A display of stone planters in assorted shapes and finishes.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0127": {
+    "title": "Concrete Planter Group",
+    "description": "A group of cast concrete planters of varying heights.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0128": {
+    "title": "Tall Concrete Planters",
+    "description": "Tall cast concrete planters for entrance planting.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0129": {
+    "title": "Decorative Concrete Planters",
+    "description": "Decorative cast concrete planters with moulded surface detail.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0130": {
+    "title": "Square Concrete Planters",
+    "description": "Square cast concrete planters in a clean, modern shape.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0131": {
+    "title": "Round Concrete Planters",
+    "description": "Round cast concrete planters for verandas and courtyards.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0132": {
+    "title": "Rectangular Concrete Planters",
+    "description": "Rectangular cast concrete planters for long border runs.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0133": {
+    "title": "Textured Concrete Planters",
+    "description": "Cast concrete planters with a rough textured finish.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0134": {
+    "title": "Concrete Planter Collection",
+    "description": "A full collection of cast concrete planters in matched sizes.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0135": {
+    "title": "Large Concrete Urn Planters",
+    "description": "Large cast concrete urn planters for formal entrances.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0136": {
+    "title": "Concrete Bowl Planters",
+    "description": "Wide cast concrete bowl planters for feature planting.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0137": {
+    "title": "Fluted Concrete Planters",
+    "description": "Cast concrete planters with a fluted, columned profile.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0138": {
+    "title": "Concrete Planter Varieties",
+    "description": "Our full range of concrete planter varieties on display.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0139": {
+    "title": "Stone Finish Planters",
+    "description": "Planters with a grey stone-cast finish for a natural look.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0140": {
+    "title": "Concrete Planter Assortment",
+    "description": "An assortment of concrete planters across sizes and shapes.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor"
+  },
+  "AGN-0141": {
+    "title": "Garden Planter Display",
+    "description": "A full garden planter display ready for customers to browse.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0142": {
+    "title": "Variegated Aglaonema",
+    "description": "Chinese evergreen with green leaves splashed in yellow, ideal for shaded indoor spots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0143": {
+    "title": "Red Cordyline Foliage",
+    "description": "Cordyline giving bronze-red new leaves that darken to deep green as they mature.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0144": {
+    "title": "Splash Aglaonema",
+    "description": "Green and yellow splash Aglaonema available in bulk for indoor and shaded planting.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0145": {
+    "title": "Variegated Strap-Leaf Plant",
+    "description": "Arching yellow-green strap leaves, good for edging borders and pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Species not certain — a variegated Dianella/Liriope-type plant",
+    "__observed": true
+  },
+  "AGN-0146": {
+    "title": "Cream Edge Strap-Leaf Plant",
+    "description": "Arching strap leaves with a wide cream band and green edges, planted in nursery rows.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Species not certain — a variegated Dianella/Liriope-type plant",
+    "__observed": true
+  },
+  "AGN-0147": {
+    "title": "Variegated Snake Plant",
+    "description": "Yellow-edged snake plant in nursery bags, very hardy for indoor or outdoor pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0148": {
+    "title": "Yellow Splash Croton",
+    "description": "Croton with bold green and yellow splash foliage for bright garden borders.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0149": {
+    "title": "Yellow Edge Snake Plant",
+    "description": "Rows of yellow-edged snake plants in nursery bags, ready for landscaping projects.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0150": {
+    "title": "Veined Croton",
+    "description": "Croton with striking yellow veins across green leaves, adds colour to beds and pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0151": {
+    "title": "Pole Grown Syngonium",
+    "description": "Arrowhead vine trained on coir poles, supplied as climbing green plants.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0152": {
+    "title": "Yellow Margin Croton",
+    "description": "Green croton leaves edged in bright yellow, excellent for hedging and pots.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0153": {
+    "title": "Yellow Edge Dracaena",
+    "description": "Mass planting of yellow-edged dracaena, tough for borders and roadside planting.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0154": {
+    "title": "Bronze Rubber Plant",
+    "description": "Rubber plant with bronze-toned new growth on red sheaths, a strong feature plant.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0155": {
+    "title": "Bird of Paradise",
+    "description": "Large paddle-leaved Bird of Paradise in pots, a strong statement for lawns and entrances.",
+    "category": "Tropical Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0156": {
+    "title": "Golden Croton Bed",
+    "description": "Golden-yellow crotons available in bulk for bright mass planting.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0157": {
+    "title": "Mottled Dieffenbachia",
+    "description": "Dumb cane with yellow-mottled leaves, a popular indoor and shaded-garden plant.",
+    "category": "Foliage",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0159": {
+    "title": "White Petunia",
+    "description": "White petunia in a nursery pot, shown in a colour block of white and pink.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "A hand is holding the pot in frame",
+    "__observed": true
+  },
+  "AGN-0160": {
+    "title": "Planter Texture Closeup",
+    "description": "A close-up of the cast texture on our stone planters.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "archived": true,
+    "archive_reason": "Not a product photo at all — an outdoor selfie of three people, with no plant subject",
+    "is_our_stock": false
+  },
+  "AGN-0161": {
+    "title": "Stacked Flower Pots",
+    "description": "Terracotta and coloured plastic pots in stacks, available in several sizes.",
+    "category": "Planters & Pots",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Third-party 'Agro Dhaan' branding burned into the red pots",
+    "__observed": true
+  },
+  "AGN-0162": {
+    "title": "Ball Topiary Standards",
+    "description": "Topiary standard trees in concrete pots, ideal for entrances and paved areas.",
+    "category": "Ornamental Plants",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Two workers visible in the frame; phone watermark (Galaxy S24 Ultra)",
+    "__observed": true
+  },
+  "AGN-0163": {
+    "title": "Woven Cage Standards",
+    "description": "Tall multi-stem plants with woven lattice sleeves, supplied in grow-bags for transplanting.",
+    "category": "Shrub",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0164": {
+    "title": "Lattice Cage Shrub",
+    "description": "Large multi-stem shrub in a lattice cage, ready to plant as a specimen or screen.",
+    "category": "Shrub",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy S24 Ultra)",
+    "__observed": true
+  },
+  "AGN-0165": {
+    "title": "Yellow Ranunculus",
+    "description": "Double yellow ranunculus bloom, a cool-season cut flower and bedding plant.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "A hand is holding the flower; phone watermark (Galaxy A73 5G)",
+    "__observed": true
+  },
+  "AGN-0167": {
+    "title": "Red Rose in Bloom",
+    "description": "Large double red rose bloom on a potted rose bush, ideal for gifting and cutting.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0168": {
+    "title": "Cream White Rose",
+    "description": "Soft cream-white rose flower on a potted plant, a classic for garden borders.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0169": {
+    "title": "Magenta Rose Flower",
+    "description": "Rich magenta rose bloom on a potted bush, striking colour for pots and beds.",
+    "category": "Flowering Plant",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0170": {
+    "title": "Hot Pink Rose",
+    "description": "Vivid pink rose bloom with tight buds, showing flower size and petal count.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "A hand is holding the flower in frame; phone watermark — worth cropping",
+    "__observed": true
+  },
+  "AGN-0171": {
+    "title": "Purple African Daisy",
+    "description": "Deep purple daisy bloom with unopened buds, flowering heavily in the cool season.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0172": {
+    "title": "Pink Edged Ranunculus",
+    "description": "Double cream bloom with pink margins, a popular cool-season pot flower.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0173": {
+    "title": "Purple Daisy Cluster",
+    "description": "A mass of purple daisies on one plant, giving long-lasting colour to pots.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0174": {
+    "title": "Pink Daisy Plant",
+    "description": "Upright stems of dark pink daisies, excellent for container and edging planting.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0175": {
+    "title": "Daisy Plant Display",
+    "description": "Rows of potted daisy plants in many shades, showing the size of our stock.",
+    "category": "Nursery",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0176": {
+    "title": "Magenta Daisy Flowers",
+    "description": "Bright magenta daisies on a bushy plant, good for pots and window boxes.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0177": {
+    "title": "White and Pink Daisies",
+    "description": "White daisies edged in pink, giving airy two-tone colour to a pot.",
+    "category": "Flowering Plant",
+    "collection": "Flowering Plants",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0178": {
+    "title": "Lattice Trunk Topiary Trees",
+    "description": "Potted topiary trees with woven decorative trunks, supplied in black nursery pots.",
+    "category": "Ornamental Plants",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "note": "Species not identifiable from the foliage at this distance",
+    "__observed": true
+  },
+  "AGN-0179": {
+    "title": "Seedling Rows in the Nursery",
+    "description": "Thousands of young seedlings in trays, hardening off in our propagation yard.",
+    "category": "Nursery",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0180": {
+    "title": "Nursery Seedling Beds",
+    "description": "Rows of young plants in nursery bags, showing our mass propagation capacity.",
+    "category": "Nursery",
+    "collection": "Tropical Plants",
+    "is_our_stock": true,
+    "__observed": true
+  },
+  "AGN-0181": {
+    "title": "Stone Urn Planters",
+    "description": "Carved stone urn planters with fluted columns, stacked in the yard.",
+    "category": "Planters & Pots",
+    "collection": "Garden Decor",
+    "is_our_stock": true,
+    "note": "Phone watermark (Galaxy A73 5G) bottom-left — worth cropping",
+    "__observed": true
+  },
+  "AGN-0182": {
+    "title": "Spiral Topiary Trees",
+    "description": "Tall spiral topiary trees in pots, suitable for entrances and walkways.",
+    "category": "Ornamental Plants",
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "note": "Species not certain from the foliage; near-duplicate scene of AGN-0183",
+    "__observed": true
+  },
+  "AGN-0183": {
+    "title": "Spiral Topiary in Pots",
+    "description": "Spiral topiary trees in large pots, a strong formal accent for gardens.",
+    "category": "Ornamental Plants",
+    "collection": "Leafy Indoor Favourites",
+    "is_our_stock": true,
+    "note": "Species not certain from the foliage; near-duplicate scene of AGN-0182",
+    "__observed": true
+  }
 }
