@@ -140,11 +140,14 @@ export default function Home() {
             <style>{`
               @keyframes wave {
                 0% { transform: translateX(-100%); }
-                50% { transform: translateX(100%); }
+                20% { transform: translateX(20%); }
+                40% { transform: translateX(80%); }
+                60% { transform: translateX(20%); }
+                80% { transform: translateX(80%); }
                 100% { transform: translateX(-100%); }
               }
               .animate-wave {
-                animation: wave 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                animation: wave 5s ease-in-out infinite;
                 will-change: transform;
               }
             `}</style>
