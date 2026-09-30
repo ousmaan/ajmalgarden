@@ -86,7 +86,7 @@ export default function Home() {
                   onClick={() => track("call_click", { source: "hero" })}
                   className="group relative flex flex-1 items-center justify-center gap-2.5 px-4 py-3 text-[13.5px] font-semibold text-white transition hover:bg-white/15 active:scale-[0.98] rounded-l-full overflow-hidden"
                 >
-                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-50">
+                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-40">
                     <span className="absolute inset-y-0 left-[-100%] w-full bg-gradient-to-r from-transparent via-[#25D366]/50 via-[#25D366]/50 to-transparent animate-wave" />
                   </span>
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
@@ -114,7 +114,7 @@ export default function Home() {
                   onClick={() => track("call_click", { source: "hero" })}
                   className="group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] overflow-hidden"
                 >
-                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-50">
+                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-40">
                     <span className="absolute inset-y-0 left-[-100%] w-full bg-gradient-to-r from-transparent via-[#25D366]/50 via-[#25D366]/50 to-transparent animate-wave" />
                   </span>
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
@@ -147,7 +147,7 @@ export default function Home() {
                 100% { transform: translateX(-100%); }
               }
               .animate-wave {
-                animation: wave 5s ease-in-out infinite;
+                animation: wave 6s ease-in-out infinite;
                 will-change: transform;
               }
             `}</style>
