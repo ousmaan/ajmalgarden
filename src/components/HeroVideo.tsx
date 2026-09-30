@@ -1,26 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Hero background video with real readiness handling.
+ * Hero background video, Cloudinary-delivered.
  *
- * The source is served from Cloudinary when VITE_HERO_VIDEO_URL is set —
- * Cloudinary transcodes and CDN-delivers the right format automatically, and
- * the 54MB source never lands in the repo or a Vercel deploy. Without that
- * variable the component falls back to the local /videos file, and without a
- * video at all it is just the poster photograph.
- *
- * The poster photograph is the default state and never removed until the video
- * is actually playing: first paint is always a photo, error / timeout /
- * Data Saver / reduced motion all leave the photograph in place. There is no
- * path to a blank hero.
+ * f_auto/q_auto lets Cloudinary pick format and quality per device; a width
+ * cap keeps the payload sane (53.9MB source -> ~7.1MB at 1280w, ~3.1MB at
+ * 720w). The poster photograph is the default state and never removed until
+ * the video is actually playing: first paint is always a photo, and error /
+ * timeout / Data Saver / reduced motion all leave the photograph in place.
+ * There is no path to a blank hero.
  */
 export default function HeroVideo() {
   const ref = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<"photo" | "fading" | "on">("photo");
 
-  // Cloudinary first (transcoded, CDN, not in the repo), local file as fallback.
+  // Cloudinary transcodes on the fly; no local copy, no repo weight.
   const src =
-    import.meta.env.VITE_HERO_VIDEO_URL || "/videos/nursery-tour.mp4";
+    "https://res.cloudinary.com/egagzfgg/video/upload/f_auto,q_auto,w_1280/agn-hero.mp4";
 
   useEffect(() => {
     const el = ref.current;
@@ -39,7 +35,7 @@ export default function HeroVideo() {
     el.addEventListener("playing", playing);
     el.addEventListener("error", fail);
 
-    // Data Saver / metered connections should not pull a large video.
+    // Data Saver / metered connections should not pull a hero video.
     const conn = (
       navigator as Navigator & { connection?: { saveData?: boolean } }
     ).connection;

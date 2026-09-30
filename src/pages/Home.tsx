@@ -46,36 +46,39 @@ export default function Home() {
 
   return (
     <>
-      {/* ---------- HERO (clean-slate: photo-led, finder entry inline) ---------- */}
+      {/* Editorial hero: video background with a photographic scrim, a single
+          line of display type over it, and one quiet row of actions. The
+          restraint IS the design — the nursery's own footage carries it. */}
       <section className="relative overflow-hidden">
-        {/* Video, not a still. The photo stays as the poster so first paint is
-            a photograph and reduced-motion users never get a moving background. */}
         <HeroVideo />
-        <div className="absolute inset-0 bg-gradient-to-r from-leaf-950/90 via-leaf-950/65 to-leaf-900/15" />
-        <div className="absolute inset-0 bg-gradient-to-t from-leaf-950/45 via-transparent to-transparent sm:from-leaf-950/30" />
-        <div className="pointer-events-none absolute -right-16 top-10 hidden h-72 w-72 rounded-full bg-marigold/20 blur-3xl sm:block" aria-hidden />
 
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
-          <div className="max-w-[640px] reveal-up">
-            <p className="hidden sm:inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-leaf-50 ring-1 ring-white/15 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-marigold" aria-hidden />
-              {t("hero.eyebrow")}
+        {/* Scrim: deep, slightly warm, heavier at the bottom so type sits on
+            the darkest part of the frame at every breakpoint. */}
+        <div className="absolute inset-0 bg-leaf-950/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-leaf-950/85 via-leaf-950/20 to-leaf-950/40" />
+
+        <div className="relative mx-auto flex min-h-[88svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-24 sm:min-h-[86svh] sm:px-8 sm:pb-24 lg:pb-28">
+          <div className="max-w-2xl">
+            {/* Kicker: hairline-rule + small caps, replacing the pill that
+                repeated the header tagline. */}
+            <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-leaf-100/75">
+              <span className="h-px w-10 bg-marigold/70" aria-hidden />
+              Sialkot · Since 1958
             </p>
 
-            <h1 className="mt-4 font-display text-[32px] font-bold leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-[56px]">
-              {t("hero.title_a")}
-              <span className="block bg-gradient-to-r from-marigold via-[#f8c45a] to-marigold bg-clip-text text-transparent">
-                {t("hero.title_b")}
-              </span>
+            <h1 className="mt-5 font-display text-[40px] font-bold leading-[0.98] tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl">
+              {t("hero.title_a")}{" "}
+              <span className="text-marigold">{t("hero.title_b")}</span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-leaf-50/90 sm:text-lg">
+            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-leaf-50/85 sm:text-lg">
               {t("hero.sub")}
             </p>
 
-            {/* Hero CTAs: WhatsApp solid, Call glass-outline — a distinct pair,
-                side by side from the smallest phone up. */}
-            <div className="mt-6 flex flex-col gap-2.5 min-[420px]:flex-row sm:mt-8">
+            {/* Actions: one primary WhatsApp pill, one quiet text-link beside
+                it. On phones the phone number moves under the label so the row
+                never wraps into a second block. */}
+            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
               <a
                 href={waLink(
                   "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
@@ -83,34 +86,40 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("whatsapp_click", { source: "hero" })}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-[13.5px] font-semibold text-white transition sm:px-6 sm:py-3.5 sm:text-[14px] hover:bg-[#1fb959] active:scale-[0.98]"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-[#25D366] py-3 pl-5 pr-6 text-[14.5px] font-semibold text-white transition-all duration-200 hover:bg-[#1fc95e] active:scale-[0.97]"
               >
-                <WhatsAppIcon className="h-[18px] w-[18px]" />
+                <WhatsAppIcon className="h-[18px] w-[18px] transition-transform duration-200 group-hover:scale-110" />
                 {t("cta.whatsapp")}
+                <span
+                  aria-hidden
+                  className="h-1 w-1 rounded-full bg-white/50 transition-all duration-200 group-hover:w-3 group-hover:bg-white/70"
+                />
               </a>
+
               <a
                 href={telLink}
                 onClick={() => track("call_click", { source: "hero" })}
-                className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 sm:px-6 sm:py-3.5 sm:text-[14px] active:scale-[0.98]"
+                className="group inline-flex items-baseline gap-2 text-[15px] font-semibold text-white/90 transition-colors hover:text-white"
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
-                  <PhoneIcon className="h-3 w-3" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full ring-1 ring-white/30 transition-all duration-200 group-hover:ring-white/60 group-hover:bg-white/10">
+                  <PhoneIcon className="h-3.5 w-3.5" />
                 </span>
-                {t("cta.call")} <span className="tabular-nums">{CONTACT.phoneDisplay}</span>
+                <span className="flex flex-col leading-none">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/55">
+                    {t("cta.call")}
+                  </span>
+                  <span className="mt-1 tabular-nums">{CONTACT.phoneDisplay}</span>
+                </span>
               </a>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-leaf-100/70 sm:mt-5">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> {t("hero.hours")}
-              </span>
-              <span className="hidden sm:inline text-leaf-100/40">·</span>
-              <span>{t("hero.no_store")} {CONTACT.phoneDisplay}.</span>
-            </div>
+            <p className="mt-8 text-[12px] leading-relaxed text-leaf-100/50">
+              {t("hero.hours")} · {t("hero.no_store")}
+            </p>
           </div>
-
         </div>
       </section>
+
 
       {/* ---------- TRUST STRIP ---------- */}
       <div className="border-y border-leaf-100 bg-white">
