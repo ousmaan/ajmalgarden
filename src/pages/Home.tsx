@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { CATEGORIES, CONTACT, telLink, waLink } from "../data/site";
-import { cloudinaryUrl } from "../lib/supabase";
+import GalleryMarquee from "../components/GalleryMarquee";
 import { useLang } from "../i18n/lang";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { PhoneIcon, WhatsAppIcon } from "../components/CtaButtons";
@@ -155,6 +155,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- LIVE GALLERY MARQUEE (drifting rows) ---------- */}
+      <GalleryMarquee />
+
       {/* ---------- CATEGORY GRID ---------- */}
       <section className="bg-white py-10 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -207,64 +210,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- GALLERY STRIP (new: Home entry for /gallery) ---------- */}
-      <section className="leaf-texture-strong bg-sage-50/60 py-10 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-terra-500">{t("home.gallery_kicker")}</p>
-              <h2 className="mt-1 font-display text-[26px] font-semibold tracking-tight text-leaf-900 sm:text-4xl">
-                {t("home.gallery_title")}
-              </h2>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-leaf-800/65 sm:text-[15px]">
-                {t("home.gallery_sub")}
-              </p>
-            </div>
-            <Link
-              to="/gallery"
-              className="inline-flex items-center gap-1.5 self-start rounded-full bg-leaf-900 px-4 py-2 text-xs font-semibold text-white transition hover:bg-leaf-800 sm:self-auto"
-            >
-              {t("cta.open_gallery")} <span aria-hidden>→</span>
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-            {GALLERY_TILES.map((id) => {
-              const cat = CATEGORIES.find((c) => c.id === id)!;
-              // Real nursery photo when we have one, placeholder only as fallback.
-              const photo = cat.galleryPhotoId;
-              const href = cat.galleryFilter
-                ? `/gallery?cat=${encodeURIComponent(cat.galleryFilter)}`
-                : "/gallery";
-              // No galleryPhotoId = placeholder. See the note on Category.
-              return (
-                <Link
-                  key={id}
-                  to={href}
-                  className="card-lift group relative overflow-hidden rounded-[18px] ring-1 ring-leaf-100 sm:rounded-2xl"
-                >
-                  <img
-                    src={photo ? cloudinaryUrl(photo, 800) : cat.image}
-                    srcSet={
-                      photo
-                        ? `${cloudinaryUrl(photo, 400)} 400w, ${cloudinaryUrl(photo, 800)} 800w`
-                        : undefined
-                    }
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    alt={cat.imageAlt}
-                    loading="lazy"
-                    decoding="async"
-                    className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-leaf-950/80 via-transparent to-transparent" />
-                  <span className="absolute inset-x-0 bottom-0 p-3 text-[13px] font-semibold text-white sm:p-4 sm:text-sm">
-                    {cat.name}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ---------- WHY AJMAL GARDEN ---------- */}
       <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">

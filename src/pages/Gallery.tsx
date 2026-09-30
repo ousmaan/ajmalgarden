@@ -58,20 +58,25 @@ function Tile({
           className={`h-auto w-full transition duration-700 group-hover:scale-[1.02] ${loaded ? "opacity-100" : "opacity-0"}`}
         />
       )}
-      {(row.title || row.description) && (
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/88 via-leaf-950/40 to-transparent px-3.5 pb-3 pt-10 text-left">
+      {(row.title || row.name_local) && (
+        <span
+          className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/85 via-leaf-950/25 to-transparent px-3 pb-2.5 pt-7 text-left sm:px-3.5 sm:pb-3 sm:pt-10"
+        >
           {row.title && (
-            <span className="block font-display text-[15px] font-semibold leading-snug text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]">
+            <span className="block font-display text-[13px] font-semibold leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] sm:text-[15px] sm:leading-snug">
               {row.title}
             </span>
           )}
           {row.name_local && (
-            <span className="mt-0.5 block text-[11px] font-semibold uppercase tracking-[0.08em] text-marigold/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.45)]">
+            <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.08em] text-marigold/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)] sm:text-[11px]">
               {row.name_local}
             </span>
           )}
+          {/* Description is desktop/tablet only — on a phone the tile is too
+              small for it, and it buried the photo. It is always in the
+              lightbox, which is where a shopper actually reads it. */}
           {row.description && (
-            <span className="mt-0.5 line-clamp-2 block text-xs leading-relaxed text-leaf-50/85 [text-shadow:0_1px_6px_rgba(0,0,0,0.45)]">
+            <span className="mt-1 hidden line-clamp-2 text-xs leading-relaxed text-leaf-50/85 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)] sm:block">
               {row.description}
             </span>
           )}
