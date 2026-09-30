@@ -77,9 +77,8 @@ export default function Home() {
               {t("hero.sub")}
             </p>
 
-            {/* Hero CTAs: WhatsApp solid, Call glass-outline — a distinct pair,
-                side by side from the smallest phone up. */}
-            <div className="mt-6 flex flex-col gap-2.5 min-[420px]:flex-row sm:mt-8">
+            {/* Hero CTAs: mobile (logo-only circle + call), desktop (full buttons side-by-side). */}
+            <div className="mt-6 flex items-center gap-3 sm:mt-8">
               <a
                 href={waLink(
                   "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
@@ -87,15 +86,15 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("whatsapp_click", { source: "hero" })}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-[13.5px] font-semibold text-white transition sm:px-6 sm:py-3.5 sm:text-[14px] hover:bg-[#1fb959] active:scale-[0.98]"
+                aria-label={t("cta.whatsapp")}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] transition hover:bg-[#1fb959] active:scale-[0.95] sm:h-11 sm:w-11"
               >
-                <WhatsAppIcon className="h-[18px] w-[18px]" />
-                {t("cta.whatsapp")}
+                <WhatsAppIcon className="h-6 w-6 text-white sm:h-5.5 sm:w-5.5" />
               </a>
               <a
                 href={telLink}
                 onClick={() => track("call_click", { source: "hero" })}
-                className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 sm:px-6 sm:py-3.5 sm:text-[14px] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 sm:px-6 sm:py-3.5 sm:text-[14px] active:scale-[0.98]"
               >
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                   <PhoneIcon className="h-3 w-3" />
