@@ -78,7 +78,7 @@ export default function Home() {
             </p>
 
             {/* Hero CTAs: mobile (logo-only circle before call), desktop (full buttons side-by-side). */}
-            <div className="mt-6 flex items-center gap-3 sm:mt-8">
+            <div className="mt-6 flex items-center gap-5 sm:mt-8">
               <a
                 href={waLink(
                   "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
