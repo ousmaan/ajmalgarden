@@ -45,13 +45,27 @@ export default function Home() {
 
   return (
     <>
+        <style>{`
+          /* Decorative background motion: hold the poster frame instead. */
+          @media (prefers-reduced-motion: reduce) {
+            .ag-hero-video { display: none; }
+          }
+        `}</style>
       {/* ---------- HERO (clean-slate: photo-led, finder entry inline) ---------- */}
       <section className="relative overflow-hidden">
-        <img
-          src="/images/hero-nursery.jpg"
-          alt="Lush rows of potted plants at Ajmal Garden Nursery, Sialkot"
+        {/* Video, not a still. The photo stays as the poster so first paint is
+            a photograph and reduced-motion users never get a moving background. */}
+        <video
           className="absolute inset-0 h-full w-full object-cover"
-          fetchPriority="high"
+          poster="/images/hero-nursery.jpg"
+          src="/videos/nursery-tour.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-leaf-950/90 via-leaf-950/65 to-leaf-900/15" />
         <div className="absolute inset-0 bg-gradient-to-t from-leaf-950/45 via-transparent to-transparent sm:from-leaf-950/30" />
@@ -59,7 +73,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
           <div className="max-w-[640px] reveal-up">
-            <p className="inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-leaf-50 ring-1 ring-white/15 backdrop-blur">
+            <p className="hidden sm:inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-leaf-50 ring-1 ring-white/15 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-marigold" aria-hidden />
               {t("hero.eyebrow")}
             </p>
@@ -85,7 +99,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("whatsapp_click", { source: "hero" })}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[14px] font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#1fb959] active:scale-[0.98]"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-[13.5px] font-semibold text-white transition sm:px-6 sm:py-3.5 sm:text-[14px] hover:bg-[#1fb959] active:scale-[0.98]"
               >
                 <WhatsAppIcon className="h-[18px] w-[18px]" />
                 {t("cta.whatsapp")}
@@ -93,7 +107,7 @@ export default function Home() {
               <a
                 href={telLink}
                 onClick={() => track("call_click", { source: "hero" })}
-                className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full bg-white/10 px-6 py-3.5 text-[14px] font-semibold text-white ring-1 ring-white/35 backdrop-blur-md transition hover:bg-white/20 active:scale-[0.98]"
+                className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 sm:px-6 sm:py-3.5 sm:text-[14px] active:scale-[0.98]"
               >
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                   <PhoneIcon className="h-3 w-3" />

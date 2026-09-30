@@ -29,6 +29,14 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/** Track which photos have actually painted, so we never show an empty card. */
+function useLoaded() {
+  const [ready, setReady] = useState<Set<string>>(new Set());
+  const mark = (id: string) =>
+    setReady((prev) => (prev.has(id) ? prev : new Set(prev).add(id)));
+  return [ready, mark] as const;
+}
+
 function Row({
   items,
   reverse,
@@ -40,29 +48,35 @@ function Row({
 }) {
   // Duplicated so the -50% translate wraps seamlessly.
   const loop = useMemo(() => [...items, ...items], [items]);
+  const [ready, markReady] = useLoaded();
 
   return (
     <div className="relative overflow-hidden">
       <ul
         className="ag-marquee flex w-max items-stretch gap-3 py-2 sm:gap-4"
         style={{
-          animationDuration: reverse ? "78s" : "64s",
+          animationDuration: reverse ? "156s" : "128s",
           animationDirection: reverse ? "reverse" : "normal",
         }}
       >
         {loop.map((row, i) => (
-          <li key={`${row.id}-${i}`} className="shrink-0" aria-hidden={i >= items.length}>
+          <li key={`${row.id}-${i}`} className="shrink-0">
             <Link
+              aria-hidden={i >= items.length || undefined}
+              className={`group relative block h-32 w-24 overflow-hidden rounded-xl bg-leaf-100/40 ring-1 ring-leaf-900/5 transition-opacity duration-500 sm:h-44 sm:w-32 lg:h-52 lg:w-40 ${
+                ready.has(row.id) ? "opacity-100" : "opacity-0"
+              }`}
               to={`/gallery?q=${encodeURIComponent(row.title)}`}
               onClick={onOpen}
               tabIndex={i >= items.length ? -1 : 0}
-              className="group relative block h-32 w-24 overflow-hidden rounded-xl bg-leaf-100 ring-1 ring-leaf-900/10 sm:h-44 sm:w-32 lg:h-52 lg:w-40"
             >
               <img
                 src={cloudinaryUrl(row.cloudinary_id!, 400)}
                 alt={i < items.length ? row.alt || row.title : undefined}
-                loading={i < 4 ? "eager" : "lazy"}
+                loading={i < 8 ? "eager" : "lazy"}
                 decoding="async"
+                onLoad={() => markReady(row.id)}
+                onError={() => markReady(row.id)}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/85 to-transparent px-2 pb-1.5 pt-6">
