@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CATEGORIES, CONTACT, telLink, waLink } from "../data/site";
 import GalleryMarquee from "../components/GalleryMarquee";
+import HeroVideo from "../components/HeroVideo";
 import { useLang } from "../i18n/lang";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { PhoneIcon, WhatsAppIcon } from "../components/CtaButtons";
@@ -45,28 +46,11 @@ export default function Home() {
 
   return (
     <>
-        <style>{`
-          /* Decorative background motion: hold the poster frame instead. */
-          @media (prefers-reduced-motion: reduce) {
-            .ag-hero-video { display: none; }
-          }
-        `}</style>
       {/* ---------- HERO (clean-slate: photo-led, finder entry inline) ---------- */}
       <section className="relative overflow-hidden">
         {/* Video, not a still. The photo stays as the poster so first paint is
             a photograph and reduced-motion users never get a moving background. */}
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          poster="/images/hero-nursery.jpg"
-          src="/videos/nursery-tour.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          tabIndex={-1}
-        />
+        <HeroVideo />
         <div className="absolute inset-0 bg-gradient-to-r from-leaf-950/90 via-leaf-950/65 to-leaf-900/15" />
         <div className="absolute inset-0 bg-gradient-to-t from-leaf-950/45 via-transparent to-transparent sm:from-leaf-950/30" />
         <div className="pointer-events-none absolute -right-16 top-10 hidden h-72 w-72 rounded-full bg-marigold/20 blur-3xl sm:block" aria-hidden />
