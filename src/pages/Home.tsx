@@ -84,7 +84,7 @@ export default function Home() {
                 <a
                   href={telLink}
                   onClick={() => track("call_click", { source: "hero" })}
-                  className="group relative flex flex-1 items-center justify-center gap-2.5 px-5 py-3 text-[13.5px] font-semibold text-white transition hover:bg-white/15 active:scale-[0.98] rounded-l-full overflow-hidden"
+                  className="group relative flex flex-1 items-center justify-center gap-2.5 px-4 py-3 text-[13.5px] font-semibold text-white transition hover:bg-white/15 active:scale-[0.98] rounded-l-full overflow-hidden"
                 >
                   <span className="pointer-events-none absolute inset-0 h-full w-full opacity-40">
                     <span className="absolute inset-y-0 left-[-200%] w-1/2 bg-gradient-to-r from-transparent via-[#25D366]/35 to-transparent animate-wave" />
@@ -102,9 +102,9 @@ export default function Home() {
                   rel="noopener noreferrer"
                   onClick={() => track("whatsapp_click", { source: "hero" })}
                   aria-label={t("cta.whatsapp")}
-                  className="flex shrink-0 items-center justify-center bg-[#25D366] transition hover:bg-[#1fb959] active:scale-[0.95] rounded-r-full w-14"
+                  className="flex shrink-0 items-center justify-center bg-[#25D366] transition hover:bg-[#1fb959] active:scale-[0.95] rounded-r-full w-12 sm:w-11"
                 >
-                  <WhatsAppIcon className="h-6 w-6 text-white" />
+                  <WhatsAppIcon className="h-5 w-5 text-white sm:h-6 sm:w-6" />
                 </a>
               </div>
               {/* Desktop: side-by-side buttons with proper spacing */}
@@ -112,7 +112,7 @@ export default function Home() {
                 <a
                   href={telLink}
                   onClick={() => track("call_click", { source: "hero" })}
-                  className="group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] overflow-hidden"
                 >
                   <span className="pointer-events-none absolute inset-0 h-full w-full opacity-40">
                     <span className="absolute inset-y-0 left-[-200%] w-1/2 bg-gradient-to-r from-transparent via-[#25D366]/35 to-transparent animate-wave" />
