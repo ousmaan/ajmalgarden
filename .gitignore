@@ -9,3 +9,8 @@ Thumbs.db
 
 ext-src/
 .claude/
+
+# local debug scaffolding — never commit (one of these held a live API key)
+_probe*.mjs
+_cdp-*.mjs
+_hcx-*

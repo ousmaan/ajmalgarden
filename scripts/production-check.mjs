@@ -14,6 +14,8 @@ const DB = `${process.env.TEMP}/db.json`;
 // needsShell: npm/npx are .cmd shims on Windows and are not resolvable
 // by execFileSync without a shell. Plain node scripts run shellless.
 const stages = [
+  // First, because a committed key is public the moment it is pushed.
+  ["secret scan", "node", ["scripts/audit-secrets.mjs"], false],
   ["typecheck", "npx", ["tsc", "--noEmit"], true],
   ["fetch live data", "node", ["scripts/fetch-media-dump.mjs"], false],
   ["db integrity", "node", ["scripts/audit-db.mjs", DB], false],

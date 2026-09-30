@@ -6,6 +6,33 @@
 
 ---
 
+> **Full write-up of 2026-09-30** (what was done, what was wrong, what the
+> audit found): `docs/2026-09-30-gallery-verification.md`
+
+## 🔴 OPEN — needs the owner
+
+- [ ] **Rotate the Gemini API key.** `_probe-models.mjs` held a hardcoded key
+      (`AQ.Ab8RN6Li…`), committed in `8ca335a` and public on a **public** repo.
+      The file is now untracked and `scripts/audit-secrets.mjs` blocks re-leaks,
+      but the value is in git history. **Untracking does not un-leak it.**
+- [ ] Decide on purging git history (`git filter-repo`) — rewrites SHAs, needs
+      coordination with the Vercel deploy.
+- [ ] **Visual QA on a phone.** Never done — no browser was available in any
+      session, so layout, masonry and console errors are unverified.
+- [ ] **Shoot a real bonsai photo.** The Home tile is a Bird of Paradise stand-in.
+- [ ] Consider promoting **AGN-0101** (farm card in frame) to a hero image.
+- [ ] Decide whether **topiary** becomes a first-class collection — ~10 verified
+      photos are currently filed under `Ornamental Plants`.
+
+## 🟡 OPEN — worth doing, unverified
+
+- [ ] **Verify the 30 owner-batched photos** (AGN-0002–0035). They came from
+      `scripts/tag-batch-1.json` / `-2.json` and were trusted, not re-opened.
+      ~10 minutes with existing tooling: read the file, write an observation,
+      `node scripts/apply-observations.mjs <file>`.
+- [ ] Replace the pattern-based `scripts/audit-secrets.mjs` with gitleaks or
+      trufflehog before the repo grows.
+
 ## ✅ Photo verification pass (completed 2026-09-30)
 
 **The problem it fixed:** the gallery catalog claimed 180/180 complete while
@@ -53,6 +80,17 @@ name plates, 22 archived, 0 outstanding.
   consent, duplicates, and crops that cut a subject badly. Those get archived
   or noted, never silently published.
 
+### Security finding (same audit)
+
+`_probe-models.mjs` held a hardcoded **Google/Gemini API key**, committed in
+`8ca335a` and public on a **public** repo. Not caused by this work — but my
+earlier "no secrets in the bundle" check only inspected the *built output*
+while the *source* was dirty. Checking `dist/` and not `src/` is backwards.
+Fixed by untracking the file and adding `scripts/audit-secrets.mjs` as the
+first stage of the gate.
+
+> **The key still needs rotating.** It is in git history and on GitHub.
+
 ### Guardrails so it cannot regress
 
 - `scripts/apply-observations.mjs` — writes name plates only from an
@@ -95,6 +133,7 @@ every row the sync no longer publishes. DB went 180 → 158 rows, 0 archived lef
 
 | stage | what it proves |
 |---|---|
+| secret scan | no credentials in tracked source files |
 | typecheck | `tsc --noEmit` clean |
 | fetch live data | pulls the real table via the anon key |
 | db integrity | every live row matches the catalog; no archived row survives; nothing published unobserved |
