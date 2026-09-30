@@ -86,8 +86,8 @@ export default function Home() {
                   onClick={() => track("call_click", { source: "hero" })}
                   className="group relative flex flex-1 items-center justify-center gap-2.5 px-4 py-3 text-[13.5px] font-semibold text-white transition hover:bg-white/15 active:scale-[0.98] rounded-l-full overflow-hidden"
                 >
-                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-60">
-                    <span className="absolute inset-y-0 left-[-150%] w-full bg-gradient-to-r from-transparent via-[#25D366]/45 to-transparent animate-wave" />
+                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-70">
+                    <span className="absolute inset-y-0 left-[-100%] w-full bg-gradient-to-r from-transparent via-[#25D366]/50 to-transparent animate-wave" />
                   </span>
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                     <PhoneIcon className="h-3 w-3" />
@@ -114,8 +114,8 @@ export default function Home() {
                   onClick={() => track("call_click", { source: "hero" })}
                   className="group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] overflow-hidden"
                 >
-                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-60">
-                    <span className="absolute inset-y-0 left-[-150%] w-full bg-gradient-to-r from-transparent via-[#25D366]/45 to-transparent animate-wave" />
+                  <span className="pointer-events-none absolute inset-0 h-full w-full opacity-70">
+                    <span className="absolute inset-y-0 left-[-100%] w-full bg-gradient-to-r from-transparent via-[#25D366]/50 to-transparent animate-wave" />
                   </span>
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                     <PhoneIcon className="h-3 w-3" />
@@ -139,10 +139,14 @@ export default function Home() {
 
             <style>{`
               @keyframes wave {
-                0% { transform: translateX(-150%); }
-                100% { transform: translateX(150%); }
+                0% { transform: translateX(-100%); }
+                50% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
               }
-              .animate-wave { animation: wave 3s ease-in-out infinite; }
+              .animate-wave {
+                animation: wave 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                will-change: transform;
+              }
             `}</style>
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-leaf-100/70 sm:mt-5">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
