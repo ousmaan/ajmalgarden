@@ -77,8 +77,8 @@ export default function Home() {
               {t("hero.sub")}
             </p>
 
-            {/* Hero CTAs: mobile (circle + full-width call), desktop (full buttons side-by-side). */}
-            <div className="mt-9 flex flex-col items-stretch gap-4 sm:mt-8 sm:flex-row sm:items-center sm:gap-5">
+            {/* Hero CTAs: mobile (circle + full-width call inline), desktop (full buttons side-by-side). */}
+            <div className="mt-9 flex items-center gap-3 sm:mt-8">
               <a
                 href={waLink(
                   "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
@@ -87,14 +87,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 onClick={() => track("whatsapp_click", { source: "hero" })}
                 aria-label={t("cta.whatsapp")}
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] transition hover:bg-[#1fb959] active:scale-[0.95]"
+                className="flex h-11 w-11 items-center justify-center shrink-0 rounded-full bg-[#25D366] transition hover:bg-[#1fb959] active:scale-[0.95] sm:h-12 sm:w-12"
               >
-                <WhatsAppIcon className="h-5.5 w-5.5 text-white" />
+                <WhatsAppIcon className="h-5.5 w-5.5 text-white sm:h-6 sm:w-6" />
               </a>
               <a
                 href={telLink}
                 onClick={() => track("call_click", { source: "hero" })}
-                className="flex h-12 items-center justify-center rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] sm:h-auto sm:px-6 sm:py-3.5 sm:text-[14px]"
+                className="flex w-full items-center justify-center gap-2.5 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] sm:w-auto sm:px-6 sm:py-3.5 sm:text-[14px]"
               >
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                   <PhoneIcon className="h-3 w-3" />
