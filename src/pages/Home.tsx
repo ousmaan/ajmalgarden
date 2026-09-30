@@ -79,12 +79,15 @@ export default function Home() {
 
             {/* Hero CTAs: mobile (sliced call+wa button), desktop (full buttons side-by-side). */}
             <div className="mt-9 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-3">
-              <div className="flex w-full items-stretch rounded-full overflow-hidden ring-1 ring-[#25D366]/60 bg-white/[0.06] sm:w-auto sm:px-6">
+              <div className="flex w-full items-stretch rounded-full overflow-hidden ring-1 ring-white/25 bg-white/[0.06] sm:w-auto sm:px-6">
                 <a
                   href={telLink}
                   onClick={() => track("call_click", { source: "hero" })}
-                  className="flex flex-1 items-center justify-center gap-2.5 px-5 py-3 text-[13.5px] font-semibold text-white transition hover:bg-white/15 active:scale-[0.98] rounded-l-full"
+                  className="group relative flex flex-1 items-center justify-center gap-2.5 px-5 py-3 text-[13.5px] font-semibold text-white transition hover:bg-white/15 active:scale-[0.98] rounded-l-full overflow-hidden"
                 >
+                  <span className="group-hover:opacity-100 absolute inset-0 h-full w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                    <span className="absolute inset-y-0 left-[-100%] w-1/2 bg-gradient-to-r from-transparent via-[#25D366]/15 to-transparent animate-wave" />
+                  </span>
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                     <PhoneIcon className="h-3 w-3" />
                   </span>
@@ -105,6 +108,13 @@ export default function Home() {
               </div>
             </div>
 
+            <style>{`
+              @keyframes wave {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(200%); }
+              }
+              .animate-wave { animation: wave 3s ease-in-out infinite; }
+            `}</style>
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-leaf-100/70 sm:mt-5">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> {t("hero.hours")}
