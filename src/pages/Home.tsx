@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { CATEGORIES, CONTACT, waLink } from "../data/site";
+import { CATEGORIES, CONTACT, telLink, waLink } from "../data/site";
 import { cloudinaryUrl } from "../lib/supabase";
 import { useLang } from "../i18n/lang";
 import { usePageMeta } from "../hooks/usePageMeta";
-import CtaButtons from "../components/CtaButtons";
+import { PhoneIcon, WhatsAppIcon } from "../components/CtaButtons";
+import { track } from "../utils/track";
 import VideoGallery from "../components/VideoGallery";
 import { GemIcon, LeafIcon, SproutIcon, TruckIcon } from "../components/icons";
 import { ArrowRightIcon } from "../components/icons";
@@ -74,7 +75,32 @@ export default function Home() {
               {t("hero.sub")}
             </p>
 
-            <CtaButtons light source="hero" className="mt-6 sm:mt-8" />
+            {/* Hero CTAs: WhatsApp solid, Call glass-outline — a distinct pair,
+                side by side from the smallest phone up. */}
+            <div className="mt-6 flex flex-col gap-2.5 min-[420px]:flex-row sm:mt-8">
+              <a
+                href={waLink(
+                  "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("whatsapp_click", { source: "hero" })}
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[14px] font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#1fb959] active:scale-[0.98]"
+              >
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
+                {t("cta.whatsapp")}
+              </a>
+              <a
+                href={telLink}
+                onClick={() => track("call_click", { source: "hero" })}
+                className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full bg-white/10 px-6 py-3.5 text-[14px] font-semibold text-white ring-1 ring-white/35 backdrop-blur-md transition hover:bg-white/20 active:scale-[0.98]"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
+                  <PhoneIcon className="h-3 w-3" />
+                </span>
+                {t("cta.call")} <span className="tabular-nums">{CONTACT.phoneDisplay}</span>
+              </a>
+            </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-leaf-100/70 sm:mt-5">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
@@ -85,32 +111,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Plant Finder entry — the differentiator, one tap from the hero.
-              Dark scrim (not the white .glass) so white type stays legible. */}
-          <Link
-            to="/plant-finder"
-            className="group mt-7 flex max-w-md items-center gap-3.5 rounded-full border border-white/15 bg-leaf-950/45 py-2.5 pl-2.5 pr-3 backdrop-blur-md transition hover:border-white/30 hover:bg-leaf-950/60 sm:mt-8 sm:gap-4 sm:py-3 sm:pl-3 sm:pr-4"
-          >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-marigold ring-1 ring-white/15 transition group-hover:bg-white/15 sm:h-11 sm:w-11">
-              <SproutIcon className="h-5 w-5" />
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block font-display text-sm font-semibold leading-tight text-white sm:text-[15px]">
-                {t("hero.finder_title")}
-              </span>
-              <span className="mt-0.5 block text-xs leading-tight text-leaf-100/70">
-                {t("hero.finder_sub")}
-              </span>
-            </span>
-            <span
-              aria-hidden
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/80 transition group-hover:translate-x-0.5 group-hover:text-marigold"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </Link>
         </div>
       </section>
 

@@ -143,7 +143,15 @@ function Navbar() {
                 }`}
               >
                 Ajmal Garden
-                <span ref={nurseryRef} className={hideNursery ? "hidden" : ""}>
+                {/* "Nursery" is dropped below `sm`: at 16.5px the full name is
+                    wider than the space left once the logo, search, wishlist and
+                    hamburger are laid out, and `whitespace-nowrap` on the title
+                    means it can never yield — it overlapped the icons. The logo
+                    plus "Ajmal Garden" carries the brand on phones. */}
+                <span
+                  ref={nurseryRef}
+                  className={`${hideNursery ? "hidden" : ""} hidden sm:inline`}
+                >
                   {" "}
                   Nursery
                 </span>
