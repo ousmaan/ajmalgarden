@@ -3,56 +3,68 @@ import { useEffect, useRef, useState } from "react";
 /**
  * Hero background video with real readiness handling.
  *
- * The source is 54MB because no transcoder was available when it was added.
- * Until that is fixed, the hero must not depend on it: the poster photograph
- * is the default state, the video only fades in once it can actually play,
- * and any failure leaves the photograph in place. A timed-out load does the
- * same, so a slow phone never gets a blank hero.
+ * The source is served from Cloudinary when VITE_HERO_VIDEO_URL is set —
+ * Cloudinary transcodes and CDN-delivers the right format automatically, and
+ * the 54MB source never lands in the repo or a Vercel deploy. Without that
+ * variable the component falls back to the local /videos file, and without a
+ * video at all it is just the poster photograph.
+ *
+ * The poster photograph is the default state and never removed until the video
+ * is actually playing: first paint is always a photo, error / timeout /
+ * Data Saver / reduced motion all leave the photograph in place. There is no
+ * path to a blank hero.
  */
 export default function HeroVideo() {
   const ref = useRef<HTMLVideoElement>(null);
-  // "photo" = poster only. "fading"/"on" = video actually playing.
   const [state, setState] = useState<"photo" | "fading" | "on">("photo");
+
+  // Cloudinary first (transcoded, CDN, not in the repo), local file as fallback.
+  const src =
+    import.meta.env.VITE_HERO_VIDEO_URL || "/videos/nursery-tour.mp4";
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Respect reduced motion: the poster photograph is the whole hero.
-    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (still) return;
+    // Reduced motion: the poster photograph is the whole hero.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ready = () => {
-      // readyState >= 2 means current frame data is available to show.
       if (el.readyState >= 2) setState("fading");
     };
     const playing = () => setState("on");
+    const fail = () => setState("photo");
 
     el.addEventListener("loadeddata", ready);
     el.addEventListener("playing", playing);
-    el.addEventListener("error", () => setState("photo"));
+    el.addEventListener("error", fail);
 
-    // Data Saver / metered connections should not pull 54MB.
-    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-    if (conn?.saveData) return () => {
-      el.removeEventListener("loadeddata", ready);
-      el.removeEventListener("playing", playing);
-    };
+    // Data Saver / metered connections should not pull a large video.
+    const conn = (
+      navigator as Navigator & { connection?: { saveData?: boolean } }
+    ).connection;
+    if (conn?.saveData) {
+      return () => {
+        el.removeEventListener("loadeddata", ready);
+        el.removeEventListener("playing", playing);
+        el.removeEventListener("error", fail);
+      };
+    }
 
     // Don't wait forever: after 8s without a playable frame, keep the photo.
     const timeout = window.setTimeout(() => {
       if (el.readyState < 2) setState("photo");
     }, 8000);
 
-    // If the browser already has it buffered (bfcache), don't wait for events.
-    ready();
+    ready(); // browser may already have it buffered (bfcache)
 
     return () => {
       el.removeEventListener("loadeddata", ready);
       el.removeEventListener("playing", playing);
+      el.removeEventListener("error", fail);
       window.clearTimeout(timeout);
     };
-  }, []);
+  }, [src]);
 
   return (
     <div className="absolute inset-0" aria-hidden="true">
@@ -70,7 +82,7 @@ export default function HeroVideo() {
           state === "on" ? "opacity-100" : state === "fading" ? "opacity-60" : "opacity-0"
         }`}
         poster="/images/hero-nursery.jpg"
-        src="/videos/nursery-tour.mp4"
+        src={src}
         autoPlay
         muted
         loop

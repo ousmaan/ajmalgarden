@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { cloudinaryUrl, fetchGallery, type GalleryRow } from "../lib/supabase";
 import { useLang } from "../i18n/lang";
@@ -8,18 +8,20 @@ import { track } from "../utils/track";
  * Live gallery marquee — two rows drifting in opposite directions through
  * every nursery photo, order reshuffled on each load.
  *
- * Why a marquee rather than a static strip: 158 verified photos cannot be
- * shown in a grid without burying the page, and the old four-tile strip
- * represented 2.5% of what we actually stock. Drifting rows show the depth of
- * the nursery in the space a strip can afford.
+ * Mobile behaviour (owner, 2026-09-30): pausing the CSS animation on touch
+ * read as the strip freezing under the finger. Now the rows are genuinely
+ * draggable — touch-drag moves the strip; on release it fades out, the CSS
+ * animation restarts from exactly the position the finger left (via a negative
+ * animation-delay), and it fades back in. No jump, no freeze.
  *
- * Motion is decorative, so it stops for prefers-reduced-motion and pauses on
- * hover/focus so a visitor can actually look at a photo. The whole block is
- * inert content — every tile is a real link to the gallery, not a click target
- * with a dead end.
+ * Tiles stay invisible until their own image has painted, so no empty cards.
+ * The whole strip is decorative motion: it stops for prefers-reduced-motion
+ * and pauses on desktop hover so a visitor can look at a photo.
  */
 
-/** Fisher-Yates. Seeded per-load so React StrictMode's double-render agrees. */
+const DURATION_NORMAL = 256; // seconds
+const DURATION_REVERSE = 312;
+
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -30,32 +32,112 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 /** Track which photos have actually painted, so we never show an empty card. */
-function useLoaded() {
-  const [ready, setReady] = useState<Set<string>>(new Set());
+function useReady() {
+  const [ready, setReady] = useState<Set<string>>(() => new Set());
   const mark = (id: string) =>
     setReady((prev) => (prev.has(id) ? prev : new Set(prev).add(id)));
   return [ready, mark] as const;
 }
 
-function Row({
-  items,
-  reverse,
-  onOpen,
-}: {
+interface DragState {
+  startX: number;
+  baseTx: number; // translateX (px) at touch start
+  width: number; // one animation cycle, in px (half the loop)
+  moved: boolean;
+}
+
+function Row({ items, reverse, onOpen }: {
   items: GalleryRow[];
   reverse?: boolean;
   onOpen: () => void;
 }) {
-  // Duplicated so the -50% translate wraps seamlessly.
   const loop = useMemo(() => [...items, ...items], [items]);
-  const [ready, markReady] = useLoaded();
+  const [ready, markReady] = useReady();
+
+  const trackRef = useRef<HTMLUListElement>(null);
+  const drag = useRef<DragState | null>(null);
+  const [fading, setFading] = useState(false);
+  const duration = reverse ? DURATION_REVERSE : DURATION_NORMAL;
+
+  /** Half the scroll width — the distance one animation cycle covers. */
+  const cycleWidth = () => {
+    const el = trackRef.current;
+    return el ? el.scrollWidth / 2 : 0;
+  };
+
+  /** Current translateX in px, read off the running animation. */
+  const currentTx = () => {
+    const el = trackRef.current;
+    if (!el) return 0;
+    const t = getComputedStyle(el).transform;
+    if (!t || t === "none") return 0;
+    const m = t.match(/matrix\(([^)]+)\)/);
+    return m ? parseFloat(m[1].split(",")[4]) : 0;
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const tx = currentTx();
+    // Take over from the CSS animation: freeze it, pin its position inline.
+    el.style.animation = "none";
+    el.style.transform = `translate3d(${tx}px,0,0)`;
+    drag.current = {
+      startX: e.touches[0].clientX,
+      baseTx: tx,
+      width: cycleWidth(),
+      moved: false,
+    };
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    const el = trackRef.current;
+    const d = drag.current;
+    if (!el || !d) return;
+    const dx = e.touches[0].clientX - d.startX;
+    if (Math.abs(dx) > 6) d.moved = true;
+    el.style.transform = `translate3d(${d.baseTx + dx}px,0,0)`;
+  };
+
+  const onTouchEnd = () => {
+    const el = trackRef.current;
+    const d = drag.current;
+    drag.current = null;
+    if (!el || !d) return;
+
+    const W = d.width || 1;
+    const tx = currentTx();
+    // Normalise where the finger left the strip into animation progress p∈[0,1):
+    // the animation always occupies translate space [-W, 0].
+    const p = (((-tx % W) + W) % W) / W;
+
+    // Fade out, restart the animation from that exact position, fade back in.
+    setFading(true);
+    window.setTimeout(() => {
+      el.style.transform = "";
+      // Negative delay starts the animation part-way through, so the strip
+      // continues from where the drag left it rather than jumping to 0.
+      const delay = reverse ? -(1 - p) * duration : -p * duration;
+      el.style.animation = `ag-marquee-scroll ${duration}s linear ${delay}s infinite`;
+      if (reverse) el.style.animationDirection = "reverse";
+      setFading(false);
+    }, 180);
+  };
 
   return (
-    <div className="relative overflow-hidden">
+    <div
+      className="relative touch-pan-y overflow-hidden"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <ul
-        className="ag-marquee flex w-max items-stretch gap-3 py-2 sm:gap-4"
+        ref={trackRef}
+        className={`ag-marquee flex w-max items-stretch gap-3 py-2 transition-opacity duration-200 sm:gap-4 ${
+          fading ? "opacity-0" : "opacity-100"
+        }`}
         style={{
-          animationDuration: reverse ? "156s" : "128s",
+          animationDuration: `${duration}s`,
           animationDirection: reverse ? "reverse" : "normal",
         }}
       >
@@ -63,28 +145,34 @@ function Row({
           <li key={`${row.id}-${i}`} className="shrink-0">
             <Link
               aria-hidden={i >= items.length || undefined}
-              className={`group relative block h-32 w-24 overflow-hidden rounded-xl bg-leaf-100/40 ring-1 ring-leaf-900/5 transition-opacity duration-500 sm:h-44 sm:w-32 lg:h-52 lg:w-40 ${
+              tabIndex={i >= items.length ? -1 : 0}
+              draggable={false}
+              to={`/gallery?q=${encodeURIComponent(row.title)}`}
+              onClick={(e) => {
+                // A drag must not fire the link; a clean tap should.
+                if (drag.current?.moved) e.preventDefault();
+                if (i < items.length) onOpen();
+              }}
+              className={`group relative block h-40 w-28 overflow-hidden rounded-xl bg-leaf-100/40 ring-1 ring-leaf-900/5 sm:h-56 sm:w-40 lg:h-64 lg:w-48 ${
                 ready.has(row.id) ? "opacity-100" : "opacity-0"
               }`}
-              to={`/gallery?q=${encodeURIComponent(row.title)}`}
-              onClick={onOpen}
-              tabIndex={i >= items.length ? -1 : 0}
             >
               <img
-                src={cloudinaryUrl(row.cloudinary_id!, 400)}
+                src={cloudinaryUrl(row.cloudinary_id!, 500)}
                 alt={i < items.length ? row.alt || row.title : undefined}
                 loading={i < 8 ? "eager" : "lazy"}
                 decoding="async"
+                draggable={false}
                 onLoad={() => markReady(row.id)}
                 onError={() => markReady(row.id)}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full select-none object-cover"
               />
-              <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/85 to-transparent px-2 pb-1.5 pt-6">
-                <span className="block truncate font-display text-[11px] font-semibold text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.5)] sm:text-xs">
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-leaf-950/85 to-transparent px-2.5 pb-2 pt-7">
+                <span className="block truncate font-display text-xs font-semibold text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.5)] sm:text-sm">
                   {row.title}
                 </span>
                 {row.name_local && (
-                  <span className="block truncate text-[9px] font-semibold uppercase tracking-[0.08em] text-marigold/90 sm:text-[10px]">
+                  <span className="block truncate text-[10px] font-semibold uppercase tracking-[0.08em] text-marigold/90 sm:text-[11px]">
                     {row.name_local}
                   </span>
                 )}
@@ -115,7 +203,6 @@ export default function GalleryMarquee() {
     };
   }, []);
 
-  // Shuffle once per load, then split the two rows so they never mirror.
   const [top, bottom] = useMemo<[GalleryRow[], GalleryRow[]]>(() => {
     if (rows.length < 8) return [[], []];
     const s = shuffle(rows);
@@ -138,12 +225,14 @@ export default function GalleryMarquee() {
           animation-iteration-count: infinite;
           will-change: transform;
         }
-        /* Decorative motion: stop it for anyone who asked us to, and whenever a
-           visitor is actually trying to look at a photo. */
         @media (prefers-reduced-motion: reduce) {
           .ag-marquee { animation: none; }
         }
-        .ag-marquee:hover, .ag-marquee:focus-within { animation-play-state: paused; }
+        /* Desktop only: touch uses drag instead, and animation-play-state would
+           freeze the strip under the finger — the bug this rewrite removes. */
+        @media (hover: hover) {
+          .ag-marquee:hover { animation-play-state: paused; }
+        }
       `}</style>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -166,8 +255,6 @@ export default function GalleryMarquee() {
         </div>
       </div>
 
-      {/* Full-bleed so the rows run to the screen edge and the crop reads as
-          intentional rather than clipped. */}
       {top.length > 0 ? (
         <div className="px-4 sm:px-6">
           <Row items={top} onOpen={onOpen} />
@@ -175,13 +262,13 @@ export default function GalleryMarquee() {
         </div>
       ) : (
         <div className="px-4 sm:px-6">
-          <div className="h-32 animate-pulse rounded-xl bg-leaf-100 sm:h-44" />
+          <div className="h-40 animate-pulse rounded-xl bg-leaf-100 sm:h-56" />
         </div>
       )}
 
       <p className="mx-auto mt-6 max-w-6xl px-4 text-center text-xs text-leaf-800/55 sm:px-6">
         {rows.length > 0
-          ? `${rows.length} photos from our benches in Sialkot`
+          ? `${rows.length} photos from our benches in Sialkot — drag to browse`
           : "Loading photos from our benches…"}
       </p>
     </section>
