@@ -79,7 +79,7 @@ export default function Home() {
 
             {/* Hero CTAs: mobile (sliced call+wa button), desktop (full buttons side-by-side). */}
             <div className="mt-9 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-3">
-              <div className="flex w-full items-stretch rounded-full overflow-hidden ring-1 ring-white/25 bg-white/[0.06] sm:w-auto sm:px-6">
+              <div className="flex w-full items-stretch rounded-full overflow-hidden ring-1 ring-[#25D366]/60 bg-white/[0.06] sm:w-auto sm:px-6">
                 <a
                   href={telLink}
                   onClick={() => track("call_click", { source: "hero" })}
