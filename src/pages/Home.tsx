@@ -77,8 +77,8 @@ export default function Home() {
               {t("hero.sub")}
             </p>
 
-            {/* Hero CTAs: mobile (logo-only circle before call), desktop (full buttons side-by-side). */}
-            <div className="mt-6 flex items-center gap-5 sm:mt-8">
+            {/* Hero CTAs: mobile (circle + full-width call), desktop (full buttons side-by-side). */}
+            <div className="mt-9 flex flex-col items-stretch gap-4 sm:mt-8 sm:flex-row sm:items-center sm:gap-5">
               <a
                 href={waLink(
                   "Assalam-o-Alaikum! I found Ajmal Garden Nursery online and would like to ask about your plants.",
@@ -94,7 +94,7 @@ export default function Home() {
               <a
                 href={telLink}
                 onClick={() => track("call_click", { source: "hero" })}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98]"
+                className="flex h-12 items-center justify-center rounded-full bg-white/[0.06] px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15 active:scale-[0.98] sm:h-auto sm:px-6 sm:py-3.5 sm:text-[14px]"
               >
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
                   <PhoneIcon className="h-3 w-3" />
