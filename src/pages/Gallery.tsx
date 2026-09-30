@@ -95,6 +95,7 @@ export default function Gallery() {
 
   const filter = params.get("cat") ?? "all";
   const query = params.get("q") ?? "";
+  const photoIdParam = params.get("id") ?? "";
 
   usePageMeta(
     "Nursery Gallery — Ajmal Garden Nursery",
@@ -103,7 +104,14 @@ export default function Gallery() {
 
   useEffect(() => {
     fetchGallery()
-      .then(setRows)
+      .then((r) => {
+        setRows(r);
+        // If an ?id= param points to a real photo, open it in lightbox.
+        if (photoIdParam && r) {
+          const idx = r.findIndex((row) => row.id === photoIdParam);
+          if (idx >= 0) setLightbox(idx);
+        }
+      })
       .catch((err) => {
         // Visible in DevTools for 30-second diagnosis (which state + why).
         // eslint-disable-next-line no-console

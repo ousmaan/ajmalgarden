@@ -147,7 +147,7 @@ function Row({ items, reverse, onOpen }: {
               aria-hidden={i >= items.length || undefined}
               tabIndex={i >= items.length ? -1 : 0}
               draggable={false}
-              to={`/gallery?q=${encodeURIComponent(row.title)}`}
+              to={`/gallery?id=${encodeURIComponent(row.id)}`}
               onClick={(e) => {
                 // A drag must not fire the link; a clean tap should.
                 if (drag.current?.moved) e.preventDefault();
